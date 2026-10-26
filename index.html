@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0052a5">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>مشاويري 🇦🇪 - منصة المشاوير المشتركة الذكية</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/tajawal@5.1.0/400.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/tajawal@5.1.0/500.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/tajawal@5.1.0/700.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/tajawal@5.1.0/800.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/tajawal@5.1.0/900.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#0052a5;--primary-dark:#003d7a;--secondary:#c8102e;--accent:#00ab6c;--gold:#d4af37;
+  --bg:#f5f7fa;--card:#ffffff;--text:#1a2332;--muted:#64748b;--border:#e2e8f0;
+  --danger:#ef4444;--warning:#f59e0b;--pink:#be185d;
+  --shadow:0 4px 20px rgba(0,0,0,.06);--shadow-lg:0 10px 40px rgba(0,0,0,.12);
+  --input:#f8fafc;
+}
+html[data-theme="dark"]{
+  --bg:#0b1220;--card:#141d31;--text:#e6edf7;--muted:#94a3b8;--border:#243149;--input:#0f1728;
+  --shadow:0 4px 20px rgba(0,0,0,.35);--shadow-lg:0 10px 40px rgba(0,0,0,.5);
+}
+body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;transition:background .3s,color .3s}
+body.zoom-1{zoom:1.12}body.zoom-2{zoom:1.25}
+button{font-family:'Tajawal',sans-serif}
+input,select,textarea{font-family:'Tajawal',sans-serif;color:var(--text)}
+.top-nav{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,82,165,.25)}
+.nav-container{max-width:1200px;margin:0 auto;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:900;cursor:pointer}
+.logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--gold),#f0c850);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px}
+.nav-links{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.nav-link{padding:9px 14px;border-radius:10px;color:rgba(255,255,255,.85);font-weight:700;font-size:13.5px;cursor:pointer;border:none;background:transparent;transition:.2s}
+.nav-link:hover{background:rgba(255,255,255,.15);color:#fff}
+.nav-link.active{background:rgba(255,255,255,.22);color:#fff}
+.nav-user{display:flex;align-items:center;gap:8px}
+.icon-btn{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:17px;cursor:pointer;position:relative;display:flex;align-items:center;justify-content:center}
+.icon-btn:hover{background:rgba(255,255,255,.28)}
+.notif-dot{position:absolute;top:-3px;left:-3px;background:var(--secondary);color:#fff;min-width:18px;height:18px;border-radius:9px;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;padding:0 4px;border:2px solid var(--primary-dark)}
+.user-avatar-nav{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#f0c850);display:none;align-items:center;justify-content:center;font-weight:900;color:var(--primary-dark);cursor:pointer;border:2px solid rgba(255,255,255,.4)}
+.btn-login{padding:9px 16px;border-radius:10px;background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.35);font-weight:700;font-size:13.5px;cursor:pointer}
+.notif-drop{position:absolute;top:52px;left:20px;width:330px;max-width:92vw;background:var(--card);color:var(--text);border-radius:16px;box-shadow:var(--shadow-lg);z-index:300;display:none;overflow:hidden;border:1px solid var(--border)}
+.notif-drop.open{display:block}
+.notif-head{padding:14px 16px;font-weight:800;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:14px}
+.notif-head button{border:none;background:none;color:var(--primary);font-weight:700;font-size:12px;cursor:pointer}
+html[data-theme="dark"] .notif-head button{color:#6db3f2}
+.notif-item{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;gap:10px;font-size:13px;line-height:1.6;align-items:flex-start}
+.notif-item.unread{background:rgba(0,82,165,.06)}
+.notif-item .ic{font-size:18px}
+.notif-item .tm{font-size:11px;color:var(--muted);margin-top:2px}
+.hero{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;padding:50px 20px 85px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-40%;right:-15%;width:600px;height:600px;background:radial-gradient(circle,rgba(212,175,55,.18),transparent 70%);border-radius:50%}
+.hero-content{max-width:1100px;margin:0 auto;position:relative;z-index:2;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);padding:8px 18px;border-radius:30px;font-size:13.5px;font-weight:700;margin-bottom:18px}
+.hero h1{font-size:42px;font-weight:900;margin-bottom:12px;line-height:1.35}
+.hero h1 span{color:var(--gold)}
+.hero p{font-size:17px;opacity:.92;margin:0 auto 30px;max-width:640px;line-height:1.8}
+.search-main{background:var(--card);color:var(--text);border-radius:20px;padding:18px;max-width:920px;margin:0 auto;box-shadow:var(--shadow-lg);display:grid;grid-template-columns:1fr 1fr auto;gap:12px;align-items:end;text-align:right}
+.search-field{display:flex;flex-direction:column;gap:6px;position:relative}
+.search-field label{font-size:12px;font-weight:800;color:var(--muted)}
+.search-field input{padding:12px 14px;border:2px solid var(--border);border-radius:12px;font-size:14px;font-weight:700;outline:none;background:var(--input)}
+.search-field input:focus{border-color:var(--primary)}
+.ac-list{position:absolute;top:100%;right:0;left:0;background:var(--card);border:2px solid var(--primary);border-radius:12px;z-index:50;max-height:200px;overflow-y:auto;display:none;box-shadow:var(--shadow-lg)}
+.ac-list.open{display:block}
+.ac-item{padding:10px 14px;cursor:pointer;font-size:14px;font-weight:600;color:var(--text)}
+.ac-item:hover{background:var(--bg)}
+.search-btn{padding:12px 28px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:800;cursor:pointer;height:47px}
+.recent-row{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.recent-chip{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);color:#fff;padding:6px 14px;border-radius:20px;font-size:12.5px;font-weight:700;cursor:pointer;display:flex;gap:6px;align-items:center}
+.recent-chip .x{opacity:.7;font-size:11px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1200px;margin:-48px auto 26px;padding:0 20px;position:relative;z-index:3}
+.stat-card{background:var(--card);border-radius:16px;padding:20px 12px;text-align:center;box-shadow:var(--shadow)}
+.stat-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:24px}
+.stat-value{font-size:26px;font-weight:900;color:var(--text)}
+.stat-label{font-size:12.5px;color:var(--muted);font-weight:700}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+.section{padding:30px 0}
+.section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px}
+.section-title{font-size:24px;font-weight:900;color:var(--text)}
+.section-title span{color:var(--primary)}
+html[data-theme="dark"] .section-title span{color:#6db3f2}
+.section-subtitle{font-size:13.5px;color:var(--muted);margin-top:4px;font-weight:500}
+.ad-banner{background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;border-radius:16px;padding:16px 20px;display:flex;align-items:center;gap:14px;justify-content:space-between;flex-wrap:wrap;margin:16px 0;box-shadow:var(--shadow)}
+.ad-banner .ad-tag{background:rgba(0,0,0,.25);padding:3px 10px;border-radius:8px;font-size:10.5px;font-weight:800}
+.ad-banner strong{font-size:15px}
+.ad-banner .ad-actions{display:flex;gap:8px;flex-wrap:wrap}
+.ad-banner button{border:none;border-radius:10px;padding:9px 14px;font-weight:800;font-size:12.5px;cursor:pointer}
+.ad-btn-light{background:#fff;color:#b45309}
+.ad-btn-dark{background:rgba(0,0,0,.3);color:#fff}
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;background:var(--card);padding:12px;border-radius:16px;box-shadow:var(--shadow);align-items:center}
+.filter-chip{padding:9px 16px;border-radius:12px;border:2px solid var(--border);background:var(--card);font-size:12.5px;font-weight:700;cursor:pointer;color:var(--text);transition:.2s}
+.filter-chip:hover{border-color:var(--primary);color:var(--primary)}
+.filter-chip.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.sort-select{margin-right:auto;padding:9px 12px;border-radius:12px;border:2px solid var(--border);background:var(--card);font-size:12.5px;font-weight:700;outline:none;cursor:pointer;color:var(--text)}
+.smart-search{width:100%;padding:11px 14px;border-radius:12px;border:2px solid var(--border);background:var(--input);font-size:13.5px;outline:none;margin-bottom:10px;color:var(--text)}
+.smart-search:focus{border-color:var(--primary)}
+.trips-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px}
+.trip-card{background:var(--card);border-radius:18px;padding:18px;box-shadow:var(--shadow);cursor:pointer;border:2px solid transparent;transition:.25s;position:relative;color:var(--text)}
+.trip-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--primary)}
+.trip-card.premium-card{border-color:var(--gold)}
+.premium-ribbon{position:absolute;top:-10px;left:14px;background:linear-gradient(135deg,var(--gold),#f0c850);color:#3b2f00;font-size:10.5px;font-weight:900;padding:3px 10px;border-radius:8px}
+.trip-card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;gap:8px}
+.trip-user{display:flex;align-items:center;gap:10px}
+.trip-avatar{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px;color:#fff;position:relative;flex-shrink:0}
+.trip-avatar.male{background:linear-gradient(135deg,#3b82f6,#1d4ed8)}
+.trip-avatar.female{background:linear-gradient(135deg,#ec4899,#be185d)}
+.verified-badge{position:absolute;bottom:-2px;right:-2px;width:17px;height:17px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;border:2px solid var(--card);color:#fff}
+.trip-user-info h4{font-size:14.5px;font-weight:800;margin-bottom:2px}
+.trip-rating{font-size:11.5px;color:var(--gold);font-weight:700}
+.trust-pill{background:rgba(0,171,108,.12);color:var(--accent);padding:2px 8px;border-radius:8px;font-size:10.5px;font-weight:800}
+.trip-type-badge{padding:5px 11px;border-radius:20px;font-size:11.5px;font-weight:800;white-space:nowrap}
+.trip-type-badge.driver{background:#dbeafe;color:#1d4ed8}
+.trip-type-badge.passenger{background:#fce7f3;color:#be185d}
+html[data-theme="dark"] .trip-type-badge.driver{background:rgba(59,130,246,.2)}
+html[data-theme="dark"] .trip-type-badge.passenger{background:rgba(236,72,153,.2)}
+.female-badge{background:#fce7f3;color:var(--pink);padding:5px 10px;border-radius:20px;font-size:11px;font-weight:800}
+html[data-theme="dark"] .female-badge{background:rgba(236,72,153,.2)}
+.trip-route{display:flex;align-items:stretch;margin-bottom:12px;padding-right:4px}
+.route-line{display:flex;flex-direction:column;align-items:center;margin-left:12px;padding:5px 0}
+.route-dot{width:13px;height:13px;border-radius:50%;background:var(--accent);border:3px solid var(--card);box-shadow:0 0 0 2px var(--accent)}
+.route-dot.end{background:var(--secondary);box-shadow:0 0 0 2px var(--secondary)}
+.route-connector{width:2px;flex:1;background:linear-gradient(to bottom,var(--accent),var(--secondary));margin:3px 0}
+.route-info{flex:1}
+.route-point{padding:6px 0}
+.route-point .city{font-size:10.5px;color:var(--muted);font-weight:700}
+.route-point .location{font-size:15px;font-weight:800}
+.trip-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding-top:12px;border-top:1px solid var(--border)}
+.meta-item{font-size:12px;color:var(--muted);font-weight:700}
+.trip-price{margin-right:auto;background:linear-gradient(135deg,var(--accent),#059669);color:#fff;padding:5px 12px;border-radius:10px;font-weight:800;font-size:12.5px}
+.ai-badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.ai-badge{font-size:10.5px;font-weight:800;padding:4px 10px;border-radius:8px}
+.ai-badge.hot{background:rgba(239,68,68,.12);color:var(--danger)}
+.ai-badge.fair{background:rgba(0,171,108,.12);color:var(--accent)}
+.ai-badge.high{background:rgba(245,158,11,.15);color:#b45309}
+html[data-theme="dark"] .ai-badge.high{color:var(--warning)}
+.ai-badge.match{background:rgba(0,82,165,.1);color:var(--primary)}
+html[data-theme="dark"] .ai-badge.match{color:#6db3f2}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.feature-card{background:var(--card);border-radius:18px;padding:26px 20px;text-align:center;box-shadow:var(--shadow);color:var(--text)}
+.feature-icon{width:60px;height:60px;border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:26px}
+.feature-card h3{font-size:17px;font-weight:800;margin-bottom:8px}
+.feature-card p{font-size:13.5px;color:var(--muted);line-height:1.7}
+.cta-section{background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:24px;padding:44px 30px;color:#fff;text-align:center;margin:26px 0 44px;position:relative;overflow:hidden}
+.cta-section h2{font-size:29px;font-weight:900;margin-bottom:10px}
+.cta-section p{font-size:15px;opacity:.92;margin-bottom:24px}
+.cta-btn{padding:14px 34px;background:var(--gold);color:#3b2f00;border:none;border-radius:14px;font-size:16px;font-weight:900;cursor:pointer}
+.footer{background:#101828;color:#fff;padding:44px 20px 18px}
+.footer-grid{max-width:1200px;margin:0 auto 26px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:26px}
+.footer-col h4{font-size:15px;font-weight:800;margin-bottom:14px;color:var(--gold)}
+.footer-col a{display:block;color:rgba(255,255,255,.7);text-decoration:none;padding:5px 0;font-size:13.5px;cursor:pointer}
+.footer-col a:hover{color:#fff}
+.footer-col p{color:rgba(255,255,255,.7);font-size:13.5px;line-height:1.8}
+.footer-bottom{max-width:1200px;margin:0 auto;padding-top:16px;border-top:1px solid rgba(255,255,255,.12);text-align:center;font-size:12.5px;color:rgba(255,255,255,.5)}
+.form-group{margin-bottom:16px;text-align:right}
+.form-group>label{display:block;font-size:13.5px;font-weight:800;margin-bottom:7px}
+.form-control{width:100%;padding:12px 14px;border:2px solid var(--border);border-radius:12px;font-size:14px;font-weight:600;outline:none;background:var(--input);transition:.2s}
+.form-control:focus{border-color:var(--primary)}
+textarea.form-control{min-height:90px;resize:vertical}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn{padding:12px 22px;border-radius:12px;border:none;font-size:14px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.2s}
+.btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,82,165,.35)}
+.btn-secondary{background:var(--bg);color:var(--text);border:1px solid var(--border)}
+.btn-success{background:linear-gradient(135deg,var(--accent),#059669);color:#fff}
+.btn-gold{background:linear-gradient(135deg,var(--gold),#f0c850);color:#3b2f00}
+.btn-danger{background:var(--danger);color:#fff}
+.btn-block{width:100%}
+.btn-sm{padding:8px 14px;font-size:12.5px;border-radius:10px}
+.wizard-steps{display:flex;gap:6px;justify-content:center;margin-bottom:22px;flex-wrap:wrap}
+.wstep{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:800;color:var(--muted)}
+.wstep .num{width:28px;height:28px;border-radius:50%;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:13px}
+.wstep.active{color:var(--primary)}
+.wstep.active .num{background:var(--primary);color:#fff}
+.wstep.done .num{background:var(--accent);color:#fff}
+.wizard-nav{display:flex;gap:10px;margin-top:18px}
+.auth-container{max-width:460px;margin:36px auto;padding:0 20px}
+.auth-card{background:var(--card);border-radius:20px;padding:32px;box-shadow:var(--shadow-lg);color:var(--text)}
+.auth-header{text-align:center;margin-bottom:22px}
+.auth-header h2{font-size:24px;font-weight:900;margin-bottom:6px}
+.auth-header p{color:var(--muted);font-size:13.5px}
+.auth-tabs{display:flex;gap:6px;margin-bottom:20px;background:var(--bg);padding:5px;border-radius:12px}
+.auth-tab{flex:1;padding:11px;border:none;background:transparent;font-weight:800;font-size:14px;cursor:pointer;border-radius:10px;color:var(--muted)}
+.auth-tab.active{background:var(--card);color:var(--primary);box-shadow:0 2px 8px rgba(0,0,0,.08)}
+html[data-theme="dark"] .auth-tab.active{color:#6db3f2}
+.social-login{display:flex;gap:10px}
+.social-btn{flex:1;padding:12px;border:2px solid var(--border);border-radius:12px;background:var(--card);cursor:pointer;font-size:13px;font-weight:700;color:var(--text)}
+.trip-detail{max-width:900px;margin:26px auto;padding:0 20px}
+.detail-card{background:var(--card);border-radius:20px;padding:26px;box-shadow:var(--shadow);color:var(--text)}
+.detail-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;flex-wrap:wrap;gap:14px}
+.detail-user{display:flex;align-items:center;gap:14px}
+.detail-avatar{width:70px;height:70px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;color:#fff}
+.detail-user-info h2{font-size:21px;font-weight:900;margin-bottom:4px}
+.detail-user-meta{display:flex;gap:12px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);font-weight:700}
+.detail-route-large{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:center;padding:24px;background:var(--bg);border-radius:16px;margin-bottom:20px}
+.detail-route-point{text-align:center}
+.detail-route-point .label{font-size:11.5px;color:var(--muted);font-weight:800;margin-bottom:5px}
+.detail-route-point .value{font-size:19px;font-weight:900}
+.detail-route-point .sub{font-size:12.5px;color:var(--muted);margin-top:3px;font-weight:700}
+.route-arrow{font-size:32px;color:var(--primary)}
+.detail-info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:18px}
+.info-box{background:var(--bg);padding:14px;border-radius:12px;display:flex;align-items:center;gap:10px}
+.info-box-icon{width:42px;height:42px;border-radius:12px;background:var(--card);display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
+.info-box-content .label{font-size:11.5px;color:var(--muted);font-weight:700}
+.info-box-content .value{font-size:15px;font-weight:800}
+.detail-description{padding:18px;background:var(--bg);border-radius:12px;margin-bottom:18px;line-height:1.8;font-size:14px}
+.booking-form{background:var(--bg);padding:20px;border-radius:16px;border:2px solid var(--border)}
+.booking-form h3{font-size:17px;font-weight:900;margin-bottom:14px;color:var(--primary)}
+html[data-theme="dark"] .booking-form h3{color:#6db3f2}
+.pay-option{flex:1;min-width:130px;padding:12px;border:2px solid var(--border);border-radius:12px;background:var(--card);cursor:pointer;font-size:13px;font-weight:800;text-align:center;color:var(--text)}
+.pay-option.sel{border-color:var(--accent);background:rgba(0,171,108,.08);color:var(--accent)}
+.messages-container{max-width:1000px;margin:26px auto;padding:0 20px;display:grid;grid-template-columns:310px 1fr;gap:18px;height:calc(100vh - 170px);min-height:460px}
+.conversations-list{background:var(--card);border-radius:16px;box-shadow:var(--shadow);overflow-y:auto}
+.conversations-header{padding:15px;border-bottom:1px solid var(--border);font-weight:800;font-size:15px;position:sticky;top:0;background:var(--card);color:var(--text)}
+.conversation-item{padding:13px 15px;display:flex;gap:11px;cursor:pointer;border-bottom:1px solid var(--border);align-items:center}
+.conversation-item:hover{background:var(--bg)}
+.conversation-avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;flex-shrink:0}
+.conversation-info{flex:1;min-width:0}
+.conversation-name{font-weight:800;font-size:13.5px;color:var(--text)}
+.conversation-last{font-size:11.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.unread-badge{background:var(--secondary);color:#fff;min-width:19px;height:19px;border-radius:10px;font-size:10.5px;font-weight:800;display:flex;align-items:center;justify-content:center;padding:0 5px;margin-left:auto;margin-top:4px}
+.chat-area{background:var(--card);border-radius:16px;box-shadow:var(--shadow);display:flex;flex-direction:column;overflow:hidden}
+.chat-header{padding:14px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:11px;color:var(--text)}
+.chat-messages{flex:1;padding:18px;overflow-y:auto;display:flex;flex-direction:column;gap:10px}
+.message{max-width:74%;padding:11px 15px;border-radius:16px;font-size:13.5px;line-height:1.6}
+.message.sent{background:var(--primary);color:#fff;align-self:flex-end;border-bottom-left-radius:4px}
+.message.received{background:var(--bg);color:var(--text);align-self:flex-start;border-bottom-right-radius:4px}
+.message-time{font-size:10px;opacity:.75;margin-top:3px}
+.tpl-row{display:flex;gap:6px;flex-wrap:wrap;padding:10px 14px 0}
+.tpl-chip{background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:16px;padding:6px 12px;font-size:11.5px;font-weight:700;cursor:pointer}
+.tpl-chip:hover{border-color:var(--primary);color:var(--primary)}
+.chat-input{padding:14px;border-top:1px solid var(--border);display:flex;gap:9px}
+.chat-input input{flex:1;padding:11px 15px;border:2px solid var(--border);border-radius:12px;font-size:13.5px;outline:none;background:var(--input)}
+.profile-header{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;padding:42px 20px 58px;text-align:center}
+.profile-avatar-large{width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#f0c850);display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:900;color:#3b2f00;margin:0 auto 14px;border:4px solid rgba(255,255,255,.4)}
+.profile-name{font-size:24px;font-weight:900}
+.profile-stats{display:flex;justify-content:center;gap:36px;margin-top:18px}
+.profile-stat-value{font-size:22px;font-weight:900}
+.profile-stat-label{font-size:11.5px;opacity:.85;font-weight:700}
+.profile-content{max-width:900px;margin:-32px auto 46px;padding:0 20px;position:relative;z-index:2}
+.profile-tabs{display:flex;gap:5px;background:var(--card);padding:7px;border-radius:14px;box-shadow:var(--shadow);margin-bottom:18px;overflow-x:auto}
+.profile-tab{padding:10px 18px;border:none;background:transparent;font-weight:800;font-size:13px;cursor:pointer;border-radius:10px;white-space:nowrap;color:var(--muted)}
+.profile-tab.active{background:var(--primary);color:#fff}
+.active-trip-card{background:linear-gradient(135deg,#065f46,#059669);color:#fff;border-radius:16px;padding:18px;margin-bottom:14px;box-shadow:var(--shadow)}
+.active-trip-card h4{font-size:16px;font-weight:900;margin-bottom:6px}
+.active-trip-card .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.active-trip-card button{border:none;border-radius:10px;padding:10px 14px;font-weight:800;font-size:12.5px;cursor:pointer}
+.sos-btn{background:var(--danger);color:#fff;animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.5)}50%{box-shadow:0 0 0 8px rgba(239,68,68,0)}}
+.store-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.store-card{background:var(--card);border-radius:18px;padding:24px;box-shadow:var(--shadow);text-align:center;position:relative;border:2px solid transparent;color:var(--text)}
+.store-card.best{border-color:var(--gold)}
+.store-card .tag{position:absolute;top:-11px;right:18px;background:var(--gold);color:#3b2f00;font-size:10.5px;font-weight:900;padding:3px 10px;border-radius:8px}
+.store-card h3{font-size:18px;font-weight:900;margin-bottom:6px}
+.store-price{font-size:32px;font-weight:900;color:var(--primary);margin:10px 0}
+html[data-theme="dark"] .store-price{color:#6db3f2}
+.store-price small{font-size:13px;color:var(--muted);font-weight:700}
+.store-feats{list-style:none;text-align:right;margin:14px 0;font-size:13px;line-height:2}
+.points-box{background:linear-gradient(135deg,var(--gold),#f0c850);border-radius:18px;padding:24px;color:#3b2f00;text-align:center;box-shadow:var(--shadow)}
+.points-box .pts{font-size:40px;font-weight:900}
+.assistant-fab{position:fixed;bottom:86px;left:18px;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;border:none;font-size:26px;cursor:pointer;box-shadow:0 6px 24px rgba(0,82,165,.45);z-index:120;display:flex;align-items:center;justify-content:center}
+.assistant-panel{position:fixed;bottom:86px;left:18px;width:360px;max-width:calc(100vw - 36px);height:480px;max-height:70vh;background:var(--card);border-radius:20px;box-shadow:var(--shadow-lg);z-index:130;display:none;flex-direction:column;overflow:hidden;border:1px solid var(--border)}
+.assistant-panel.open{display:flex}
+.assistant-head{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;padding:14px 16px;font-weight:800;display:flex;justify-content:space-between;align-items:center;font-size:14.5px}
+.assistant-head button{background:rgba(255,255,255,.2);border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer}
+.assistant-msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
+.bot-card{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:12px;font-size:12.5px;cursor:pointer;color:var(--text)}
+.bot-card:hover{border-color:var(--primary)}
+.bot-card b{display:block;font-size:13.5px;margin-bottom:4px}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:400;display:none;align-items:center;justify-content:center;padding:18px;backdrop-filter:blur(4px)}
+.overlay.open{display:flex}
+.modal{background:var(--card);border-radius:20px;max-width:520px;width:100%;max-height:88vh;overflow-y:auto;animation:modalIn .25s ease;color:var(--text)}
+@keyframes modalIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
+.modal-header{padding:18px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.modal-header h3{font-size:18px;font-weight:900}
+.modal-close{width:32px;height:32px;border-radius:50%;border:none;background:var(--bg);color:var(--text);cursor:pointer;font-size:16px}
+.modal-body{padding:22px}
+.modal-footer{padding:14px 22px;border-top:1px solid var(--border);display:flex;gap:10px;justify-content:flex-end}
+.star-row{display:flex;gap:6px;align-items:center;margin-bottom:12px}
+.star-row .lbl{width:130px;font-size:13px;font-weight:700}
+.star{font-size:24px;cursor:pointer;color:var(--border)}
+.star.on{color:var(--gold)}
+.toast{position:fixed;top:80px;left:50%;transform:translateX(-50%) translateY(-20px);background:var(--text);color:var(--bg);padding:13px 24px;border-radius:12px;font-size:14px;font-weight:700;z-index:600;opacity:0;transition:.3s;pointer-events:none;box-shadow:var(--shadow-lg);max-width:90%;text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast.success{background:var(--accent);color:#fff}
+.toast.error{background:var(--danger);color:#fff}
+.toast.warning{background:var(--warning);color:#1a2332}
+.empty-state{text-align:center;padding:50px 20px;color:var(--muted)}
+.empty-state-icon{font-size:56px;margin-bottom:14px;opacity:.5}
+.empty-state h3{font-size:19px;font-weight:800;margin-bottom:6px;color:var(--text)}
+.page{display:none;animation:fadeIn .3s ease}
+.page.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.mobile-nav{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--border);z-index:150;padding:7px 4px calc(7px + env(safe-area-inset-bottom));justify-content:space-around}
+.mobile-nav button{border:none;background:none;font-size:10.5px;font-weight:800;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;padding:4px 8px;border-radius:10px}
+.mobile-nav button .ic{font-size:19px}
+.mobile-nav button.active{color:var(--primary);background:var(--bg)}
+html[data-theme="dark"] .mobile-nav button.active{color:#6db3f2}
+.route-save-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;background:var(--card);padding:12px;border-radius:14px;box-shadow:var(--shadow);margin-bottom:14px}
+.route-save-row select,.route-save-row input{padding:9px 10px;border:2px solid var(--border);border-radius:10px;background:var(--input);font-size:12.5px;font-weight:700;outline:none;color:var(--text)}
+.fq-route{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--card);border-radius:14px;padding:13px 16px;box-shadow:var(--shadow);margin-bottom:10px;flex-wrap:wrap;color:var(--text)}
+.fq-route b{font-size:14px}
+::-webkit-scrollbar{width:7px;height:7px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+@media(max-width:900px){.messages-container{grid-template-columns:1fr;height:auto}.conversations-list{max-height:240px}.chat-area{min-height:420px}}
+@media(max-width:768px){
+ .nav-links{display:none}.mobile-nav{display:flex}body{padding-bottom:64px}
+ .hero{padding:34px 14px 74px}.hero h1{font-size:28px}.hero p{font-size:14px}
+ .search-main{grid-template-columns:1fr}.search-btn{width:100%}
+ .stats{grid-template-columns:repeat(2,1fr);gap:10px;margin-top:-38px}
+ .trips-grid{grid-template-columns:1fr}
+ .detail-route-large{grid-template-columns:1fr;gap:8px}.route-arrow{transform:rotate(90deg)}
+ .form-row{grid-template-columns:1fr}.cta-section h2{font-size:22px}
+ .assistant-fab,.assistant-panel{bottom:76px}
+}
+</style>
+</head>
+<body>
+
+<div class="toast" id="toast"></div>
+
+<nav class="top-nav">
+  <div class="nav-container">
+    <div class="logo" onclick="showPage('home')"><div class="logo-icon">🚗</div><span>مشاويري</span></div>
+    <div class="nav-links">
+      <button class="nav-link active" data-nav="home" onclick="showPage('home')">🏠 الرئيسية</button>
+      <button class="nav-link" data-nav="browse" onclick="showPage('browse')">🔍 المشاوير</button>
+      <button class="nav-link" data-nav="create" onclick="showPage('create')">➕ إنشاء مشوار</button>
+      <button class="nav-link" data-nav="messages" onclick="showPage('messages')">💬 الرسائل</button>
+      <button class="nav-link" data-nav="store" onclick="showPage('store')">👑 المتجر</button>
+    </div>
+    <div class="nav-user">
+      <button class="icon-btn" id="themeBtn" onclick="toggleTheme()" title="الوضع الليلي">🌙</button>
+      <button class="icon-btn" onclick="toggleNotif()" title="الإشعارات">🔔<span class="notif-dot" id="notifDot" style="display:none">0</span></button>
+      <button class="btn-login" id="authBtn" onclick="showPage('auth')">تسجيل الدخول</button>
+      <div class="user-avatar-nav" id="userAvatarNav" onclick="showPage('profile')"></div>
+    </div>
+  </div>
+  <div class="notif-drop" id="notifDrop">
+    <div class="notif-head">🔔 الإشعارات <button onclick="markAllRead()">تحديد الكل كمقروء</button></div>
+    <div id="notifList" style="max-height:320px;overflow-y:auto"></div>
+  </div>
+</nav>
+
+<div class="page active" id="page-home">
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">🇦🇪 المنصة الأذكى للمشاوير المشتركة في الإمارات</div>
+      <h1>شارك رحلتك، <span>وفّر تكلفتك</span></h1>
+      <p>مطابقة ذكية بين السائقين والركاب، أسعار عادلة محسوبة بالمسافات، وتوثيق اختياري بالهوية الإماراتية.</p>
+      <div class="search-main">
+        <div class="search-field">
+          <label>📍 من أين؟</label>
+          <input type="text" id="searchFromInput" placeholder="اكتب المدينة..." oninput="acShow('from')" onfocus="acShow('from')" autocomplete="off">
+          <div class="ac-list" id="acFromList"></div>
+        </div>
+        <div class="search-field">
+          <label>🎯 إلى أين؟</label>
+          <input type="text" id="searchToInput" placeholder="اكتب المدينة..." oninput="acShow('to')" onfocus="acShow('to')" autocomplete="off">
+          <div class="ac-list" id="acToList"></div>
+        </div>
+        <button class="search-btn" onclick="doSearch()">🔍 ابحث بذكاء</button>
+      </div>
+      <div class="recent-row" id="recentRow"></div>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="stat-card"><div class="stat-icon" style="background:#dbeafe">🚗</div><div class="stat-value" id="statTrips">0</div><div class="stat-label">مشوار متاح</div></div>
+    <div class="stat-card"><div class="stat-icon" style="background:#dcfce7">👥</div><div class="stat-value" id="statUsers">0</div><div class="stat-label">مستخدم مسجل</div></div>
+    <div class="stat-card"><div class="stat-icon" style="background:#fef3c7">⭐</div><div class="stat-value">4.8</div><div class="stat-label">متوسط التقييم</div></div>
+    <div class="stat-card"><div class="stat-icon" style="background:#fee2e2">🤖</div><div class="stat-value" id="statMatches">0</div><div class="stat-label">مطابقة ذكية اليوم</div></div>
+  </div>
+
+  <div class="container">
+    <div id="adHome"></div>
+
+    <div class="section" id="matchedSection" style="display:none">
+      <div class="section-header"><div>
+        <h2 class="section-title">⚡ مطابقة ذكية <span>لك</span></h2>
+        <p class="section-subtitle">مشاوير تطابق مساراتك المعتادة وعمليات بحثك — بدون ما تدوّر عليها</p>
+      </div></div>
+      <div class="trips-grid" id="matchedTrips"></div>
+    </div>
+
+    <div class="section">
+      <div class="section-header"><div>
+        <h2 class="section-title">📍 مساراتي <span>المعتادة</span></h2>
+        <p class="section-subtitle">احفظ خط البيت/الشغل واحجز بضغطة واحدة</p>
+      </div></div>
+      <div class="route-save-row">
+        <select id="fqFrom"></select>
+        <span>←</span>
+        <select id="fqTo"></select>
+        <input type="text" id="fqLabel" placeholder="التسمية (مثال: البيت-الشغل)" style="flex:1;min-width:140px">
+        <button class="btn btn-primary btn-sm" onclick="addRoute()">＋ حفظ المسار</button>
+      </div>
+      <div id="homeRoutes"></div>
+    </div>
+
+    <div class="section">
+      <div class="section-header"><div>
+        <h2 class="section-title">أحدث <span>المشاوير</span></h2>
+        <p class="section-subtitle">مرتبة حسب درجة الثقة والمطابقة</p>
+      </div>
+      <button class="btn btn-secondary" onclick="showPage('browse')">عرض الكل ←</button></div>
+      <div class="trips-grid" id="popularTrips"></div>
+    </div>
+
+    <div class="section">
+      <div class="features-grid">
+        <div class="feature-card"><div class="feature-icon" style="background:#dbeafe">🤖</div><h3>مطابقة ذكية</h3><p>نقترح عليك مشاوير تطابق خطك ومواعيدك تلقائياً قبل ما تبحث.</p></div>
+        <div class="feature-card"><div class="feature-icon" style="background:#dcfce7">💰</div><h3>سعر عادل تلقائياً</h3><p>حساب السعر المقترح حسب المسافة الحقيقية بين مدن الإمارات.</p></div>
+        <div class="feature-card"><div class="feature-icon" style="background:#fce7f3">🎀</div><h3>رحلات للنساء فقط</h3><p>سائقات موثوقات ورحلات مخصصة للإناث فقط لمن ترغب.</p></div>
+        <div class="feature-card"><div class="feature-icon" style="background:#fef3c7">🆘</div><h3>أمان كامل</h3><p>زر طوارئ SOS، مشاركة الرحلة لايف مع الأهل، وتوثيق بالهوية الإماراتية.</p></div>
+      </div>
+    </div>
+
+    <div class="cta-section">
+      <h2>اكسب نقاطاً بمجرد مشاركة المنصة 🎁</h2>
+      <p>كل شير للمنصة = 50 نقطة — ولما تجمع النقاط تستبدلها بعضوية مجانية لفترة محدودة!</p>
+      <button class="cta-btn" onclick="sharePlatform()">📤 شارك واكسب 50 نقطة</button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-col"><h4>🚗 مشاويري</h4><p>منصة إماراتية تربط السائقين بالركاب لتوفير التكلفة والزحام. نحن لسنا شركة نقل — نحن منصة إعلانية تواصلية فقط.</p></div>
+      <div class="footer-col"><h4>روابط سريعة</h4><a onclick="showPage('browse')">تصفح المشاوير</a><a onclick="showPage('create')">إنشاء مشوار</a><a onclick="showPage('store')">الباقات والإعلانات</a><a onclick="openAssistant()">المساعد الذكي</a></div>
+      <div class="footer-col"><h4>الدعم</h4><a onclick="showToast('📧 support@mashawiri.ae','success')">تواصل معنا</a><a onclick="showToast('صفحة الشروط قريباً')">الشروط والأحكام</a><a onclick="showToast('صفحة الخصوصية قريباً')">سياسة الخصوصية</a></div>
+      <div class="footer-col"><h4>أعلن معنا</h4><p>مساحات إعلانية لآلاف المستخدمين يومياً داخل الإمارات. <a onclick="showPage('store')" style="color:var(--gold);display:inline;padding:0">احجز إعلانك ←</a></p></div>
+    </div>
+    <div class="footer-bottom">© 2026 مشاويري — منصة تواصل إعلانية، لا نتدخل في التشغيل أو الدفع بين الأطراف 🇦🇪</div>
+  </footer>
+</div>
+
+<div class="page" id="page-browse">
+  <div class="container" style="padding-top:26px;padding-bottom:46px">
+    <div class="section-header"><div>
+      <h2 class="section-title">تصفح <span>المشاوير</span></h2>
+      <p class="section-subtitle" id="tripsCount"></p>
+    </div>
+    <button class="btn btn-primary" onclick="showPage('create')">➕ مشوار جديد</button></div>
+    <input type="text" class="smart-search" id="smartQuery" placeholder="🔎 بحث ذكي: اكتب مدينة، منطقة، أو اسم المستخدم..." oninput="renderBrowse()">
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-chip active" onclick="applyFilter('all',null,this)">🌍 الكل</button>
+      <button class="filter-chip" onclick="applyFilter('driver',null,this)">🚗 سائقين</button>
+      <button class="filter-chip" onclick="applyFilter('passenger',null,this)">🙋 ركاب</button>
+      <button class="filter-chip" onclick="applyFilter('all','دبي',this)">دبي</button>
+      <button class="filter-chip" onclick="applyFilter('all','أبوظبي',this)">أبوظبي</button>
+      <button class="filter-chip" onclick="applyFilter('all','الشارقة',this)">الشارقة</button>
+      <button class="filter-chip" onclick="applyFilter('all','عجمان',this)">عجمان</button>
+      <button class="filter-chip" onclick="applyFilter('female',null,this)">🎀 نساء فقط</button>
+      <select class="sort-select" id="sortSelect" onchange="renderBrowse()">
+        <option value="smart">🤖 ترتيب ذكي</option>
+        <option value="new">🆕 الأحدث</option>
+        <option value="cheap">💰 الأرخص</option>
+        <option value="early">⏰ الأقرب انطلاقاً</option>
+        <option value="rating">⭐ الأعلى تقييماً</option>
+        <option value="trust">🛡️ الأعلى ثقة</option>
+      </select>
+    </div>
+    <div id="adBrowse"></div>
+    <div class="trips-grid" id="tripsGrid"></div>
+  </div>
+</div>
+
+<div class="page" id="page-create">
+  <div class="container" style="padding-top:26px;padding-bottom:46px">
+    <div style="max-width:720px;margin:0 auto" class="auth-card">
+      <div class="auth-header"><h2>➕ إنشاء مشوار جديد</h2><p>٣ خطوات بسيطة: المسار ← التفاصيل والسعر ← المراجعة والنشر</p></div>
+      <div class="wizard-steps" id="cwSteps">
+        <div class="wstep active" data-s="1"><span class="num">١</span> المسار</div>
+        <div class="wstep" data-s="2"><span class="num">٢</span> التفاصيل والسعر</div>
+        <div class="wstep" data-s="3"><span class="num">٣</span> المراجعة</div>
+      </div>
+      <div id="cw1">
+        <div class="form-group"><label>نوع المشوار</label>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <label class="pay-option sel" id="typeDriverLabel" style="display:flex;align-items:center;gap:8px"><input type="radio" name="cType" value="driver" checked onchange="updateTypeStyle()"> 🚗 سائق</label>
+            <label class="pay-option" id="typePassengerLabel" style="display:flex;align-items:center;gap:8px"><input type="radio" name="cType" value="passenger" onchange="updateTypeStyle()"> 🙋 راكب</label>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>📍 من</label><select class="form-control" id="cFrom"></select></div>
+          <div class="form-group"><label>🎯 إلى</label><select class="form-control" id="cTo"></select></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>تفاصيل الانطلاق (اختياري)</label><input type="text" class="form-control" id="cFromDetail" placeholder="مثال: مول الإمارات"></div>
+          <div class="form-group"><label>تفاصيل الوجهة (اختياري)</label><input type="text" class="form-control" id="cToDetail" placeholder="مثال: الكورنيش"></div>
+        </div>
+        <div class="form-group"><label style="display:flex;gap:8px;align-items:center;cursor:pointer"><input type="checkbox" id="cFemaleOnly" style="width:18px;height:18px;accent-color:var(--pink)"> 🎀 رحلة نساء فقط (للسائقات)</label></div>
+        <div class="wizard-nav"><button class="btn btn-primary btn-block" onclick="cwNext(1)">التالي ←</button></div>
+      </div>
+      <div id="cw2" style="display:none">
+        <div class="form-row">
+          <div class="form-group"><label>📅 التاريخ</label><input type="date" class="form-control" id="cDate"></div>
+          <div class="form-group"><label>⏰ الوقت</label><input type="time" class="form-control" id="cTime" value="07:30"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>👥 عدد المقاعد</label><select class="form-control" id="cSeats"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option><option>6</option></select></div>
+          <div class="form-group"><label>💰 السعر للكرسي (درهم)</label><input type="number" class="form-control" id="cPrice" min="0" max="500" placeholder="25" oninput="updatePriceHint()"></div>
+        </div>
+        <div id="priceHint" style="background:var(--bg);border-radius:12px;padding:12px;font-size:13px;font-weight:700;margin-bottom:14px"></div>
+        <div class="form-group"><label>📝 تفاصيل إضافية</label><textarea class="form-control" id="cDesc" placeholder="مثال: سيارة مكيفة، ملتزم بالمواعيد..."></textarea></div>
+        <div class="form-group"><label style="display:flex;gap:8px;align-items:center;cursor:pointer"><input type="checkbox" id="cRecurring" style="width:18px;height:18px;accent-color:var(--primary)"> 🔄 مشوار متكرر يومياً</label></div>
+        <div class="wizard-nav"><button class="btn btn-secondary" onclick="cwNext(-1)">→ رجوع</button><button class="btn btn-primary" style="flex:1" onclick="cwNext(2)">التالي ←</button></div>
+      </div>
+      <div id="cw3" style="display:none">
+        <div id="cwReview" style="background:var(--bg);border-radius:14px;padding:18px;font-size:14px;line-height:2;margin-bottom:14px"></div>
+        <div style="background:rgba(245,158,11,.12);border-radius:12px;padding:12px;font-size:12.5px;font-weight:700;margin-bottom:14px">💡 الدفع يتم مباشرة بينك وبين الطرف الآخر حسب الاتفاق (نقدي/تحويل). المنصة تحصل على عمولة 8% من السائق بعد الرحلة المكتملة فقط — وتُعفى أول 10 رحلات لأعضاء Premium.</div>
+        <div class="wizard-nav"><button class="btn btn-secondary" onclick="cwNext(-1)">→ رجوع</button><button class="btn btn-success" style="flex:1" onclick="publishTrip()">🚀 نشر المشوار</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page-detail"><div class="trip-detail" id="tripDetailContent"></div></div>
+
+<div class="page" id="page-messages">
+  <div class="messages-container">
+    <div class="conversations-list"><div class="conversations-header">💬 المحادثات</div><div id="conversationsList"></div></div>
+    <div class="chat-area" id="chatArea"><div class="empty-state" style="margin:auto"><div class="empty-state-icon">💬</div><h3>اختر محادثة</h3><p>التواصل داخل المنصة يحمي خصوصيتك</p></div></div>
+  </div>
+</div>
+
+<div class="page" id="page-profile">
+  <div class="profile-header">
+    <div class="profile-avatar-large" id="profileAvatar"></div>
+    <div class="profile-name" id="profileName"></div>
+    <div style="opacity:.9;font-size:13.5px" id="profileEmail"></div>
+    <div class="profile-stats">
+      <div><div class="profile-stat-value" id="profileTrips">0</div><div class="profile-stat-label">مشاويري</div></div>
+      <div><div class="profile-stat-value" id="profileTrust">-</div><div class="profile-stat-label">درجة الثقة</div></div>
+      <div><div class="profile-stat-value" id="profilePoints">0</div><div class="profile-stat-label">نقاطي</div></div>
+    </div>
+  </div>
+  <div class="profile-content">
+    <div class="profile-tabs">
+      <button class="profile-tab active" onclick="switchProfileTab('active',this)">🟢 رحلاتي النشطة</button>
+      <button class="profile-tab" onclick="switchProfileTab('requests',this)">📥 طلبات الحجز</button>
+      <button class="profile-tab" onclick="switchProfileTab('mytrips',this)">🚗 مشاويري</button>
+      <button class="profile-tab" onclick="switchProfileTab('reviews',this)">⭐ التقييمات</button>
+      <button class="profile-tab" onclick="switchProfileTab('settings',this)">⚙️ الإعدادات</button>
+    </div>
+    <div id="profileContent"></div>
+  </div>
+</div>
+
+<div class="page" id="page-store">
+  <div class="container" style="padding-top:26px;padding-bottom:46px">
+    <div class="section-header"><div>
+      <h2 class="section-title">👑 المتجر <span>والنقاط</span></h2>
+      <p class="section-subtitle">إزالة الإعلانات، عضوية Premium، واستبدال نقاط الإحالات</p>
+    </div></div>
+    <div class="points-box" style="margin-bottom:20px">
+      <div style="font-weight:800;font-size:15px">🎁 نقاط الإحالات بتاعتك</div>
+      <div class="pts" id="storePoints">0</div>
+      <div style="font-size:13px;font-weight:700;margin-bottom:12px">كل شير للمنصة = 50 نقطة · اجمع 300 نقطة = عضوية 3 أيام مجاناً</div>
+      <button class="btn btn-block" style="background:#3b2f00;color:var(--gold)" onclick="sharePlatform()">📤 اعمل شير واكسب 50 نقطة</button>
+      <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px">
+        <button class="btn btn-sm" style="background:#fff;color:#3b2f00" onclick="redeem(300,3)">استبدل 300 → 3 أيام</button>
+        <button class="btn btn-sm" style="background:#fff;color:#3b2f00" onclick="redeem(700,7)">استبدل 700 → أسبوع</button>
+        <button class="btn btn-sm" style="background:#fff;color:#3b2f00" onclick="redeem(1500,30)">استبدل 1500 → شهر</button>
+      </div>
+    </div>
+    <div class="store-grid">
+      <div class="store-card"><h3>📵 إزالة الإعلانات</h3><div style="color:var(--muted);font-size:13px;font-weight:700">يوم واحد</div><div class="store-price">2 <small>درهم/يوم</small></div><ul class="store-feats"><li>✓ إخفاء كل الإعلانات</li><li>✓ تجربة نظيفة 24 ساعة</li></ul><button class="btn btn-primary btn-block" onclick="buyPackage('ad',1,2)">اشترِ يوم</button></div>
+      <div class="store-card"><h3>📵 إزالة الإعلانات</h3><div style="color:var(--muted);font-size:13px;font-weight:700">أسبوع</div><div class="store-price">10 <small>درهم/أسبوع</small></div><ul class="store-feats"><li>✓ إخفاء كل الإعلانات</li><li>✓ وفّر 4 درهم</li></ul><button class="btn btn-primary btn-block" onclick="buyPackage('ad',7,10)">اشترِ أسبوع</button></div>
+      <div class="store-card"><h3>📵 إزالة الإعلانات</h3><div style="color:var(--muted);font-size:13px;font-weight:700">شهر كامل</div><div class="store-price">30 <small>درهم/شهر</small></div><ul class="store-feats"><li>✓ إخفاء كل الإعلانات</li><li>✓ أفضل قيمة (وفّر 30)</li></ul><button class="btn btn-primary btn-block" onclick="buyPackage('ad',30,30)">اشترِ شهر</button></div>
+      <div class="store-card best"><div class="tag">الأفضل قيمة</div><h3>👑 Premium</h3><div style="color:var(--muted);font-size:13px;font-weight:700">عضوية شهرية</div><div class="store-price">49 <small>درهم/شهر</small></div><ul class="store-feats"><li>✓ ظهور أول في النتائج</li><li>✓ بدون عمولة أول 10 رحلات</li><li>✓ بدون إعلانات نهائياً</li><li>✓ شارة 👑 على ملفك</li></ul><button class="btn btn-gold btn-block" onclick="buyPackage('premium',30,49)">اشترك الآن</button></div>
+    </div>
+    <div style="background:var(--card);border-radius:16px;padding:20px;box-shadow:var(--shadow);margin-top:20px;font-size:13.5px;line-height:2;color:var(--text)">
+      <b>💼 نموذج الربح للمنصة:</b> المنصة إعلانية تواصلية فقط (لا نملك سيارات ولا نتدخل في التشغيل). الأرباح من: ① عمولة 8% على الرحلة المكتملة (تُحصَّل من السائق) ② باقات إزالة الإعلانات اليومية/الأسبوعية/الشهرية ③ عضويات Premium ④ مساحات إعلانية مدفوعة للشركات داخل الإمارات.
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page-auth">
+  <div class="auth-container"><div class="auth-card">
+    <div class="auth-header"><div class="logo-icon" style="margin:0 auto 14px;width:54px;height:54px;font-size:26px">🚗</div><h2>مرحباً بك في مشاويري</h2><p>سجّل دخولك أو أنشئ حساباً جديداً</p></div>
+    <div class="auth-tabs">
+      <button class="auth-tab active" onclick="switchAuthTab('login',this)">تسجيل الدخول</button>
+      <button class="auth-tab" onclick="switchAuthTab('register',this)">حساب جديد</button>
+    </div>
+    <div id="loginForm">
+      <div class="form-group"><label>البريد الإلكتروني</label><input type="email" class="form-control" id="loginEmail" value="mohamed@test.com"></div>
+      <div class="form-group"><label>كلمة المرور</label><input type="password" class="form-control" id="loginPassword" value="12345678"></div>
+      <button class="btn btn-primary btn-block" style="padding:14px" onclick="login()">🔓 دخول</button>
+    </div>
+    <div id="registerForm" style="display:none">
+      <div class="form-row">
+        <div class="form-group"><label>الاسم الأول</label><input type="text" class="form-control" id="regFirstName" placeholder="محمد"></div>
+        <div class="form-group"><label>الاسم الأخير</label><input type="text" class="form-control" id="regLastName" placeholder="أحمد"></div>
+      </div>
+      <div class="form-group"><label>البريد الإلكتروني</label><input type="email" class="form-control" id="regEmail" placeholder="example@email.com"></div>
+      <div class="form-group"><label>رقم الهاتف</label><input type="tel" class="form-control" id="regPhone" placeholder="+971 50 123 4567"></div>
+      <div class="form-group"><label>🪪 الهوية الإماراتية (اختياري — للتوثيق ✓)</label><input type="text" class="form-control" id="regEmirates" placeholder="784-1990-1234567-1"></div>
+      <div class="form-row">
+        <div class="form-group"><label>كلمة المرور</label><input type="password" class="form-control" id="regPassword" placeholder="8 أحرف+"></div>
+        <div class="form-group"><label>أنا</label><select class="form-control" id="regGender"><option value="male">ذكر</option><option value="female">أنثى</option></select></div>
+      </div>
+      <label style="display:flex;gap:8px;font-size:12.5px;margin-bottom:14px;cursor:pointer;line-height:1.6"><input type="checkbox" id="regTerms" style="width:17px;height:17px;accent-color:var(--primary)"><span>أوافق على الشروط والأحكام وسياسة الخصوصية</span></label>
+      <button class="btn btn-primary btn-block" style="padding:14px" onclick="register()">✨ إنشاء الحساب</button>
+    </div>
+    <div style="text-align:center;margin:18px 0;color:var(--muted);font-size:12.5px;font-weight:700">— أو —</div>
+    <div class="social-login">
+      <button class="social-btn" onclick="socialLogin('Google')">🔵 Google</button>
+      <button class="social-btn" onclick="socialLogin('Apple')">🍎 Apple</button>
+      <button class="social-btn" onclick="socialLogin('UAE Pass')">🇦 UAE Pass</button>
+    </div>
+  </div></div>
+</div>
+
+<button class="assistant-fab" id="assistantFab" onclick="openAssistant()">🤖</button>
+<div class="assistant-panel" id="assistantPanel">
+  <div class="assistant-head">🤖 المساعد الذكي <button onclick="closeAssistant()">✕</button></div>
+  <div class="assistant-msgs" id="assistantMsgs"></div>
+  <div class="chat-input"><input type="text" id="assistantInput" placeholder="مثال: عايز أروح أبوظبي بكرة الصبح" onkeypress="if(event.key==='Enter')assistantSend()"><button class="btn btn-primary btn-sm" onclick="assistantSend()">إرسال</button></div>
+</div>
+
+<div class="mobile-nav">
+  <button data-nav="home" class="active" onclick="showPage('home')"><span class="ic">🏠</span>الرئيسية</button>
+  <button data-nav="browse" onclick="showPage('browse')"><span class="ic">🔍</span>تصفح</button>
+  <button data-nav="create" onclick="showPage('create')"><span class="ic">➕</span>إنشاء</button>
+  <button data-nav="messages" onclick="showPage('messages')"><span class="ic">💬</span>رسائل</button>
+  <button data-nav="store" onclick="showPage('store')"><span class="ic">👑</span>متجر</button>
+  <button data-nav="profile" onclick="showPage('profile')"><span class="ic">👤</span>حسابي</button>
+</div>
+
+<div class="overlay" id="overlay" onclick="if(event.target===this)closeModal()"><div class="modal" id="modalBox"></div></div>
+
+<script>
+const KEY='mashawiri_v2';
+const CITIES=['دبي','أبوظبي','الشارقة','عجمان','رأس الخيمة','الفجيرة','أم القيوين','العين'];
+const KM={'دبي|أبوظبي':140,'دبي|الشارقة':30,'دبي|عجمان':40,'دبي|رأس الخيمة':100,'دبي|الفجيرة':130,'دبي|أم القيوين':60,'دبي|العين':160,'أبوظبي|الشارقة':170,'أبوظبي|عجمان':180,'أبوظبي|رأس الخيمة':240,'أبوظبي|الفجيرة':300,'أبوظبي|أم القيوين':210,'أبوظبي|العين':160,'الشارقة|عجمان':10,'الشارقة|رأس الخيمة':70,'الشارقة|الفجيرة':100,'الشارقة|أم القيوين':30,'الشارقة|العين':190,'عجمان|رأس الخيمة':60,'عجمان|الفجيرة':90,'عجمان|أم القيوين':20,'عجمان|العين':180,'رأس الخيمة|الفجيرة':80,'رأس الخيمة|أم القيوين':40,'رأس الخيمة|العين':260,'الفجيرة|أم القيوين':110,'الفجيرة|العين':220,'أم القيوين|العين':220};
+const COMMISSION=0.08;
+function dstr(o){const d=new Date();d.setDate(d.getDate()+(o||0));return d.toISOString().split('T')[0]}
+function kmBetween(a,b){if(a===b)return 0;return KM[a+'|'+b]||KM[b+'|'+a]||120}
+function fairInfo(a,b){const km=kmBetween(a,b);const fair=Math.round(10+km*0.25);return{km:km,fair:fair,min:Math.round(fair*0.8),max:Math.round(fair*1.2)}}
+const seed={currentUser:null,theme:'light',zoom:0,
+ users:[{id:1,name:'محمد أحمد',email:'mohamed@test.com',phone:'+971 50 123 4567',avatar:'م',trips:12,rating:4.9,verified:true,female:false,points:120,premiumUntil:0,adFreeUntil:0},
+ {id:2,name:'فاطمة علي',email:'fatima@test.com',phone:'+971 50 987 6543',avatar:'ف',trips:28,rating:4.8,verified:true,female:true,points:0,premiumUntil:0,adFreeUntil:0},
+ {id:3,name:'خالد المنصوري',email:'khaled@test.com',phone:'+971 50 234 5678',avatar:'خ',trips:45,rating:5.0,verified:true,female:false,points:0,premiumUntil:Date.now()+86400000*12,adFreeUntil:0},
+ {id:4,name:'نورة الشامسي',email:'noura@test.com',phone:'+971 50 345 6789',avatar:'ن',trips:8,rating:4.7,verified:false,female:true,points:0,premiumUntil:0,adFreeUntil:0}],
+ trips:[{id:1,userId:2,type:'driver',from:'دبي',to:'أبوظبي',fromDetail:'مول الإمارات',toDetail:'الكورنيش',date:dstr(1),time:'07:30',seats:3,availableSeats:2,price:40,recurring:true,femaleOnly:false,description:'رحلة يومية للعمل عبر شارع الشيخ زايد، سيارة مكيفة.',createdAt:Date.now()-86400000},
+ {id:2,userId:3,type:'driver',from:'الشارقة',to:'دبي',fromDetail:'المجاز',toDetail:'البرشاء',date:dstr(1),time:'08:00',seats:4,availableSeats:3,price:20,recurring:true,femaleOnly:false,description:'مشوار يومي للجامعة، ملتزم بالمواعيد.',createdAt:Date.now()-172800000},
+ {id:3,userId:4,type:'passenger',from:'عجمان',to:'دبي',fromDetail:'الراشدية',toDetail:'وسط المدينة',date:dstr(2),time:'09:00',seats:1,availableSeats:1,price:25,recurring:false,femaleOnly:false,description:'أبحث عن مشوار للعمل، مرنة بالوقت.',createdAt:Date.now()-259200000},
+ {id:4,userId:2,type:'driver',from:'دبي',to:'العين',fromDetail:'القصيص',toDetail:'المركز',date:dstr(4),time:'06:30',seats:4,availableSeats:2,price:45,recurring:true,femaleOnly:false,description:'رحلة أسبوعية للعين.',createdAt:Date.now()-345600000},
+ {id:5,userId:3,type:'driver',from:'رأس الخيمة',to:'دبي',fromDetail:'المركز',toDetail:'الخليج التجاري',date:dstr(1),time:'07:00',seats:3,availableSeats:1,price:50,recurring:true,femaleOnly:false,description:'مشوار يومي للعمل.',createdAt:Date.now()-432000000},
+ {id:6,userId:2,type:'driver',from:'دبي',to:'أبوظبي',fromDetail:'مارينا',toDetail:'ياس مول',date:dstr(2),time:'17:00',seats:3,availableSeats:3,price:38,recurring:false,femaleOnly:true,description:'رحلة نساء فقط سائقة موثوقة.',createdAt:Date.now()-518400000}],
+ conversations:[{id:1,userId:2,lastMessage:'تمام، أشوفك 7:30 عند مول الإمارات',time:'10:30',unread:2}],
+ messages:{2:[{from:'them',text:'السلام عليكم، المشوار متاح؟',time:'10:25'},{from:'me',text:'وعليكم السلام، نعم',time:'10:27'},{from:'them',text:'تمام، أشوفك 7:30 عند مول الإمارات',time:'10:30'}]},
+ bookings:[],reviews:[],notifs:[],recentSearches:[],frequentRoutes:[],reminded:[]};
+function load(){try{const s=localStorage.getItem(KEY);if(s)return JSON.parse(s)}catch(e){}return JSON.parse(JSON.stringify(seed))}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(D))}catch(e){}}
+let D=load();
+const U=function(){return D.currentUser};
+const isPremium=function(){return U()&&U().premiumUntil>Date.now()};
+const isAdFree=function(){return isPremium()||(U()&&U().adFreeUntil>Date.now())};
+const trustScore=function(u){return Math.min(100,Math.round(u.rating*12+(u.verified?20:0)+Math.min(u.trips,40)*0.5))};
+const daysUntil=function(t){return Math.round((new Date(t.date+'T'+t.time)-new Date())/86400000)};
+const fi=function(t){return fairInfo(t.from,t.to)};
+function fillRisk(t){const f=fi(t);let s=((t.seats-t.availableSeats)/t.seats)*40+(t.price<=f.max?25:0)+(daysUntil(t)<=2?20:0)+(t.recurring?10:0);return s>=55}
+function showToast(m,t){const el=document.getElementById('toast');el.textContent=m;el.className='toast show '+(t||'');clearTimeout(el._t);el._t=setTimeout(function(){el.className='toast'},2600)}
+function notify(text,icon){D.notifs.unshift({id:Date.now()+Math.random(),text:text,icon:icon||'🔔',time:new Date().toLocaleTimeString('ar-AE',{hour:'2-digit',minute:'2-digit'}),read:false});save();renderNotifDot()}
+function renderNotifDot(){const un=D.notifs.filter(function(n){return !n.read}).length;const d=document.getElementById('notifDot');d.style.display=un?'flex':'none';d.textContent=un}
+function toggleNotif(){const dr=document.getElementById('notifDrop');dr.classList.toggle('open');if(dr.classList.contains('open'))renderNotifs()}
+function renderNotifs(){document.getElementById('notifList').innerHTML=D.notifs.length?D.notifs.map(function(n){return '<div class="notif-item '+(n.read?'':'unread')+'"><span class="ic">'+n.icon+'</span><div><div>'+n.text+'</div><div class="tm">'+n.time+'</div></div></div>'}).join(''):'<div class="empty-state" style="padding:30px"><div class="empty-state-icon">🔕</div><h3>لا إشعارات</h3></div>'}
+function markAllRead(){D.notifs.forEach(function(n){n.read=true});save();renderNotifs();renderNotifDot()}
+function formatDate(s){const d=new Date(s+'T00:00:00');const t=new Date();t.setHours(0,0,0,0);const diff=Math.round((d-t)/86400000);if(diff===0)return 'اليوم';if(diff===1)return 'غداً';if(diff===2)return 'بعد غداً';try{return d.toLocaleDateString('ar-AE',{weekday:'long',day:'numeric',month:'long'})}catch(e){return s}}
+function openModal(html){document.getElementById('modalBox').innerHTML=html;document.getElementById('overlay').classList.add('open')}
+function closeModal(){document.getElementById('overlay').classList.remove('open')}
+function adBannerHTML(){if(isAdFree())return '';return '<div class="ad-banner"><div><span class="ad-tag">إعلان ممول</span><div style="margin-top:6px"><strong>مساحتك الإعلانية هنا!</strong><div style="font-size:12.5px;opacity:.95">أوصل إعلانك لـ +8,500 مستخدم يومياً في كل الإمارات</div></div></div><div class="ad-actions"><button class="ad-btn-light" onclick="showToast(\'فريق المبيعات: ads@mashawiri.ae\',\'success\')">أعلن معنا</button><button class="ad-btn-dark" onclick="showPage(\'store\')">إزالة الإعلانات</button></div></div>'}
+function showPage(id){document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active')});const p=document.getElementById('page-'+id);if(p)p.classList.add('active');document.querySelectorAll('[data-nav]').forEach(function(n){n.classList.toggle('active',n.getAttribute('data-nav')===id)});document.getElementById('notifDrop').classList.remove('open');window.scrollTo(0,0);
+ if(id==='home')renderHome();if(id==='browse')renderBrowse();if(id==='messages')renderConversations();if(id==='profile')renderProfile();if(id==='store')renderStore();if(id==='create')resetWizard()}
+function toggleTheme(){D.theme=D.theme==='light'?'dark':'light';save();applyTheme()}
+function applyTheme(){document.documentElement.setAttribute('data-theme',D.theme);document.getElementById('themeBtn').textContent=D.theme==='light'?'🌙':'☀️';document.body.className=D.zoom===1?'zoom-1':(D.zoom===2?'zoom-2':'')}
+function setZoom(z){D.zoom=z;save();applyTheme();showToast('تم تغيير حجم الخط','success')}
+function acShow(which){const inp=document.getElementById(which==='from'?'searchFromInput':'searchToInput');const list=document.getElementById(which==='from'?'acFromList':'acToList');const q=inp.value.trim();const items=CITIES.filter(function(c){return !q||c.indexOf(q)>-1});list.innerHTML=items.map(function(c){return '<div class="ac-item" onmousedown="acPick(\''+which+'\',\''+c+'\')">'+c+'</div>'}).join('')||'<div class="ac-item">لا نتائج</div>';list.classList.add('open')}
+function acPick(which,city){document.getElementById(which==='from'?'searchFromInput':'searchToInput').value=city;document.getElementById(which==='from'?'acFromList':'acToList').classList.remove('open')}
+document.addEventListener('click',function(e){if(!e.target.closest('.search-field'))document.querySelectorAll('.ac-list').forEach(function(l){l.classList.remove('open')})});
+function saveRecent(f,t){D.recentSearches=D.recentSearches.filter(function(r){return !(r.from===f&&r.to===t)});D.recentSearches.unshift({from:f,to:t});D.recentSearches=D.recentSearches.slice(0,4);save()}
+function renderRecent(){document.getElementById('recentRow').innerHTML=D.recentSearches.map(function(r,i){return '<span class="recent-chip" onclick="useRecent('+i+')">🕐 '+r.from+' ← '+r.to+'<span class="x" onclick="event.stopPropagation();delRecent('+i+')">✕</span></span>'}).join('')}
+function useRecent(i){const r=D.recentSearches[i];document.getElementById('searchFromInput').value=r.from;document.getElementById('searchToInput').value=r.to;doSearch()}
+function delRecent(i){D.recentSearches.splice(i,1);save();renderRecent()}
+function doSearch(){const f=document.getElementById('searchFromInput').value.trim();const t=document.getElementById('searchToInput').value.trim();if(!f&&!t){showToast('اكتب نقطة الانطلاق أو الوجهة','warning');return}if(f&&t)saveRecent(f,t);showPage('browse');document.getElementById('smartQuery').value=[f,t].filter(Boolean).join(' ');renderBrowse();showToast('تم ترتيب النتائج ذكياً لك','success')}
+function fillCitySelects(){const opts='<option value="">اختر...</option>'+CITIES.map(function(c){return '<option>'+c+'</option>'}).join('');['fqFrom','fqTo','cFrom','cTo'].forEach(function(id){const el=document.getElementById(id);if(el)el.innerHTML=opts})}
+function addRoute(){const f=document.getElementById('fqFrom').value,t=document.getElementById('fqTo').value,l=document.getElementById('fqLabel').value.trim();if(!f||!t){showToast('اختر المدينتين','warning');return}D.frequentRoutes.push({id:Date.now(),from:f,to:t,label:l||(f+' ← '+t)});save();document.getElementById('fqLabel').value='';renderHome();showToast('تم حفظ المسار — الحجز بضغطة واحدة','success')}
+function delRoute(id){D.frequentRoutes=D.frequentRoutes.filter(function(r){return r.id!==id});save();renderHome()}
+function bookRouteById(id){const r=D.frequentRoutes.find(function(x){return x.id===id});if(!r)return;document.getElementById('searchFromInput').value=r.from;document.getElementById('searchToInput').value=r.to;doSearch()}
+function isPrem(uid){const u=D.users.find(function(x){return x.id===uid});return u&&u.premiumUntil>Date.now()}
+function trustOf(uid){const u=D.users.find(function(x){return x.id===uid});return u?trustScore(u):0}
+function renderHome(){document.getElementById('statTrips').textContent=D.trips.length;document.getElementById('statUsers').textContent=D.users.length;document.getElementById('adHome').innerHTML=adBannerHTML();renderRecent();
+ const routesHTML=D.frequentRoutes.length?D.frequentRoutes.map(function(r){return '<div class="fq-route"><div><b>📍 '+r.label+'</b><div style="font-size:12px;color:var(--muted);font-weight:700">'+r.from+' ← '+r.to+'</div></div><div style="display:flex;gap:8px"><button class="btn btn-success btn-sm" onclick="bookRouteById('+r.id+')">⚡ احجز بضغطة</button><button class="btn btn-secondary btn-sm" onclick="delRoute('+r.id+')">🗑</button></div></div>'}).join(''):'<div class="empty-state" style="padding:24px;background:var(--card);border-radius:14px"><div class="empty-state-icon">🛣️</div><h3>لا مسارات محفوظة</h3><p>احفظ خط البيت/الشغل فوق واحجز بضغطة</p></div>';
+ document.getElementById('homeRoutes').innerHTML=routesHTML;
+ renderMatched();
+ const pop=[...D.trips].sort(function(a,b){return (isPrem(b.userId)?1:0)-(isPrem(a.userId)?1:0)||trustOf(b.userId)-trustOf(a.userId)}).slice(0,3);
+ document.getElementById('popularTrips').innerHTML=pop.map(function(t){return renderTripCard(t,false)}).join('')}
+function renderMatched(){const u=U();const refs=[];D.frequentRoutes.forEach(function(r){refs.push(r)});if(D.recentSearches[0])refs.push(D.recentSearches[0]);
+ const matched=[];refs.forEach(function(r){D.trips.forEach(function(t){if(t.from===r.from&&t.to===r.to&&t.availableSeats>0&&matched.indexOf(t)<0)matched.push(t)})});
+ document.getElementById('statMatches').textContent=matched.length;
+ const sec=document.getElementById('matchedSection');
+ if(matched.length&&u){sec.style.display='block';document.getElementById('matchedTrips').innerHTML=matched.slice(0,3).map(function(t){return renderTripCard(t,true)}).join('')}else{sec.style.display='none'}}
+function renderTripCard(t,matched){const u=D.users.find(function(x){return x.id===t.userId});if(!u)return '';const f=fi(t);const hot=fillRisk(t);const prem=isPrem(t.userId);
+ return '<div class="trip-card '+(prem?'premium-card':'')+'" onclick="showTripDetail('+t.id+')">'+(prem?'<div class="premium-ribbon">👑 Premium</div>':'')+
+ '<div class="trip-card-header"><div class="trip-user"><div class="trip-avatar '+(u.female?'female':'male')+'">'+u.avatar+(u.verified?'<div class="verified-badge">✓</div>':'')+'</div><div class="trip-user-info"><h4>'+u.name+(isPrem(t.userId)?' 👑':'')+'</h4><div class="trip-rating">⭐ '+u.rating+' · <span class="trust-pill">🛡 ثقة '+trustScore(u)+'%</span></div></div></div><div style="display:flex;gap:6px;flex-direction:column;align-items:end"><div class="trip-type-badge '+t.type+'">'+(t.type==='driver'?'🚗 سائق':'🙋 راكب')+'</div>'+(t.femaleOnly?'<div class="female-badge">🎀 نساء فقط</div>':'')+'</div></div>'+
+ '<div class="trip-route"><div class="route-line"><div class="route-dot"></div><div class="route-connector"></div><div class="route-dot end"></div></div><div class="route-info"><div class="route-point"><div class="city">📍 '+t.from+'</div><div class="location">'+t.fromDetail+'</div></div><div class="route-point"><div class="city">🎯 '+t.to+'</div><div class="location">'+t.toDetail+'</div></div></div></div>'+
+ '<div class="trip-meta"><span class="meta-item">📅 '+formatDate(t.date)+'</span><span class="meta-item">⏰ '+t.time+'</span><span class="meta-item">👥 '+t.availableSeats+'/'+t.seats+'</span>'+(t.recurring?'<span class="meta-item">🔄 متكرر</span>':'')+'<span class="trip-price">'+t.price+' درهم</span></div>'+
+ '<div class="ai-badges">'+(matched?'<span class="ai-badge match">⚡ مطابق لمسارك</span>':'')+(hot?'<span class="ai-badge hot">🔥 يُتوقع امتلاؤه قريباً</span>':'')+(t.price<=f.max?'<span class="ai-badge fair">✅ سعر عادل ('+f.min+'-'+f.max+')</span>':'<span class="ai-badge high">⚠️ أعلى من السعر العادل</span>')+'<span class="ai-badge match">📏 '+f.km+' كم</span></div></div>'}
+let browseState={filter:'all',city:null};
+function applyFilter(f,c,btn){browseState={filter:f,city:c};document.querySelectorAll('#filterBar .filter-chip').forEach(function(x){x.classList.remove('active')});btn.classList.add('active');renderBrowse()}
+function renderBrowse(){let list=[...D.trips];const q=(document.getElementById('smartQuery').value||'').trim();
+ if(browseState.filter==='driver')list=list.filter(function(t){return t.type==='driver'});
+ if(browseState.filter==='passenger')list=list.filter(function(t){return t.type==='passenger'});
+ if(browseState.filter==='female')list=list.filter(function(t){return t.femaleOnly});
+ if(browseState.city)list=list.filter(function(t){return t.from===browseState.city||t.to===browseState.city});
+ if(q)list=list.filter(function(t){const u=D.users.find(function(x){return x.id===t.userId});return (t.from+t.to+t.fromDetail+t.toDetail+(u?u.name:'')).indexOf(q)>-1});
+ const sort=document.getElementById('sortSelect').value;
+ const premFirst=function(a,b){return (isPrem(b.userId)?1:0)-(isPrem(a.userId)?1:0)};
+ if(sort==='new')list.sort(function(a,b){return premFirst(a,b)||b.createdAt-a.createdAt});
+ if(sort==='cheap')list.sort(function(a,b){return premFirst(a,b)||a.price-b.price});
+ if(sort==='early')list.sort(function(a,b){return premFirst(a,b)||String(a.date+a.time).localeCompare(String(b.date+b.time))});
+ if(sort==='rating')list.sort(function(a,b){return premFirst(a,b)||(D.users.find(function(x){return x.id===b.userId}).rating-D.users.find(function(x){return x.id===a.userId}).rating)});
+ if(sort==='trust'||sort==='smart')list.sort(function(a,b){return premFirst(a,b)||(trustOf(b.userId)-trustOf(a.userId))+(fillRisk(b)?1:0)-(fillRisk(a)?1:0)});
+ document.getElementById('adBrowse').innerHTML=adBannerHTML();
+ document.getElementById('tripsGrid').innerHTML=list.length?list.map(function(t){return renderTripCard(t,false)}).join(''):'<div class="empty-state" style="grid-column:1/-1;background:var(--card);border-radius:16px"><div class="empty-state-icon">🔍</div><h3>لا نتائج</h3><p>جرّب فلاتر أخرى أو أنشئ مشوارك</p></div>';
+ document.getElementById('tripsCount').textContent='عرض '+list.length+' مشوار'}
+let WIZ={};
+function showTripDetail(id){const t=D.trips.find(function(x){return x.id===id});if(!t)return;const u=D.users.find(function(x){return x.id===t.userId});const f=fi(t);const own=U()&&U().id===t.userId;const hot=fillRisk(t);
+ document.getElementById('tripDetailContent').innerHTML='<button class="btn btn-secondary" onclick="showPage(\'browse\')" style="margin-bottom:16px">→ رجوع</button><div class="detail-card">'+
+ '<div class="detail-header"><div class="detail-user"><div class="detail-avatar" style="background:'+(u.female?'linear-gradient(135deg,#ec4899,#be185d)':'linear-gradient(135deg,#3b82f6,#1d4ed8)')+'">'+u.avatar+'</div><div class="detail-user-info"><h2>'+u.name+' '+(u.verified?'<span style="color:var(--accent);font-size:14px">✓ موثق بالهوية</span>':'')+(isPrem(t.userId)?' 👑':'')+'</h2><div class="detail-user-meta"><span>⭐ '+u.rating+'</span><span>🛡 ثقة '+trustScore(u)+'%</span><span>🚗 '+u.trips+' رحلة</span></div></div></div><div style="display:flex;gap:6px;flex-direction:column;align-items:end"><div class="trip-type-badge '+t.type+'">'+(t.type==='driver'?'🚗 سائق':'🙋 راكب')+'</div>'+(t.femaleOnly?'<div class="female-badge">🎀 نساء فقط</div>':'')+'</div></div>'+
+ '<div class="detail-route-large"><div class="detail-route-point"><div class="label">📍 الانطلاق</div><div class="value">'+t.fromDetail+'</div><div class="sub">'+t.from+'</div></div><div class="route-arrow">←</div><div class="detail-route-point"><div class="label">🎯 الوجهة</div><div class="value">'+t.toDetail+'</div><div class="sub">'+t.to+'</div></div></div>'+
+ '<div class="detail-info-grid"><div class="info-box"><div class="info-box-icon">📅</div><div class="info-box-content"><div class="label">التاريخ</div><div class="value">'+formatDate(t.date)+'</div></div></div><div class="info-box"><div class="info-box-icon">⏰</div><div class="info-box-content"><div class="label">الوقت</div><div class="value">'+t.time+'</div></div></div><div class="info-box"><div class="info-box-icon">👥</div><div class="info-box-content"><div class="label">المقاعد</div><div class="value">'+t.availableSeats+' من '+t.seats+'</div></div></div><div class="info-box"><div class="info-box-icon">💰</div><div class="info-box-content"><div class="label">السعر</div><div class="value" style="color:var(--accent)">'+t.price+' درهم</div></div></div><div class="info-box"><div class="info-box-icon">📏</div><div class="info-box-content"><div class="label">المسافة/سعر عادل</div><div class="value">'+f.km+' كم / '+f.min+'-'+f.max+'</div></div></div></div>'+
+ '<div class="ai-badges" style="margin-bottom:16px">'+(hot?'<span class="ai-badge hot">🔥 يُتوقع امتلاؤه خلال ساعات — احجز الآن!</span>':'')+(t.price<=f.max?'<span class="ai-badge fair">✅ السعر ضمن النطاق العادل</span>':'<span class="ai-badge high">⚠️ السعر أعلى من العادل ('+f.max+' درهم)</span>')+(t.recurring?'<span class="ai-badge match">🔄 متكرر — فعّل الاشتراك الشهري ووفّر 20%</span>':'')+'</div>'+
+ '<div class="detail-description"><b>📝 التفاصيل:</b><br>'+(t.description||'—')+'</div>'+
+ (own?'<div style="background:rgba(245,158,11,.12);padding:16px;border-radius:12px;text-align:center;font-weight:800">⚠️ هذا مشوارك — تابع الطلبات من صفحة حسابي</div>':
+ '<div class="booking-form"><h3>🎯 احجز في ٣ خطوات</h3><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-success" style="flex:2;min-width:180px" onclick="openBooking('+t.id+')">✓ ابدأ الحجز</button><button class="btn btn-secondary" style="flex:1;min-width:120px" onclick="openChat('+t.userId+')">💬 مراسلة</button></div><div style="font-size:12px;color:var(--muted);font-weight:700;margin-top:10px">💡 الدفع يتم مباشرة بينك وبين السائق (نقدي/تحويل) حسب القبول من البداية — المنصة لا تتدخل في التحصيل.</div></div>')+
+ (t.recurring&&!own?'<div style="margin-top:14px;background:var(--bg);border-radius:12px;padding:14px;font-size:13px;font-weight:700;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">💡 بتركب الخط ده كتير؟<button class="btn btn-gold btn-sm" onclick="showPage(\'store\')">👑 فعّل اشتراك شهري ووفّر 20%</button></div>':'')+
+ '</div>';showPage('detail')}
+function openBooking(tripId){if(!U()){showToast('سجّل دخولك أولاً','warning');showPage('auth');return}const t=D.trips.find(function(x){return x.id===tripId});if(t.availableSeats<1){showToast('لا مقاعد متاحة','error');return}WIZ={tripId:tripId,step:1,seats:1,pickup:'',payment:'cash',note:''};renderWizard();document.getElementById('overlay').classList.add('open')}
+function renderWizard(){const t=D.trips.find(function(x){return x.id===WIZ.tripId});
+ const steps='<div class="wizard-steps">'+[1,2,3].map(function(s){return '<div class="wstep '+(WIZ.step===s?'active':(WIZ.step>s?'done':''))+'"><span class="num">'+(WIZ.step>s?'✓':['١','٢','٣'][s-1])+'</span> '+['المقاعد','الدفع','التأكيد'][s-1]+'</div>'}).join('')+'</div>';
+ let body='';
+ if(WIZ.step===1){body='<div class="form-group"><label>👥 عدد المقاعد</label><select class="form-control" onchange="WIZ.seats=+this.value">'+Array.from({length:t.availableSeats},function(_,i){return '<option value="'+(i+1)+'" '+(WIZ.seats===i+1?'selected':'')+'>'+(i+1)+'</option>'}).join('')+'</select></div><div class="form-group"><label>📍 نقطة الالتقاء</label><input type="text" class="form-control" value="'+WIZ.pickup+'" placeholder="مثال: مول الإمارات - الباب الرئيسي" oninput="WIZ.pickup=this.value"></div>'}
+ if(WIZ.step===2){body='<div class="form-group"><label>🤝 طريقة الدفع (اتفاق مباشر بينك وبين السائق)</label><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="pay-option '+(WIZ.payment==='cash'?'sel':'')+'" onclick="WIZ.payment=\'cash\';renderWizard()">💵 نقدي بالسيارة</button><button class="pay-option '+(WIZ.payment==='transfer'?'sel':'')+'" onclick="WIZ.payment=\'transfer\';renderWizard()">🏦 تحويل للسائق</button><button class="pay-option '+(WIZ.payment==='chat'?'sel':'')+'" onclick="WIZ.payment=\'chat\';renderWizard()">💬 نتفق بالشات</button></div></div><div class="form-group"><label>📝 ملاحظة للسائق (اختياري)</label><textarea class="form-control" oninput="WIZ.note=this.value" placeholder="مثال: معايا شنطة صغيرة">'+WIZ.note+'</textarea></div><div style="background:rgba(245,158,11,.12);border-radius:12px;padding:12px;font-size:12.5px;font-weight:700">⚖️ السائق يقبل أو يرفض طلبك من البداية، والدفع بينكم مباشرة. عمولة المنصة 8% تُحصَّل من السائق بعد اكتمال الرحلة فقط.</div>'}
+ if(WIZ.step===3){const pay={cash:'💵 نقدي بالسيارة',transfer:'🏦 تحويل للسائق',chat:'💬 اتفاق بالشات'}[WIZ.payment];body='<div style="background:var(--bg);border-radius:14px;padding:16px;line-height:2.1;font-size:14px;font-weight:700">🚗 <b>'+t.fromDetail+' ← '+t.toDetail+'</b><br>📅 '+formatDate(t.date)+' ⏰ '+t.time+'<br>👥 '+WIZ.seats+' مقعد · 📍 '+(WIZ.pickup||t.fromDetail)+'<br>💳 '+pay+'<br>💰 الإجمالي: <b style="color:var(--accent)">'+(WIZ.seats*t.price)+' درهم</b> تدفع للسائق مباشرة</div>'}
+ document.getElementById('modalBox').innerHTML='<div class="modal-header"><h3>🎯 حجز مقعد — خطوة '+WIZ.step+' من 3</h3><button class="modal-close" onclick="closeModal()">✕</button></div><div class="modal-body">'+steps+body+'</div><div class="modal-footer">'+(WIZ.step>1?'<button class="btn btn-secondary" onclick="WIZ.step--;renderWizard()">→ رجوع</button>':'')+(WIZ.step<3?'<button class="btn btn-primary" onclick="WIZ.step++;renderWizard()">التالي ←</button>':'<button class="btn btn-success" onclick="confirmBooking()">✓ تأكيد الطلب</button>')+'</div>'}
+function confirmBooking(){const t=D.trips.find(function(x){return x.id===WIZ.tripId});t.availableSeats-=WIZ.seats;
+ D.bookings.push({id:Date.now(),tripId:t.id,userId:U().id,seats:WIZ.seats,pickup:WIZ.pickup||t.fromDetail,payment:WIZ.payment,note:WIZ.note,total:WIZ.seats*t.price,status:'pending',rated:false,createdAt:Date.now()});
+ save();closeModal();showToast('تم إرسال طلبك — بانتظار قبول السائق','success');notify('طلب حجز جديد على مشوارك: '+t.from+' ← '+t.to,'📥');
+ setTimeout(function(){const b=D.bookings.find(function(x){return x.tripId===t.id&&U()&&x.userId===U().id&&x.status==='pending'});if(b){b.status='accepted';save();notify('🎉 السائق '+D.users.find(function(u){return u.id===t.userId}).name+' قبل طلبك! رحلتك نشطة الآن','✅');if(document.getElementById('page-profile').classList.contains('active'))renderProfile()}},9000)}
+function renderProfile(){if(!U()){showPage('auth');return}const u=U();document.getElementById('profileAvatar').textContent=u.avatar;document.getElementById('profileName').textContent=u.name+(u.verified?' ✓':'');document.getElementById('profileEmail').textContent=u.email;document.getElementById('profileTrips').textContent=D.trips.filter(function(t){return t.userId===u.id}).length;document.getElementById('profileTrust').textContent=trustScore(u)+'%';document.getElementById('profilePoints').textContent=u.points||0;switchProfileTab('active',document.querySelector('.profile-tab'))}
+function switchProfileTab(tab,btn){document.querySelectorAll('.profile-tab').forEach(function(t){t.classList.remove('active')});if(btn)btn.classList.add('active');const u=U();if(!u)return;const C=document.getElementById('profileContent');
+ if(tab==='active'){const mine=D.bookings.filter(function(b){return b.userId===u.id&&b.status==='accepted'});const asDriver=D.bookings.filter(function(b){const t=D.trips.find(function(x){return x.id===b.tripId});return t&&t.userId===u.id&&b.status==='accepted'});const all=mine.concat(asDriver);
+  C.innerHTML=all.length?all.map(function(b){const t=D.trips.find(function(x){return x.id===b.tripId});const other=b.userId===u.id?D.users.find(function(x){return x.id===t.userId}):D.users.find(function(x){return x.id===b.userId});return '<div class="active-trip-card"><h4>🟢 رحلة نشطة: '+t.fromDetail+' ← '+t.toDetail+'</h4><div style="font-size:13px;opacity:.95;font-weight:700">مع '+other.name+' · '+formatDate(t.date)+' '+t.time+' · '+b.seats+' مقعد · '+({cash:'نقدي',transfer:'تحويل',chat:'اتفاق بالشات'})[b.payment]+'</div><div class="row"><button style="background:#fff;color:#065f46" onclick="shareLive('+b.id+')">📡 مشاركة لايف</button><button style="background:rgba(255,255,255,.2);color:#fff" onclick="openChat('+other.id+')">💬 مراسلة</button><button class="sos-btn" onclick="sos('+b.id+')">🆘 SOS</button><button style="background:var(--gold);color:#3b2f00" onclick="endAndRate('+b.id+')">🏁 إنهاء وتقييم</button></div></div>'}).join(''):'<div class="empty-state" style="background:var(--card);border-radius:16px;box-shadow:var(--shadow)"><div class="empty-state-icon">🟢</div><h3>لا رحلات نشطة</h3><p>احجز مشواراً أو اقبل طلباً لتظهر رحلتك هنا مع SOS والمشاركة اللايف</p></div>'}
+ if(tab==='requests'){const reqs=D.bookings.filter(function(b){const t=D.trips.find(function(x){return x.id===b.tripId});return t&&t.userId===u.id&&b.status==='pending'});
+  C.innerHTML=reqs.length?reqs.map(function(b){const t=D.trips.find(function(x){return x.id===b.tripId});const p=D.users.find(function(x){return x.id===b.userId});return '<div style="background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:18px;margin-bottom:12px"><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px"><div><b>'+p.name+' '+(p.verified?'✓':'')+'</b><div style="font-size:12.5px;color:var(--muted);font-weight:700">'+t.from+' ← '+t.to+' · '+formatDate(t.date)+' · '+b.seats+' مقعد · '+({cash:'💵 نقدي',transfer:'🏦 تحويل',chat:'💬 شات'})[b.payment]+'</div>'+(b.note?'<div style="font-size:12.5px;margin-top:6px;font-weight:700">📝 '+b.note+'</div>':'')+'</div><div style="display:flex;gap:8px"><button class="btn btn-success btn-sm" onclick="decideReq('+b.id+',true)">✓ قبول</button><button class="btn btn-danger btn-sm" onclick="decideReq('+b.id+',false)">✕ رفض</button></div></div></div>'}).join(''):'<div class="empty-state" style="background:var(--card);border-radius:16px;box-shadow:var(--shadow)"><div class="empty-state-icon">📥</div><h3>لا طلبات معلقة</h3></div>'}
+ if(tab==='mytrips'){const mine=D.trips.filter(function(t){return t.userId===u.id});C.innerHTML=mine.length?'<div class="trips-grid">'+mine.map(function(t){return renderTripCard(t,false)}).join('')+'</div>':'<div class="empty-state" style="background:var(--card);border-radius:16px;box-shadow:var(--shadow)"><div class="empty-state-icon">🚗</div><h3>لا مشاوير</h3><button class="btn btn-primary" style="margin-top:12px" onclick="showPage(\'create\')">➕ أنشئ مشوار</button></div>'}
+ if(tab==='reviews'){const rs=D.reviews.filter(function(r){return r.rateeId===u.id});C.innerHTML=rs.length?rs.map(function(r){const a=D.users.find(function(x){return x.id===r.raterId});return '<div style="background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:18px;margin-bottom:12px"><b>'+a.name+'</b> <span style="color:var(--gold)">⭐'+((r.punctuality+r.cleanliness+r.driving)/3).toFixed(1)+'</span><div style="font-size:12.5px;color:var(--muted);font-weight:700;margin-top:6px">⏰ التزام '+r.punctuality+'/5 · 🧼 نظافة '+r.cleanliness+'/5 · 🚗 قيادة '+r.driving+'/5</div>'+(r.comment?'<div style="font-size:13px;margin-top:6px">'+r.comment+'</div>':'')+'</div>'}).join(''):'<div class="empty-state" style="background:var(--card);border-radius:16px;box-shadow:var(--shadow)"><div class="empty-state-icon">⭐</div><h3>لا تقييمات بعد</h3><p>التقييم ثنائي الاتجاه: التزام بالموعد، نظافة، أسلوب قيادة</p></div>'}
+ if(tab==='settings'){C.innerHTML='<div style="background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:22px">'+
+ '<div class="form-group"><label>🎨 المظهر</label><div style="display:flex;gap:8px"><button class="btn '+(D.theme==='light'?'btn-primary':'btn-secondary')+' btn-sm" onclick="setTheme(\'light\')">☀️ فاتح</button><button class="btn '+(D.theme==='dark'?'btn-primary':'btn-secondary')+' btn-sm" onclick="setTheme(\'dark\')">🌙 ليلي</button></div></div>'+
+ '<div class="form-group"><label>🔠 حجم الخط (إتاحة لكبار السن)</label><div style="display:flex;gap:8px"><button class="btn '+(D.zoom===0?'btn-primary':'btn-secondary')+' btn-sm" onclick="setZoom(0)">عادي</button><button class="btn '+(D.zoom===1?'btn-primary':'btn-secondary')+' btn-sm" onclick="setZoom(1)">كبير</button><button class="btn '+(D.zoom===2?'btn-primary':'btn-secondary')+' btn-sm" onclick="setZoom(2)">كبير جداً</button></div></div>'+
+ '<div class="form-group"><label>🪪 التوثيق بالهوية الإماراتية (اختياري)</label>'+(u.verified?'<div style="background:rgba(0,171,108,.12);color:var(--accent);padding:12px;border-radius:12px;font-weight:800">✓ حسابك موثق بالهوية الإماراتية</div>':'<div style="display:flex;gap:8px"><input type="text" class="form-control" id="emInput" placeholder="784-1990-1234567-1"><button class="btn btn-primary btn-sm" onclick="verifyEmirates()">توثيق ✓</button></div>')+'</div>'+
+ '<div class="form-group"><label>📲 ثبّت المنصة كتطبيق (PWA)</label><button class="btn btn-secondary btn-sm" onclick="installApp()">⬇️ تثبيت على جهازي</button></div>'+
+ '<div class="form-group"><label>الاسم / الهاتف</label><input type="text" class="form-control" id="setName" value="'+u.name+'" style="margin-bottom:8px"><input type="tel" class="form-control" id="setPhone" value="'+u.phone+'"></div>'+
+ '<button class="btn btn-primary btn-block" style="margin-bottom:10px" onclick="saveSettings()">💾 حفظ</button><button class="btn btn-secondary btn-block" style="color:var(--danger)" onclick="logout()">🚪 خروج</button></div>'}}
+function setTheme(t){D.theme=t;save();applyTheme();if(document.getElementById('page-profile').classList.contains('active'))renderProfile()}
+function verifyEmirates(){const v=document.getElementById('emInput').value.replace(/\s/g,'');if(/^784-?\d{4}-?\d{7}-?\d$/.test(v)||/^\d{15}$/.test(v)){U().verified=true;const s=D.users.find(function(x){return x.id===U().id});s.verified=true;save();notify('🪪 تم توثيق حسابك بالهوية الإماراتية ✓','✅');showToast('تم التوثيق! شارة ✓ ظهرت على ملفك','success');renderProfile()}else{showToast('رقم الهوية غير صحيح (الصيغة: 784-YYYY-NNNNNNN-C)','error')}}
+function saveSettings(){const u=U();u.name=document.getElementById('setName').value||u.name;u.phone=document.getElementById('setPhone').value||u.phone;u.avatar=u.name[0];const s=D.users.find(function(x){return x.id===u.id});Object.assign(s,u);save();updateAuthUI();renderProfile();showToast('تم الحفظ','success')}
+function decideReq(id,ok){const b=D.bookings.find(function(x){return x.id===id});b.status=ok?'accepted':'rejected';const t=D.trips.find(function(x){return x.id===b.tripId});if(!ok)t.availableSeats+=b.seats;save();notify(ok?'✅ قبلت طلب '+D.users.find(function(u){return u.id===b.userId}).name:'❌ رفضت الطلب','📥');showToast(ok?'تم القبول — الرحلة نشطة':'تم الرفض وإرجاع المقعد',ok?'success':'warning');renderProfile()}
+function shareLive(id){const link='https://mashawiri.ae/live/'+id;if(navigator.share){navigator.share({title:'مشاويري — تتبع رحلتي لايف',url:link}).catch(function(){})}else{try{navigator.clipboard.writeText(link)}catch(e){}showToast('📡 تم نسخ رابط التتبع اللايف — أرسله لأهلك','success')}notify('📡 تمت مشاركة رحلتك لايف مع جهاتك المحددة','📡')}
+function sos(id){openModal('<div class="modal-header"><h3>🆘 زر الطوارئ</h3><button class="modal-close" onclick="closeModal()">✕</button></div><div class="modal-body"><div style="background:rgba(239,68,68,.1);border-radius:14px;padding:18px;line-height:1.9;font-size:14px;font-weight:700">سيتم إرسال <b>موقعك المباشر</b> وبيانات رحلتك فوراً إلى:<br>• جهات الاتصال الطارئة المحفوظة<br>• فريق أمان مشاويري (رد خلال دقائق)<br>• شرطة الإمارات 999 عند التأكيد الثاني</div></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal()">إلغاء</button><button class="btn btn-danger" onclick="sosConfirm()">🚨 تأكيد الاستغاثة</button></div>')}
+function sosConfirm(){closeModal();notify('🚨 SOS: تم إرسال الموقع لجهات الطوارئ وفريق الأمان','🚨');showToast('تم إرسال نداء الاستغاثة والموقع!','error')}
+let RATE={};
+function endAndRate(id){const b=D.bookings.find(function(x){return x.id===id});b.status='completed';const t=D.trips.find(function(x){return x.id===b.tripId});const ratee=b.userId===U().id?t.userId:b.userId;RATE={bookingId:id,rateeId:ratee,p:0,c:0,d:0,comment:''};save();openRateModal()}
+function openRateModal(){const CRIT=[['p','⏰ الالتزام بالموعد'],['c','🧼 نظافة السيارة'],['d','🚗 أسلوب القيادة']];
+ openModal('<div class="modal-header"><h3>⭐ قيّم رحلتك</h3><button class="modal-close" onclick="closeModal()">✕</button></div><div class="modal-body">'+CRIT.map(function(r){return '<div class="star-row"><span class="lbl">'+r[1]+'</span>'+[1,2,3,4,5].map(function(n){return '<span class="star '+(RATE[r[0]]>=n?'on':'')+'" onclick="RATE.'+r[0]+'='+n+';openRateModal()">★</span>'}).join('')+'</div>'}).join('')+
+ '<div class="form-group"><label>تعليق (اختياري)</label><textarea class="form-control" id="rateComment" oninput="RATE.comment=this.value">'+RATE.comment+'</textarea></div></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal()">تخطي</button><button class="btn btn-gold" onclick="submitRate()">✓ إرسال التقييم</button></div>')}
+function submitRate(){if(!RATE.p||!RATE.c||!RATE.d){showToast('قيّم المعايير الثلاثة','warning');return}const ratee=D.users.find(function(x){return x.id===RATE.ratee});const avg=(RATE.p+RATE.c+RATE.d)/3;ratee.rating=Math.round(((ratee.rating*ratee.trips)+avg)/(ratee.trips+1)*10)/10;ratee.trips++;D.reviews.push({id:Date.now(),raterId:U().id,rateeId:RATE.ratee,punctuality:RATE.p,cleanliness:RATE.c,driving:RATE.d,comment:RATE.comment,createdAt:Date.now()});const b=D.bookings.find(function(x){return x.id===RATE.bookingId});if(b)b.rated=true;save();closeModal();showToast('شكراً! تقييمك يساعد المجتمع','success');notify('⭐ وصلك تقييم جديد بمتوسط '+avg.toFixed(1),'⭐');renderProfile()}
+function renderStore(){document.getElementById('storePoints').textContent=U()?(U().points||0):0}
+function sharePlatform(){const link='https://mashawiri.ae/?ref='+(U()?U().id:'guest');const done=function(){if(U()){U().points=(U().points||0)+50;const s=D.users.find(function(x){return x.id===U().id});s.points=U().points;save();notify('🎁 +50 نقطة إحالة! شارك أكثر لتحصل على عضوية مجانية','🎁');showToast('🎁 +50 نقطة! ('+U().points+' نقطة)','success');renderStore()}else{showToast('تم نسخ رابط المنصة — سجّل دخولك لتجمع النقاط','success')}};
+ if(navigator.share){navigator.share({title:'مشاويري — شارك رحلتك ووفر',text:'منصة المشاوير المشتركة الأذكى في الإمارات!',url:link}).then(done).catch(function(){})}else{try{navigator.clipboard.writeText(link)}catch(e){}done()}}
+function redeem(pts,days){const u=U();if(!u){showToast('سجّل دخولك','warning');return}if((u.points||0)<pts){showToast('نقاطك غير كافية ('+u.points+'/'+pts+')','error');return}u.points-=pts;const s=D.users.find(function(x){return x.id===u.id});s.points=u.points;const base=Math.max(Date.now(),u.premiumUntil||0);u.premiumUntil=base+days*86400000;s.premiumUntil=u.premiumUntil;save();notify('👑 تم تفعيل عضوية مجانية '+days+' يوم بالنقاط!','👑');showToast('مبروك! عضوية مجانية '+days+' يوم','success');renderStore()}
+function buyPackage(type,days,price){if(!U()){showToast('سجّل دخولك أولاً','warning');showPage('auth');return}openModal('<div class="modal-header"><h3>💳 تأكيد الشراء</h3><button class="modal-close" onclick="closeModal()">✕</button></div><div class="modal-body"><div style="background:var(--bg);border-radius:14px;padding:16px;line-height:2;font-weight:700;font-size:14px">'+(type==='premium'?'👑 عضوية Premium شهرية':'📵 إزالة الإعلانات '+days+' يوم')+'<br>💰 المبلغ: <b style="color:var(--primary)">'+price+' درهم</b><br>💳 الدفع: Apple Pay / بطاقة / محفظة</div></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal()">إلغاء</button><button class="btn btn-success" onclick="finishBuy(\''+type+'\','+days+','+price+')">✓ ادفع '+price+' درهم</button></div>')}
+function finishBuy(type,days,price){const u=U();const s=D.users.find(function(x){return x.id===u.id});const field=type==='premium'?'premiumUntil':'adFreeUntil';const base=Math.max(Date.now(),u[field]||0);u[field]=base+days*86400000;s[field]=u[field];save();closeModal();notify(type==='premium'?'👑 تم تفعيل Premium: أولوية ظهور + بدون عمولة 10 رحلات':'📵 تم إزالة الإعلانات لمدة '+days+' يوم','🛒');showToast('تم الشراء وتفعيل الباقة فوراً!','success');renderStore();renderHome()}
+const TPL=['لسه فيه مكان؟','ممكن تستنى 5 دقايق؟','أنا عند نقطة الالتقاء','كام السعر النهائي؟'];
+function renderConversations(){const L=document.getElementById('conversationsList');L.innerHTML=D.conversations.length?D.conversations.map(function(c){const u=D.users.find(function(x){return x.id===c.userId});if(!u)return '';return '<div class="conversation-item" onclick="openChat('+u.id+')"><div class="conversation-avatar" style="background:'+(u.female?'linear-gradient(135deg,#ec4899,#be185d)':'linear-gradient(135deg,#3b82f6,#1d4ed8)')+'">'+u.avatar+'</div><div class="conversation-info"><div class="conversation-name">'+u.name+'</div><div class="conversation-last">'+c.lastMessage+'</div></div><div>'+(c.unread?'<div class="unread-badge">'+c.unread+'</div>':'<div style="font-size:10.5px;color:var(--muted)">'+c.time+'</div>')+'</div></div>'}).join(''):'<div class="empty-state"><div class="empty-state-icon">💬</div><h3>لا محادثات</h3></div>'}
+function openChat(uid){const u=D.users.find(function(x){return x.id===uid});if(!u)return;showPage('messages');const msgs=D.messages[uid]||[];
+ document.getElementById('chatArea').innerHTML='<div class="chat-header"><div class="conversation-avatar" style="width:40px;height:40px;background:'+(u.female?'linear-gradient(135deg,#ec4899,#be185d)':'linear-gradient(135deg,#3b82f6,#1d4ed8)')+'">'+u.avatar+'</div><div><div style="font-weight:800">'+u.name+' '+(u.verified?'✓':'')+'</div><div style="font-size:11.5px;color:var(--accent);font-weight:700">● متصل · 🛡 ثقة '+trustScore(u)+'%</div></div></div><div class="chat-messages" id="chatMessages">'+(msgs.length?msgs.map(function(m){return '<div class="message '+(m.from==='me'?'sent':'received')+'">'+m.text+'<div class="message-time">'+m.time+'</div></div>'}).join(''):'<div class="empty-state" style="margin:auto;padding:20px"><div class="empty-state-icon">👋</div><h3>ابدأ المحادثة</h3></div>')+'</div><div class="tpl-row">'+TPL.map(function(t){return '<button class="tpl-chip" onclick="sendTpl('+uid+',\''+t+'\')">'+t+'</button>'}).join('')+'</div><div class="chat-input"><input type="text" id="chatInput" placeholder="اكتب رسالة..." onkeypress="if(event.key===\'Enter\')sendMessageTo('+uid+')"><button class="btn btn-primary btn-sm" onclick="sendMessageTo('+uid+')">إرسال</button></div>';
+ const c=D.conversations.find(function(x){return x.userId===uid});if(c)c.unread=0;save();renderConversations();setTimeout(function(){const b=document.getElementById('chatMessages');if(b)b.scrollTop=b.scrollHeight},60)}
+function sendTpl(uid,t){if(!U()){showToast('سجّل دخولك','warning');return}pushMsg(uid,t)}
+function sendMessageTo(uid){const i=document.getElementById('chatInput');const v=i.value.trim();if(!v)return;if(!U()){showToast('سجّل دخولك','warning');return}pushMsg(uid,v)}
+function pushMsg(uid,text){if(!D.messages[uid])D.messages[uid]=[];const tm=new Date().toLocaleTimeString('ar-AE',{hour:'2-digit',minute:'2-digit'});D.messages[uid].push({from:'me',text:text,time:tm});const c=D.conversations.find(function(x){return x.userId===uid});if(c){c.lastMessage=text;c.time=tm}else{D.conversations.unshift({id:Date.now(),userId:uid,lastMessage:text,time:tm,unread:0})}save();openChat(uid)}
+let CW=1;
+function resetWizard(){CW=1;showCW()}
+function showCW(){[1,2,3].forEach(function(i){document.getElementById('cw'+i).style.display=i===CW?'block':'none'});document.querySelectorAll('#cwSteps .wstep').forEach(function(w){const s=+w.getAttribute('data-s');w.classList.toggle('active',s===CW);w.classList.toggle('done',s<CW)});if(CW===2)updatePriceHint();if(CW===3)buildReview()}
+function cwNext(dir){if(dir===1){const f=document.getElementById('cFrom').value,t=document.getElementById('cTo').value;if(!f||!t){showToast('اختر المدينتين','warning');return}if(f===t){showToast('لا يمكن أن تكون الوجهة نفس الانطلاق','error');return}CW=2;showCW()}else if(dir===2){if(!document.getElementById('cDate').value){showToast('اختر التاريخ','warning');return}const p=document.getElementById('cPrice').value;if(p===''){showToast('أدخل السعر','warning');return}CW=3;showCW()}else{CW=Math.max(1,CW-1);showCW()}}
+function updateTypeStyle(){const v=document.querySelector('input[name="cType"]:checked').value;document.getElementById('typeDriverLabel').classList.toggle('sel',v==='driver');document.getElementById('typePassengerLabel').classList.toggle('sel',v==='passenger')}
+function updatePriceHint(){const f=document.getElementById('cFrom').value,t=document.getElementById('cTo').value,p=+document.getElementById('cPrice').value;const el=document.getElementById('priceHint');if(!f||!t){el.innerHTML='🤖 اختر المسار لعرض السعر العادل';return}const info=fairInfo(f,t);let msg='🤖 <b>السعر العادل المقترح:</b> '+info.fair+' درهم (نطاق '+info.min+'-'+info.max+') لمسافة '+info.km+' كم';if(p)msg+=p>info.max?' · <span style="color:var(--warning)">⚠️ سعرك أعلى من العادل — قد يقل الإقبال</span>':(p<info.min?' · <span style="color:var(--accent)">💚 سعر منافس رائع!</span>':' · <span style="color:var(--accent)">✅ سعر عادل</span>');el.innerHTML=msg}
+function buildReview(){const type=document.querySelector('input[name="cType"]:checked').value;document.getElementById('cwReview').innerHTML=(type==='driver'?'🚗 سائق':'🙋 راكب')+' · '+document.getElementById('cFrom').value+' ('+(document.getElementById('cFromDetail').value||'المركز')+') ← '+document.getElementById('cTo').value+' ('+(document.getElementById('cToDetail').value||'المركز')+')<br>📅 '+formatDate(document.getElementById('cDate').value)+' ⏰ '+document.getElementById('cTime').value+' · 👥 '+document.getElementById('cSeats').value+' مقاعد · 💰 '+document.getElementById('cPrice').value+' درهم'+(document.getElementById('cFemaleOnly').checked?'<br>🎀 رحلة نساء فقط':'')+(document.getElementById('cRecurring').checked?'<br>🔄 متكرر يومياً':'')}
+function publishTrip(){if(!U()){showToast('سجّل دخولك أولاً','warning');showPage('auth');return}const seats=+document.getElementById('cSeats').value;
+ D.trips.unshift({id:Date.now(),userId:U().id,type:document.querySelector('input[name="cType"]:checked').value,from:document.getElementById('cFrom').value,to:document.getElementById('cTo').value,fromDetail:document.getElementById('cFromDetail').value||document.getElementById('cFrom').value+' - المركز',toDetail:document.getElementById('cToDetail').value||document.getElementById('cTo').value+' - المركز',date:document.getElementById('cDate').value,time:document.getElementById('cTime').value,seats:seats,availableSeats:seats,price:+document.getElementById('cPrice').value,recurring:document.getElementById('cRecurring').checked,femaleOnly:document.getElementById('cFemaleOnly').checked,description:document.getElementById('cDesc').value,createdAt:Date.now()});
+ save();showToast('تم نشر مشوارك! سيظهر للأعلى ثقة أولاً','success');notify('✅ مشوارك منشور الآن ويظهر في المطابقة الذكية','🚀');resetWizard();showPage('browse')}
+function openAssistant(){document.getElementById('assistantPanel').classList.add('open');document.getElementById('assistantFab').style.display='none';if(!document.getElementById('assistantMsgs').children.length)botSay('أهلاً! 🤖 أنا مساعد مشاويري الذكي. قولي مثلاً: «عايز أروح أبوظبي بكرة الصبح» وأنا ألاقي لك أفضل المشاوير أو أنشر طلبك تلقائياً.')}
+function closeAssistant(){document.getElementById('assistantPanel').classList.remove('open');document.getElementById('assistantFab').style.display='flex'}
+function botSay(html){const m=document.getElementById('assistantMsgs');m.insertAdjacentHTML('beforeend','<div class="message received" style="max-width:92%">'+html+'</div>');m.scrollTop=m.scrollHeight}
+function assistantSend(){const i=document.getElementById('assistantInput');const q=i.value.trim();if(!q)return;i.value='';const m=document.getElementById('assistantMsgs');m.insertAdjacentHTML('beforeend','<div class="message sent" style="max-width:92%">'+q+'</div>');m.scrollTop=m.scrollHeight;setTimeout(function(){botReply(q)},500)}
+function botReply(q){const foundCities=CITIES.filter(function(c){return q.indexOf(c)>-1});const dest=foundCities[foundCities.length-1];const origin=foundCities.length>1?foundCities[0]:(D.frequentRoutes[0]?D.frequentRoutes[0].from:'');let date=null;if(q.indexOf('بكرة')>-1||q.indexOf('غد')>-1)date=dstr(1);else if(q.indexOf('النهارده')>-1||q.indexOf('اليوم')>-1)date=dstr(0);let hour=null;if(q.indexOf('الصبح')>-1)hour='morning';else if(q.indexOf('بالليل')>-1||q.indexOf('مساء')>-1)hour='evening';
+ if(!dest){botSay('🤔 حدد وجهتك من فضلك (مثال: أبوظبي، دبي، العين...)');return}
+ let list=D.trips.filter(function(t){return t.type==='driver'&&t.availableSeats>0&&t.to===dest&&(!origin||t.from===origin)&&(!date||t.date===date)});
+ if(hour==='morning')list=list.filter(function(t){return +t.time.split(':')[0]<12});
+ if(hour==='evening')list=list.filter(function(t){return +t.time.split(':')[0]>=12});
+ list.sort(function(a,b){return trustOf(b.userId)-trustOf(a.userId)});const top=list.slice(0,3);
+ if(top.length){botSay('🎯 لقيت لك <b>'+top.length+'</b> مشوار مناسب إلى '+dest+'، مرتبة حسب درجة الثقة:');top.forEach(function(t){const u=D.users.find(function(x){return x.id===t.userId});document.getElementById('assistantMsgs').insertAdjacentHTML('beforeend','<div class="bot-card" onclick="closeAssistant();showTripDetail('+t.id+')"><b>'+t.fromDetail+' ← '+t.toDetail+'</b>📅 '+formatDate(t.date)+' ⏰ '+t.time+' · 💰 '+t.price+' درهم · 🛡 '+u.name+' ('+trustScore(u)+'%)<div style="color:var(--primary);font-weight:800;margin-top:4px">اضغط للحجز ←</div></div>')})}
+ else{botSay('😕 لا يوجد مشوار مطابق حالياً. أنشر طلبك كراكب دلوقتي ويوصلك إشعار أول ما ينزل مشوار على خطك؟');document.getElementById('assistantMsgs').insertAdjacentHTML('beforeend','<div class="bot-card" onclick="autoPublish(\''+(origin||'دبي')+'\',\''+dest+'\',\''+(date||dstr(1))+'\')"><b>📢 نشر طلب تلقائي</b>'+(origin||'دبي')+' ← '+dest+' · '+formatDate(date||dstr(1))+'<div style="color:var(--accent);font-weight:800;margin-top:4px">اضغط للنشر الفوري</div></div>')}
+ document.getElementById('assistantMsgs').scrollTop=document.getElementById('assistantMsgs').scrollHeight}
+function autoPublish(f,t,date){if(!U()){showToast('سجّل دخولك','warning');closeAssistant();showPage('auth');return}D.trips.unshift({id:Date.now(),userId:U().id,type:'passenger',from:f,to:t,fromDetail:f+' - المركز',toDetail:t+' - المركز',date:date,time:'08:00',seats:1,availableSeats:1,price:fairInfo(f,t).fair,recurring:false,femaleOnly:false,description:'طلب منشور تلقائياً عبر المساعد الذكي 🤖',createdAt:Date.now()});save();closeAssistant();notify('📢 طلبك منشور! سنخطرك أول مطابقة ذكية','🤖');showToast('تم نشر طلبك تلقائياً','success');showPage('browse')}
+function switchAuthTab(t,b){document.querySelectorAll('.auth-tab').forEach(function(x){x.classList.remove('active')});b.classList.add('active');document.getElementById('loginForm').style.display=t==='login'?'block':'none';document.getElementById('registerForm').style.display=t==='register'?'block':'none'}
+function login(){const em=document.getElementById('loginEmail').value.trim();if(!em){showToast('أدخل البريد','warning');return}let u=D.users.find(function(x){return x.email===em});if(!u){u={id:Date.now(),name:em.split('@')[0],email:em,phone:'+971 50 000 0000',avatar:em[0].toUpperCase(),trips:0,rating:5,verified:false,female:false,points:0,premiumUntil:0,adFreeUntil:0};D.users.push(u)}D.currentUser=u;save();updateAuthUI();showToast('أهلاً '+u.name+'!','success');showPage('home')}
+function register(){const fn=document.getElementById('regFirstName').value.trim(),ln=document.getElementById('regLastName').value.trim(),em=document.getElementById('regEmail').value.trim(),ph=document.getElementById('regPhone').value.trim(),pw=document.getElementById('regPassword').value,emid=document.getElementById('regEmirates').value.trim(),g=document.getElementById('regGender').value;
+ if(!fn||!ln||!em||!ph||!pw){showToast('اكمل كل الحقول','warning');return}if(pw.length<8){showToast('كلمة المرور 8 أحرف+','warning');return}if(!document.getElementById('regTerms').checked){showToast('وافق على الشروط','warning');return}
+ let verified=false;if(emid){if(/^784-?\d{4}-?\d{7}-?\d$/.test(emid.replace(/\s/g,''))||/^\d{15}$/.test(emid.replace(/\s/g,'')))verified=true;else{showToast('صيغة الهوية غير صحيحة','error');return}}
+ const u={id:Date.now(),name:fn+' '+ln,email:em,phone:ph,avatar:fn[0],trips:0,rating:5,verified:verified,female:g==='female',points:100,premiumUntil:0,adFreeUntil:0};D.users.push(u);D.currentUser=u;save();updateAuthUI();notify('🎁 100 نقطة ترحيبية لحسابك الجديد!','🎁');showToast('مرحباً بك! حصلت على 100 نقطة ترحيبية','success');showPage('home')}
+function socialLogin(p){const u={id:Date.now(),name:'مستخدم '+p,email:'u@'+p.replace(/\W/g,'')+'.com',phone:'+971 50 000 0000',avatar:'م',trips:0,rating:5,verified:p==='UAE Pass',female:false,points:100,premiumUntil:0,adFreeUntil:0};D.users.push(u);D.currentUser=u;save();updateAuthUI();showToast('دخول عبر '+p,'success');showPage('home')}
+function logout(){D.currentUser=null;save();updateAuthUI();showToast('تم الخروج','success');showPage('home')}
+function updateAuthUI(){const u=U();document.getElementById('authBtn').style.display=u?'none':'block';const av=document.getElementById('userAvatarNav');av.style.display=u?'flex':'none';if(u)av.textContent=u.avatar}
+let deferredPrompt=null;
+window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();deferredPrompt=e});
+function installApp(){if(deferredPrompt){deferredPrompt.prompt();deferredPrompt.userChoice.then(function(){deferredPrompt=null})}else{showToast('من قائمة المتصفح اختر إضافة إلى الشاشة الرئيسية','success')}}
+(function(){try{const manifest={name:'مشاويري - مشاوير مشتركة الإمارات',short_name:'مشاويري',start_url:'.',display:'standalone',background_color:'#0052a5',theme_color:'#0052a5',icons:[{src:'data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="#0052a5"/><text x="50" y="68" font-size="52" text-anchor="middle">🚗</text></svg>'),sizes:'any',type:'image/svg+xml'}]};const l=document.createElement('link');l.rel='manifest';l.href='data:application/manifest+json,'+encodeURIComponent(JSON.stringify(manifest));document.head.appendChild(l)}catch(e){}})();
+document.addEventListener('DOMContentLoaded',function(){applyTheme();updateAuthUI();fillCitySelects();renderHome();renderNotifDot();
+ const di=document.getElementById('cDate');if(di){di.min=dstr(0);di.value=dstr(1)}
+ setTimeout(function(){D.bookings.forEach(function(b){if(b.status==='accepted'&&U()&&b.userId===U().id&&D.reminded.indexOf(b.id)<0){const t=D.trips.find(function(x){return x.id===b.tripId});if(t){const hrs=(new Date(t.date+'T'+t.time)-new Date())/3600000;if(hrs>0&&hrs<=24){D.reminded.push(b.id);notify('⏰ تذكير: رحلتك '+t.fromDetail+' ← '+t.toDetail+' بعد '+Math.round(hrs)+' ساعات — نقطة الالتقاء: '+b.pickup,'⏰');save();renderNotifDot()}}}});
+ if(U()&&D.frequentRoutes.length){const r=D.frequentRoutes[0];const nt=D.trips.find(function(t){return t.from===r.from&&t.to===r.to&&t.availableSeats>0&&t.createdAt>Date.now()-604800000});if(nt)notify('🆕 مشوار جديد على خطك المعتاد '+r.from+' ← '+r.to+' بسعر '+nt.price+' درهم!','⚡')}
+ renderNotifDot()},1500)});
+</script>
+</body>
+</html>
