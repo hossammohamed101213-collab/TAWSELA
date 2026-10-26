@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#0052a5">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<title>مشاويري 🇦🇪 - منصة المشاوير المشتركة الذكية</title>
+<title>مشاويري 🇦🇪 - Mashawiri UAE</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/tajawal@5.1.0/400.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/tajawal@5.1.0/500.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/tajawal@5.1.0/700.css">
@@ -13,23 +13,17 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/tajawal@5.1.0/900.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --primary:#0052a5;--primary-dark:#003d7a;--secondary:#c8102e;--accent:#00ab6c;--gold:#d4af37;
-  --bg:#f5f7fa;--card:#ffffff;--text:#1a2332;--muted:#64748b;--border:#e2e8f0;
-  --danger:#ef4444;--warning:#f59e0b;--pink:#be185d;
-  --shadow:0 4px 20px rgba(0,0,0,.06);--shadow-lg:0 10px 40px rgba(0,0,0,.12);
-  --input:#f8fafc;
-}
-html[data-theme="dark"]{
-  --bg:#0b1220;--card:#141d31;--text:#e6edf7;--muted:#94a3b8;--border:#243149;--input:#0f1728;
-  --shadow:0 4px 20px rgba(0,0,0,.35);--shadow-lg:0 10px 40px rgba(0,0,0,.5);
-}
+:root{--primary:#0052a5;--primary-dark:#003d7a;--secondary:#c8102e;--accent:#00ab6c;--gold:#d4af37;--bg:#f5f7fa;--card:#fff;--text:#1a2332;--muted:#64748b;--border:#e2e8f0;--danger:#ef4444;--warning:#f59e0b;--pink:#be185d;--shadow:0 4px 20px rgba(0,0,0,.06);--shadow-lg:0 10px 40px rgba(0,0,0,.12);--input:#f8fafc}
+html[data-theme="dark"]{--bg:#0b1220;--card:#141d31;--text:#e6edf7;--muted:#94a3b8;--border:#243149;--input:#0f1728;--shadow:0 4px 20px rgba(0,0,0,.35);--shadow-lg:0 10px 40px rgba(0,0,0,.5)}
 body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;transition:background .3s,color .3s}
 body.zoom-1{zoom:1.12}body.zoom-2{zoom:1.25}
-button{font-family:'Tajawal',sans-serif}
-input,select,textarea{font-family:'Tajawal',sans-serif;color:var(--text)}
+button{font-family:'Tajawal',sans-serif}input,select,textarea{font-family:'Tajawal',sans-serif;color:var(--text)}
+html[dir="ltr"] .route-line{margin-left:0;margin-right:12px}
+html[dir="ltr"] .trip-price{margin-right:0;margin-left:auto}
+html[dir="ltr"] .sort-select{margin-right:0;margin-left:auto}
+html[dir="ltr"] .unread-badge{margin-left:0;margin-right:auto}
 .top-nav{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,82,165,.25)}
-.nav-container{max-width:1200px;margin:0 auto;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.nav-container{max-width:1200px;margin:0 auto;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
 .logo{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:900;cursor:pointer}
 .logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--gold),#f0c850);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px}
 .nav-links{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
@@ -37,7 +31,7 @@ input,select,textarea{font-family:'Tajawal',sans-serif;color:var(--text)}
 .nav-link:hover{background:rgba(255,255,255,.15);color:#fff}
 .nav-link.active{background:rgba(255,255,255,.22);color:#fff}
 .nav-user{display:flex;align-items:center;gap:8px}
-.icon-btn{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:17px;cursor:pointer;position:relative;display:flex;align-items:center;justify-content:center}
+.icon-btn{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:16px;cursor:pointer;position:relative;display:flex;align-items:center;justify-content:center}
 .icon-btn:hover{background:rgba(255,255,255,.28)}
 .notif-dot{position:absolute;top:-3px;left:-3px;background:var(--secondary);color:#fff;min-width:18px;height:18px;border-radius:9px;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;padding:0 4px;border:2px solid var(--primary-dark)}
 .user-avatar-nav{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#f0c850);display:none;align-items:center;justify-content:center;font-weight:900;color:var(--primary-dark);cursor:pointer;border:2px solid rgba(255,255,255,.4)}
@@ -46,11 +40,25 @@ input,select,textarea{font-family:'Tajawal',sans-serif;color:var(--text)}
 .notif-drop.open{display:block}
 .notif-head{padding:14px 16px;font-weight:800;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:14px}
 .notif-head button{border:none;background:none;color:var(--primary);font-weight:700;font-size:12px;cursor:pointer}
-html[data-theme="dark"] .notif-head button{color:#6db3f2}
 .notif-item{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;gap:10px;font-size:13px;line-height:1.6;align-items:flex-start}
 .notif-item.unread{background:rgba(0,82,165,.06)}
-.notif-item .ic{font-size:18px}
-.notif-item .tm{font-size:11px;color:var(--muted);margin-top:2px}
+.notif-item .ic{font-size:18px}.notif-item .tm{font-size:11px;color:var(--muted);margin-top:2px}
+/* SIDEBAR */
+#sidebar{position:fixed;top:0;bottom:0;right:0;width:270px;max-width:85vw;background:var(--card);z-index:500;transform:translateX(105%);transition:transform .3s;box-shadow:var(--shadow-lg);display:flex;flex-direction:column;overflow-y:auto}
+html[dir="ltr"] #sidebar{right:auto;left:0;transform:translateX(-105%)}
+#sidebar.open{transform:translateX(0)!important}
+#sideBackdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:490;display:none}
+#sideBackdrop.open{display:block}
+.side-head{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;padding:16px;display:flex;justify-content:space-between;align-items:center;font-weight:900;font-size:17px}
+.side-head button{background:rgba(255,255,255,.2);border:none;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer}
+.side-item{display:flex;align-items:center;gap:10px;padding:13px 18px;font-size:14px;font-weight:700;color:var(--text);cursor:pointer;border:none;background:none;width:100%;text-align:start;border-bottom:1px solid var(--border)}
+.side-item:hover{background:var(--bg)}
+.side-item.active{background:var(--bg);color:var(--primary);border-inline-start:4px solid var(--primary)}
+.side-sep{height:8px;background:var(--bg)}
+.side-foot{margin-top:auto;padding:14px 18px;font-size:11.5px;color:var(--muted);font-weight:700}
+.wa-btn{margin:10px 18px;padding:11px;border:none;border-radius:12px;background:#25d366;color:#fff;font-weight:800;font-size:13.5px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
+/* BACK BTN */
+#backBtn{display:none}
 .hero{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;padding:50px 20px 85px;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-40%;right:-15%;width:600px;height:600px;background:radial-gradient(circle,rgba(212,175,55,.18),transparent 70%);border-radius:50%}
 .hero-content{max-width:1100px;margin:0 auto;position:relative;z-index:2;text-align:center}
@@ -58,7 +66,7 @@ html[data-theme="dark"] .notif-head button{color:#6db3f2}
 .hero h1{font-size:42px;font-weight:900;margin-bottom:12px;line-height:1.35}
 .hero h1 span{color:var(--gold)}
 .hero p{font-size:17px;opacity:.92;margin:0 auto 30px;max-width:640px;line-height:1.8}
-.search-main{background:var(--card);color:var(--text);border-radius:20px;padding:18px;max-width:920px;margin:0 auto;box-shadow:var(--shadow-lg);display:grid;grid-template-columns:1fr 1fr auto;gap:12px;align-items:end;text-align:right}
+.search-main{background:var(--card);color:var(--text);border-radius:20px;padding:18px;max-width:920px;margin:0 auto;box-shadow:var(--shadow-lg);display:grid;grid-template-columns:1fr 1fr auto;gap:12px;align-items:end;text-align:start}
 .search-field{display:flex;flex-direction:column;gap:6px;position:relative}
 .search-field label{font-size:12px;font-weight:800;color:var(--muted)}
 .search-field input{padding:12px 14px;border:2px solid var(--border);border-radius:12px;font-size:14px;font-weight:700;outline:none;background:var(--input)}
@@ -88,8 +96,7 @@ html[data-theme="dark"] .section-title span{color:#6db3f2}
 .ad-banner strong{font-size:15px}
 .ad-banner .ad-actions{display:flex;gap:8px;flex-wrap:wrap}
 .ad-banner button{border:none;border-radius:10px;padding:9px 14px;font-weight:800;font-size:12.5px;cursor:pointer}
-.ad-btn-light{background:#fff;color:#b45309}
-.ad-btn-dark{background:rgba(0,0,0,.3);color:#fff}
+.ad-btn-light{background:#fff;color:#b45309}.ad-btn-dark{background:rgba(0,0,0,.3);color:#fff}
 .filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;background:var(--card);padding:12px;border-radius:16px;box-shadow:var(--shadow);align-items:center}
 .filter-chip{padding:9px 16px;border-radius:12px;border:2px solid var(--border);background:var(--card);font-size:12.5px;font-weight:700;cursor:pointer;color:var(--text);transition:.2s}
 .filter-chip:hover{border-color:var(--primary);color:var(--primary)}
@@ -143,7 +150,7 @@ html[data-theme="dark"] .ai-badge.match{color:#6db3f2}
 .feature-icon{width:60px;height:60px;border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:26px}
 .feature-card h3{font-size:17px;font-weight:800;margin-bottom:8px}
 .feature-card p{font-size:13.5px;color:var(--muted);line-height:1.7}
-.cta-section{background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:24px;padding:44px 30px;color:#fff;text-align:center;margin:26px 0 44px;position:relative;overflow:hidden}
+.cta-section{background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:24px;padding:44px 30px;color:#fff;text-align:center;margin:26px 0 44px}
 .cta-section h2{font-size:29px;font-weight:900;margin-bottom:10px}
 .cta-section p{font-size:15px;opacity:.92;margin-bottom:24px}
 .cta-btn{padding:14px 34px;background:var(--gold);color:#3b2f00;border:none;border-radius:14px;font-size:16px;font-weight:900;cursor:pointer}
@@ -154,7 +161,7 @@ html[data-theme="dark"] .ai-badge.match{color:#6db3f2}
 .footer-col a:hover{color:#fff}
 .footer-col p{color:rgba(255,255,255,.7);font-size:13.5px;line-height:1.8}
 .footer-bottom{max-width:1200px;margin:0 auto;padding-top:16px;border-top:1px solid rgba(255,255,255,.12);text-align:center;font-size:12.5px;color:rgba(255,255,255,.5)}
-.form-group{margin-bottom:16px;text-align:right}
+.form-group{margin-bottom:16px;text-align:start}
 .form-group>label{display:block;font-size:13.5px;font-weight:800;margin-bottom:7px}
 .form-control{width:100%;padding:12px 14px;border:2px solid var(--border);border-radius:12px;font-size:14px;font-weight:600;outline:none;background:var(--input);transition:.2s}
 .form-control:focus{border-color:var(--primary)}
@@ -167,13 +174,13 @@ textarea.form-control{min-height:90px;resize:vertical}
 .btn-success{background:linear-gradient(135deg,var(--accent),#059669);color:#fff}
 .btn-gold{background:linear-gradient(135deg,var(--gold),#f0c850);color:#3b2f00}
 .btn-danger{background:var(--danger);color:#fff}
+.btn-wa{background:#25d366;color:#fff}
 .btn-block{width:100%}
 .btn-sm{padding:8px 14px;font-size:12.5px;border-radius:10px}
 .wizard-steps{display:flex;gap:6px;justify-content:center;margin-bottom:22px;flex-wrap:wrap}
 .wstep{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:800;color:var(--muted)}
 .wstep .num{width:28px;height:28px;border-radius:50%;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:13px}
-.wstep.active{color:var(--primary)}
-.wstep.active .num{background:var(--primary);color:#fff}
+.wstep.active{color:var(--primary)}.wstep.active .num{background:var(--primary);color:#fff}
 .wstep.done .num{background:var(--accent);color:#fff}
 .wizard-nav{display:flex;gap:10px;margin-top:18px}
 .auth-container{max-width:460px;margin:36px auto;padding:0 20px}
@@ -257,7 +264,7 @@ html[data-theme="dark"] .booking-form h3{color:#6db3f2}
 .store-price{font-size:32px;font-weight:900;color:var(--primary);margin:10px 0}
 html[data-theme="dark"] .store-price{color:#6db3f2}
 .store-price small{font-size:13px;color:var(--muted);font-weight:700}
-.store-feats{list-style:none;text-align:right;margin:14px 0;font-size:13px;line-height:2}
+.store-feats{list-style:none;text-align:start;margin:14px 0;font-size:13px;line-height:2}
 .points-box{background:linear-gradient(135deg,var(--gold),#f0c850);border-radius:18px;padding:24px;color:#3b2f00;text-align:center;box-shadow:var(--shadow)}
 .points-box .pts{font-size:40px;font-weight:900}
 .assistant-fab{position:fixed;bottom:86px;left:18px;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;border:none;font-size:26px;cursor:pointer;box-shadow:0 6px 24px rgba(0,82,165,.45);z-index:120;display:flex;align-items:center;justify-content:center}
@@ -302,6 +309,15 @@ html[data-theme="dark"] .mobile-nav button.active{color:#6db3f2}
 .route-save-row select,.route-save-row input{padding:9px 10px;border:2px solid var(--border);border-radius:10px;background:var(--input);font-size:12.5px;font-weight:700;outline:none;color:var(--text)}
 .fq-route{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--card);border-radius:14px;padding:13px 16px;box-shadow:var(--shadow);margin-bottom:10px;flex-wrap:wrap;color:var(--text)}
 .fq-route b{font-size:14px}
+.fb-card{background:var(--card);border-radius:14px;padding:16px;box-shadow:var(--shadow);margin-bottom:10px;color:var(--text)}
+.fb-card .st{font-size:11px;font-weight:800;padding:3px 10px;border-radius:10px}
+.fb-card .st.new{background:rgba(245,158,11,.15);color:#b45309}
+.fb-card .st.done{background:rgba(0,171,108,.15);color:var(--accent)}
+.adm-stat{background:var(--card);border-radius:14px;padding:18px;box-shadow:var(--shadow);text-align:center}
+.adm-stat .v{font-size:24px;font-weight:900;color:var(--primary)}
+html[data-theme="dark"] .adm-stat .v{color:#6db3f2}
+.adm-stat .l{font-size:12px;color:var(--muted);font-weight:700}
+.adm-row{background:var(--card);border-radius:12px;padding:14px;box-shadow:var(--shadow);margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;color:var(--text)}
 ::-webkit-scrollbar{width:7px;height:7px}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
@@ -321,26 +337,50 @@ html[data-theme="dark"] .mobile-nav button.active{color:#6db3f2}
 <body>
 
 <div class="toast" id="toast"></div>
+<div id="sideBackdrop" onclick="closeSidebar()"></div>
+<aside id="sidebar">
+  <div class="side-head"><span>🚗 <span data-i18n="app_name"></span></span><button onclick="closeSidebar()">✕</button></div>
+  <button class="side-item" data-nav="home" onclick="showPage('home');closeSidebar()">🏠 <span data-i18n="nav_home"></span></button>
+  <button class="side-item" data-nav="browse" onclick="showPage('browse');closeSidebar()">🔍 <span data-i18n="nav_browse"></span></button>
+  <button class="side-item" data-nav="create" onclick="showPage('create');closeSidebar()">➕ <span data-i18n="nav_create"></span></button>
+  <button class="side-item" data-nav="messages" onclick="showPage('messages');closeSidebar()">💬 <span data-i18n="nav_messages"></span></button>
+  <button class="side-item" data-nav="store" onclick="showPage('store');closeSidebar()">👑 <span data-i18n="nav_store"></span></button>
+  <button class="side-item" data-nav="feedback" onclick="showPage('feedback');closeSidebar()">📮 <span data-i18n="nav_feedback"></span></button>
+  <button class="side-item" data-nav="profile" onclick="showPage('profile');closeSidebar()">👤 <span data-i18n="nav_profile"></span></button>
+  <button class="side-item admin-only" data-nav="admin" style="display:none" onclick="showPage('admin');closeSidebar()">🛡 <span data-i18n="nav_admin"></span></button>
+  <div class="side-sep"></div>
+  <button class="side-item" onclick="toggleTheme()">🌓 <span data-i18n="theme"></span></button>
+  <button class="side-item" onclick="toggleLang()">🌐 <span id="langLabel">English</span></button>
+  <button class="side-item" onclick="setZoomCycle()">🔠 <span data-i18n="font_size"></span></button>
+  <button class="wa-btn" onclick="waSupport()">💬 <span data-i18n="wa_support"></span></button>
+  <div class="side-foot">مشاويري © 2026 · v3.0</div>
+</aside>
 
 <nav class="top-nav">
   <div class="nav-container">
-    <div class="logo" onclick="showPage('home')"><div class="logo-icon">🚗</div><span>مشاويري</span></div>
+    <div style="display:flex;align-items:center;gap:8px">
+      <button class="icon-btn" onclick="openSidebar()" title="القائمة">☰</button>
+      <button class="icon-btn" id="backBtn" onclick="goBack()" title="رجوع">←</button>
+      <div class="logo" onclick="showPage('home')"><div class="logo-icon">🚗</div><span data-i18n="app_name"></span></div>
+    </div>
     <div class="nav-links">
-      <button class="nav-link active" data-nav="home" onclick="showPage('home')">🏠 الرئيسية</button>
-      <button class="nav-link" data-nav="browse" onclick="showPage('browse')">🔍 المشاوير</button>
-      <button class="nav-link" data-nav="create" onclick="showPage('create')">➕ إنشاء مشوار</button>
-      <button class="nav-link" data-nav="messages" onclick="showPage('messages')">💬 الرسائل</button>
-      <button class="nav-link" data-nav="store" onclick="showPage('store')">👑 المتجر</button>
+      <button class="nav-link active" data-nav="home" onclick="showPage('home')" data-i18n="nav_home"></button>
+      <button class="nav-link" data-nav="browse" onclick="showPage('browse')" data-i18n="nav_browse"></button>
+      <button class="nav-link" data-nav="create" onclick="showPage('create')" data-i18n="nav_create"></button>
+      <button class="nav-link" data-nav="messages" onclick="showPage('messages')" data-i18n="nav_messages"></button>
+      <button class="nav-link" data-nav="store" onclick="showPage('store')" data-i18n="nav_store"></button>
+      <button class="nav-link admin-only" data-nav="admin" style="display:none" onclick="showPage('admin')" data-i18n="nav_admin"></button>
     </div>
     <div class="nav-user">
-      <button class="icon-btn" id="themeBtn" onclick="toggleTheme()" title="الوضع الليلي">🌙</button>
-      <button class="icon-btn" onclick="toggleNotif()" title="الإشعارات">🔔<span class="notif-dot" id="notifDot" style="display:none">0</span></button>
-      <button class="btn-login" id="authBtn" onclick="showPage('auth')">تسجيل الدخول</button>
+      <button class="icon-btn" onclick="toggleLang()" title="Language">🌐</button>
+      <button class="icon-btn" id="themeBtn" onclick="toggleTheme()" title="الثيم">🌙</button>
+      <button class="icon-btn" onclick="toggleNotif()">🔔<span class="notif-dot" id="notifDot" style="display:none">0</span></button>
+      <button class="btn-login" id="authBtn" onclick="showPage('auth')" data-i18n="login"></button>
       <div class="user-avatar-nav" id="userAvatarNav" onclick="showPage('profile')"></div>
     </div>
   </div>
   <div class="notif-drop" id="notifDrop">
-    <div class="notif-head">🔔 الإشعارات <button onclick="markAllRead()">تحديد الكل كمقروء</button></div>
+    <div class="notif-head"><span data-i18n="notifs"></span> <button onclick="markAllRead()" data-i18n="mark_read"></button></div>
     <div id="notifList" style="max-height:320px;overflow-y:auto"></div>
   </div>
 </nav>
@@ -348,119 +388,108 @@ html[data-theme="dark"] .mobile-nav button.active{color:#6db3f2}
 <div class="page active" id="page-home">
   <section class="hero">
     <div class="hero-content">
-      <div class="hero-badge">🇦🇪 المنصة الأذكى للمشاوير المشتركة في الإمارات</div>
-      <h1>شارك رحلتك، <span>وفّر تكلفتك</span></h1>
-      <p>مطابقة ذكية بين السائقين والركاب، أسعار عادلة محسوبة بالمسافات، وتوثيق اختياري بالهوية الإماراتية.</p>
+      <div class="hero-badge" data-i18n="hero_badge"></div>
+      <h1><span data-i18n="hero_t1"></span> <span style="color:var(--gold)" data-i18n="hero_t2"></span></h1>
+      <p data-i18n="hero_sub"></p>
       <div class="search-main">
         <div class="search-field">
-          <label>📍 من أين؟</label>
-          <input type="text" id="searchFromInput" placeholder="اكتب المدينة..." oninput="acShow('from')" onfocus="acShow('from')" autocomplete="off">
+          <label data-i18n="from_where"></label>
+          <input type="text" id="searchFromInput" oninput="acShow('from')" onfocus="acShow('from')" autocomplete="off">
           <div class="ac-list" id="acFromList"></div>
         </div>
         <div class="search-field">
-          <label>🎯 إلى أين؟</label>
-          <input type="text" id="searchToInput" placeholder="اكتب المدينة..." oninput="acShow('to')" onfocus="acShow('to')" autocomplete="off">
+          <label data-i18n="to_where"></label>
+          <input type="text" id="searchToInput" oninput="acShow('to')" onfocus="acShow('to')" autocomplete="off">
           <div class="ac-list" id="acToList"></div>
         </div>
-        <button class="search-btn" onclick="doSearch()">🔍 ابحث بذكاء</button>
+        <button class="search-btn" onclick="doSearch()" data-i18n="search_btn"></button>
       </div>
       <div class="recent-row" id="recentRow"></div>
     </div>
   </section>
-
   <div class="stats">
-    <div class="stat-card"><div class="stat-icon" style="background:#dbeafe">🚗</div><div class="stat-value" id="statTrips">0</div><div class="stat-label">مشوار متاح</div></div>
-    <div class="stat-card"><div class="stat-icon" style="background:#dcfce7">👥</div><div class="stat-value" id="statUsers">0</div><div class="stat-label">مستخدم مسجل</div></div>
-    <div class="stat-card"><div class="stat-icon" style="background:#fef3c7">⭐</div><div class="stat-value">4.8</div><div class="stat-label">متوسط التقييم</div></div>
-    <div class="stat-card"><div class="stat-icon" style="background:#fee2e2">🤖</div><div class="stat-value" id="statMatches">0</div><div class="stat-label">مطابقة ذكية اليوم</div></div>
+    <div class="stat-card"><div class="stat-icon" style="background:#dbeafe">🚗</div><div class="stat-value" id="statTrips">0</div><div class="stat-label" data-i18n="stat_trips"></div></div>
+    <div class="stat-card"><div class="stat-icon" style="background:#dcfce7">👥</div><div class="stat-value" id="statUsers">0</div><div class="stat-label" data-i18n="stat_users"></div></div>
+    <div class="stat-card"><div class="stat-icon" style="background:#fef3c7">⭐</div><div class="stat-value">4.8</div><div class="stat-label" data-i18n="stat_rating"></div></div>
+    <div class="stat-card"><div class="stat-icon" style="background:#fee2e2">🤖</div><div class="stat-value" id="statMatches">0</div><div class="stat-label" data-i18n="stat_matches"></div></div>
   </div>
-
   <div class="container">
     <div id="adHome"></div>
-
     <div class="section" id="matchedSection" style="display:none">
       <div class="section-header"><div>
-        <h2 class="section-title">⚡ مطابقة ذكية <span>لك</span></h2>
-        <p class="section-subtitle">مشاوير تطابق مساراتك المعتادة وعمليات بحثك — بدون ما تدوّر عليها</p>
+        <h2 class="section-title">⚡ <span data-i18n="matched_t"></span></h2>
+        <p class="section-subtitle" data-i18n="matched_s"></p>
       </div></div>
       <div class="trips-grid" id="matchedTrips"></div>
     </div>
-
     <div class="section">
       <div class="section-header"><div>
-        <h2 class="section-title">📍 مساراتي <span>المعتادة</span></h2>
-        <p class="section-subtitle">احفظ خط البيت/الشغل واحجز بضغطة واحدة</p>
+        <h2 class="section-title">📍 <span data-i18n="routes_t"></span></h2>
+        <p class="section-subtitle" data-i18n="routes_s"></p>
       </div></div>
       <div class="route-save-row">
-        <select id="fqFrom"></select>
-        <span>←</span>
-        <select id="fqTo"></select>
-        <input type="text" id="fqLabel" placeholder="التسمية (مثال: البيت-الشغل)" style="flex:1;min-width:140px">
-        <button class="btn btn-primary btn-sm" onclick="addRoute()">＋ حفظ المسار</button>
+        <select id="fqFrom"></select><span>←</span><select id="fqTo"></select>
+        <input type="text" id="fqLabel" data-i18n-ph="route_label_ph" style="flex:1;min-width:140px">
+        <button class="btn btn-primary btn-sm" onclick="addRoute()" data-i18n="save_route"></button>
       </div>
       <div id="homeRoutes"></div>
     </div>
-
     <div class="section">
       <div class="section-header"><div>
-        <h2 class="section-title">أحدث <span>المشاوير</span></h2>
-        <p class="section-subtitle">مرتبة حسب درجة الثقة والمطابقة</p>
+        <h2 class="section-title" data-i18n="latest_t"></h2>
+        <p class="section-subtitle" data-i18n="latest_s"></p>
       </div>
-      <button class="btn btn-secondary" onclick="showPage('browse')">عرض الكل ←</button></div>
+      <button class="btn btn-secondary" onclick="showPage('browse')" data-i18n="view_all"></button></div>
       <div class="trips-grid" id="popularTrips"></div>
     </div>
-
     <div class="section">
       <div class="features-grid">
-        <div class="feature-card"><div class="feature-icon" style="background:#dbeafe">🤖</div><h3>مطابقة ذكية</h3><p>نقترح عليك مشاوير تطابق خطك ومواعيدك تلقائياً قبل ما تبحث.</p></div>
-        <div class="feature-card"><div class="feature-icon" style="background:#dcfce7">💰</div><h3>سعر عادل تلقائياً</h3><p>حساب السعر المقترح حسب المسافة الحقيقية بين مدن الإمارات.</p></div>
-        <div class="feature-card"><div class="feature-icon" style="background:#fce7f3">🎀</div><h3>رحلات للنساء فقط</h3><p>سائقات موثوقات ورحلات مخصصة للإناث فقط لمن ترغب.</p></div>
-        <div class="feature-card"><div class="feature-icon" style="background:#fef3c7">🆘</div><h3>أمان كامل</h3><p>زر طوارئ SOS، مشاركة الرحلة لايف مع الأهل، وتوثيق بالهوية الإماراتية.</p></div>
+        <div class="feature-card"><div class="feature-icon" style="background:#dbeafe">🤖</div><h3 data-i18n="f1t"></h3><p data-i18n="f1d"></p></div>
+        <div class="feature-card"><div class="feature-icon" style="background:#dcfce7">💰</div><h3 data-i18n="f2t"></h3><p data-i18n="f2d"></p></div>
+        <div class="feature-card"><div class="feature-icon" style="background:#fce7f3">🎀</div><h3 data-i18n="f3t"></h3><p data-i18n="f3d"></p></div>
+        <div class="feature-card"><div class="feature-icon" style="background:#fef3c7">🆘</div><h3 data-i18n="f4t"></h3><p data-i18n="f4d"></p></div>
       </div>
     </div>
-
     <div class="cta-section">
-      <h2>اكسب نقاطاً بمجرد مشاركة المنصة 🎁</h2>
-      <p>كل شير للمنصة = 50 نقطة — ولما تجمع النقاط تستبدلها بعضوية مجانية لفترة محدودة!</p>
-      <button class="cta-btn" onclick="sharePlatform()">📤 شارك واكسب 50 نقطة</button>
+      <h2 data-i18n="cta_t"></h2>
+      <p data-i18n="cta_s"></p>
+      <button class="cta-btn" onclick="sharePlatform()" data-i18n="cta_b"></button>
     </div>
   </div>
-
   <footer class="footer">
     <div class="footer-grid">
-      <div class="footer-col"><h4>🚗 مشاويري</h4><p>منصة إماراتية تربط السائقين بالركاب لتوفير التكلفة والزحام. نحن لسنا شركة نقل — نحن منصة إعلانية تواصلية فقط.</p></div>
-      <div class="footer-col"><h4>روابط سريعة</h4><a onclick="showPage('browse')">تصفح المشاوير</a><a onclick="showPage('create')">إنشاء مشوار</a><a onclick="showPage('store')">الباقات والإعلانات</a><a onclick="openAssistant()">المساعد الذكي</a></div>
-      <div class="footer-col"><h4>الدعم</h4><a onclick="showToast('📧 support@mashawiri.ae','success')">تواصل معنا</a><a onclick="showToast('صفحة الشروط قريباً')">الشروط والأحكام</a><a onclick="showToast('صفحة الخصوصية قريباً')">سياسة الخصوصية</a></div>
-      <div class="footer-col"><h4>أعلن معنا</h4><p>مساحات إعلانية لآلاف المستخدمين يومياً داخل الإمارات. <a onclick="showPage('store')" style="color:var(--gold);display:inline;padding:0">احجز إعلانك ←</a></p></div>
+      <div class="footer-col"><h4>🚗 <span data-i18n="app_name"></span></h4><p data-i18n="footer_about"></p></div>
+      <div class="footer-col"><h4 data-i18n="footer_links"></h4><a onclick="showPage('browse')" data-i18n="nav_browse"></a><a onclick="showPage('create')" data-i18n="nav_create"></a><a onclick="showPage('store')" data-i18n="nav_store"></a><a onclick="openAssistant()" data-i18n="assistant"></a></div>
+      <div class="footer-col"><h4 data-i18n="footer_support"></h4><a onclick="showPage('feedback')" data-i18n="nav_feedback"></a><a onclick="waSupport()" data-i18n="wa_support"></a></div>
+      <div class="footer-col"><h4 data-i18n="footer_ads"></h4><p data-i18n="footer_ads_d"></p></div>
     </div>
-    <div class="footer-bottom">© 2026 مشاويري — منصة تواصل إعلانية، لا نتدخل في التشغيل أو الدفع بين الأطراف 🇦🇪</div>
+    <div class="footer-bottom" data-i18n="footer_copy"></div>
   </footer>
 </div>
 
 <div class="page" id="page-browse">
   <div class="container" style="padding-top:26px;padding-bottom:46px">
     <div class="section-header"><div>
-      <h2 class="section-title">تصفح <span>المشاوير</span></h2>
+      <h2 class="section-title" data-i18n="browse_t"></h2>
       <p class="section-subtitle" id="tripsCount"></p>
     </div>
-    <button class="btn btn-primary" onclick="showPage('create')">➕ مشوار جديد</button></div>
-    <input type="text" class="smart-search" id="smartQuery" placeholder="🔎 بحث ذكي: اكتب مدينة، منطقة، أو اسم المستخدم..." oninput="renderBrowse()">
+    <button class="btn btn-primary" onclick="showPage('create')" data-i18n="new_trip"></button></div>
+    <input type="text" class="smart-search" id="smartQuery" data-i18n-ph="smart_ph" oninput="renderBrowse()">
     <div class="filter-bar" id="filterBar">
-      <button class="filter-chip active" onclick="applyFilter('all',null,this)">🌍 الكل</button>
-      <button class="filter-chip" onclick="applyFilter('driver',null,this)">🚗 سائقين</button>
-      <button class="filter-chip" onclick="applyFilter('passenger',null,this)">🙋 ركاب</button>
+      <button class="filter-chip active" onclick="applyFilter('all',null,this)" data-i18n="f_all"></button>
+      <button class="filter-chip" onclick="applyFilter('driver',null,this)" data-i18n="f_drivers"></button>
+      <button class="filter-chip" onclick="applyFilter('passenger',null,this)" data-i18n="f_passengers"></button>
       <button class="filter-chip" onclick="applyFilter('all','دبي',this)">دبي</button>
       <button class="filter-chip" onclick="applyFilter('all','أبوظبي',this)">أبوظبي</button>
       <button class="filter-chip" onclick="applyFilter('all','الشارقة',this)">الشارقة</button>
-      <button class="filter-chip" onclick="applyFilter('all','عجمان',this)">عجمان</button>
-      <button class="filter-chip" onclick="applyFilter('female',null,this)">🎀 نساء فقط</button>
+      <button class="filter-chip" onclick="applyFilter('female',null,this)" data-i18n="f_female"></button>
       <select class="sort-select" id="sortSelect" onchange="renderBrowse()">
-        <option value="smart">🤖 ترتيب ذكي</option>
-        <option value="new">🆕 الأحدث</option>
-        <option value="cheap">💰 الأرخص</option>
-        <option value="early">⏰ الأقرب انطلاقاً</option>
-        <option value="rating">⭐ الأعلى تقييماً</option>
-        <option value="trust">🛡️ الأعلى ثقة</option>
+        <option value="smart" data-i18n="s_smart"></option>
+        <option value="new" data-i18n="s_new"></option>
+        <option value="cheap" data-i18n="s_cheap"></option>
+        <option value="early" data-i18n="s_early"></option>
+        <option value="rating" data-i18n="s_rating"></option>
+        <option value="trust" data-i18n="s_trust"></option>
       </select>
     </div>
     <div id="adBrowse"></div>
@@ -471,48 +500,48 @@ html[data-theme="dark"] .mobile-nav button.active{color:#6db3f2}
 <div class="page" id="page-create">
   <div class="container" style="padding-top:26px;padding-bottom:46px">
     <div style="max-width:720px;margin:0 auto" class="auth-card">
-      <div class="auth-header"><h2>➕ إنشاء مشوار جديد</h2><p>٣ خطوات بسيطة: المسار ← التفاصيل والسعر ← المراجعة والنشر</p></div>
+      <div class="auth-header"><h2 data-i18n="create_t"></h2><p data-i18n="create_s"></p></div>
       <div class="wizard-steps" id="cwSteps">
-        <div class="wstep active" data-s="1"><span class="num">١</span> المسار</div>
-        <div class="wstep" data-s="2"><span class="num">٢</span> التفاصيل والسعر</div>
-        <div class="wstep" data-s="3"><span class="num">٣</span> المراجعة</div>
+        <div class="wstep active" data-s="1"><span class="num">١</span> <span data-i18n="step1"></span></div>
+        <div class="wstep" data-s="2"><span class="num">٢</span> <span data-i18n="step2"></span></div>
+        <div class="wstep" data-s="3"><span class="num">٣</span> <span data-i18n="step3"></span></div>
       </div>
       <div id="cw1">
-        <div class="form-group"><label>نوع المشوار</label>
+        <div class="form-group"><label data-i18n="trip_type"></label>
           <div style="display:flex;gap:10px;flex-wrap:wrap">
-            <label class="pay-option sel" id="typeDriverLabel" style="display:flex;align-items:center;gap:8px"><input type="radio" name="cType" value="driver" checked onchange="updateTypeStyle()"> 🚗 سائق</label>
-            <label class="pay-option" id="typePassengerLabel" style="display:flex;align-items:center;gap:8px"><input type="radio" name="cType" value="passenger" onchange="updateTypeStyle()"> 🙋 راكب</label>
+            <label class="pay-option sel" id="typeDriverLabel" style="display:flex;align-items:center;gap:8px"><input type="radio" name="cType" value="driver" checked onchange="updateTypeStyle()"> 🚗 <span data-i18n="i_driver"></span></label>
+            <label class="pay-option" id="typePassengerLabel" style="display:flex;align-items:center;gap:8px"><input type="radio" name="cType" value="passenger" onchange="updateTypeStyle()"> 🙋 <span data-i18n="i_passenger"></span></label>
           </div>
         </div>
         <div class="form-row">
-          <div class="form-group"><label>📍 من</label><select class="form-control" id="cFrom"></select></div>
-          <div class="form-group"><label>🎯 إلى</label><select class="form-control" id="cTo"></select></div>
+          <div class="form-group"><label data-i18n="from_l"></label><select class="form-control" id="cFrom"></select></div>
+          <div class="form-group"><label data-i18n="to_l"></label><select class="form-control" id="cTo"></select></div>
         </div>
         <div class="form-row">
-          <div class="form-group"><label>تفاصيل الانطلاق (اختياري)</label><input type="text" class="form-control" id="cFromDetail" placeholder="مثال: مول الإمارات"></div>
-          <div class="form-group"><label>تفاصيل الوجهة (اختياري)</label><input type="text" class="form-control" id="cToDetail" placeholder="مثال: الكورنيش"></div>
+          <div class="form-group"><label data-i18n="from_d"></label><input type="text" class="form-control" id="cFromDetail"></div>
+          <div class="form-group"><label data-i18n="to_d"></label><input type="text" class="form-control" id="cToDetail"></div>
         </div>
-        <div class="form-group"><label style="display:flex;gap:8px;align-items:center;cursor:pointer"><input type="checkbox" id="cFemaleOnly" style="width:18px;height:18px;accent-color:var(--pink)"> 🎀 رحلة نساء فقط (للسائقات)</label></div>
-        <div class="wizard-nav"><button class="btn btn-primary btn-block" onclick="cwNext(1)">التالي ←</button></div>
+        <div class="form-group"><label style="display:flex;gap:8px;align-items:center;cursor:pointer"><input type="checkbox" id="cFemaleOnly" style="width:18px;height:18px;accent-color:var(--pink)"> 🎀 <span data-i18n="female_only"></span></label></div>
+        <div class="wizard-nav"><button class="btn btn-primary btn-block" onclick="cwNext(1)" data-i18n="next"></button></div>
       </div>
       <div id="cw2" style="display:none">
         <div class="form-row">
-          <div class="form-group"><label>📅 التاريخ</label><input type="date" class="form-control" id="cDate"></div>
-          <div class="form-group"><label>⏰ الوقت</label><input type="time" class="form-control" id="cTime" value="07:30"></div>
+          <div class="form-group"><label data-i18n="date_l"></label><input type="date" class="form-control" id="cDate"></div>
+          <div class="form-group"><label data-i18n="time_l"></label><input type="time" class="form-control" id="cTime" value="07:30"></div>
         </div>
         <div class="form-row">
-          <div class="form-group"><label>👥 عدد المقاعد</label><select class="form-control" id="cSeats"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option><option>6</option></select></div>
-          <div class="form-group"><label>💰 السعر للكرسي (درهم)</label><input type="number" class="form-control" id="cPrice" min="0" max="500" placeholder="25" oninput="updatePriceHint()"></div>
+          <div class="form-group"><label data-i18n="seats_l"></label><select class="form-control" id="cSeats"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option><option>6</option></select></div>
+          <div class="form-group"><label data-i18n="price_l"></label><input type="number" class="form-control" id="cPrice" min="0" max="500" oninput="updatePriceHint()"></div>
         </div>
         <div id="priceHint" style="background:var(--bg);border-radius:12px;padding:12px;font-size:13px;font-weight:700;margin-bottom:14px"></div>
-        <div class="form-group"><label>📝 تفاصيل إضافية</label><textarea class="form-control" id="cDesc" placeholder="مثال: سيارة مكيفة، ملتزم بالمواعيد..."></textarea></div>
-        <div class="form-group"><label style="display:flex;gap:8px;align-items:center;cursor:pointer"><input type="checkbox" id="cRecurring" style="width:18px;height:18px;accent-color:var(--primary)"> 🔄 مشوار متكرر يومياً</label></div>
-        <div class="wizard-nav"><button class="btn btn-secondary" onclick="cwNext(-1)">→ رجوع</button><button class="btn btn-primary" style="flex:1" onclick="cwNext(2)">التالي ←</button></div>
+        <div class="form-group"><label data-i18n="details_l"></label><textarea class="form-control" id="cDesc"></textarea></div>
+        <div class="form-group"><label style="display:flex;gap:8px;align-items:center;cursor:pointer"><input type="checkbox" id="cRecurring" style="width:18px;height:18px;accent-color:var(--primary)"> 🔄 <span data-i18n="recurring"></span></label></div>
+        <div class="wizard-nav"><button class="btn btn-secondary" onclick="cwNext(-1)" data-i18n="back"></button><button class="btn btn-primary" style="flex:1" onclick="cwNext(2)" data-i18n="next"></button></div>
       </div>
       <div id="cw3" style="display:none">
         <div id="cwReview" style="background:var(--bg);border-radius:14px;padding:18px;font-size:14px;line-height:2;margin-bottom:14px"></div>
-        <div style="background:rgba(245,158,11,.12);border-radius:12px;padding:12px;font-size:12.5px;font-weight:700;margin-bottom:14px">💡 الدفع يتم مباشرة بينك وبين الطرف الآخر حسب الاتفاق (نقدي/تحويل). المنصة تحصل على عمولة 8% من السائق بعد الرحلة المكتملة فقط — وتُعفى أول 10 رحلات لأعضاء Premium.</div>
-        <div class="wizard-nav"><button class="btn btn-secondary" onclick="cwNext(-1)">→ رجوع</button><button class="btn btn-success" style="flex:1" onclick="publishTrip()">🚀 نشر المشوار</button></div>
+        <div style="background:rgba(245,158,11,.12);border-radius:12px;padding:12px;font-size:12.5px;font-weight:700;margin-bottom:14px" data-i18n="pay_note"></div>
+        <div class="wizard-nav"><button class="btn btn-secondary" onclick="cwNext(-1)" data-i18n="back"></button><button class="btn btn-success" style="flex:1" onclick="publishTrip()" data-i18n="publish"></button></div>
       </div>
     </div>
   </div>
@@ -522,8 +551,35 @@ html[data-theme="dark"] .mobile-nav button.active{color:#6db3f2}
 
 <div class="page" id="page-messages">
   <div class="messages-container">
-    <div class="conversations-list"><div class="conversations-header">💬 المحادثات</div><div id="conversationsList"></div></div>
-    <div class="chat-area" id="chatArea"><div class="empty-state" style="margin:auto"><div class="empty-state-icon">💬</div><h3>اختر محادثة</h3><p>التواصل داخل المنصة يحمي خصوصيتك</p></div></div>
+    <div class="conversations-list"><div class="conversations-header" data-i18n="chats_t"></div><div id="conversationsList"></div></div>
+    <div class="chat-area" id="chatArea"><div class="empty-state" style="margin:auto"><div class="empty-state-icon">💬</div><h3 data-i18n="pick_chat"></h3><p data-i18n="pick_chat_s"></p></div></div>
+  </div>
+</div>
+
+<div class="page" id="page-feedback">
+  <div class="container" style="padding-top:26px;padding-bottom:46px;max-width:760px">
+    <div class="auth-card">
+      <div class="auth-header"><h2>📮 <span data-i18n="fb_t"></span></h2><p data-i18n="fb_s"></p></div>
+      <div class="form-row">
+        <div class="form-group"><label data-i18n="fb_type"></label>
+          <select class="form-control" id="fbType">
+            <option value="complaint" data-i18n="fb_complaint"></option>
+            <option value="suggestion" data-i18n="fb_suggestion"></option>
+            <option value="question" data-i18n="fb_question"></option>
+          </select>
+        </div>
+        <div class="form-group"><label data-i18n="fb_name"></label><input type="text" class="form-control" id="fbName"></div>
+      </div>
+      <div class="form-group"><label data-i18n="fb_text"></label><textarea class="form-control" id="fbText" style="min-height:120px"></textarea></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn btn-primary" style="flex:1" onclick="submitFeedback()" data-i18n="fb_send"></button>
+        <button class="btn btn-wa" style="flex:1" onclick="waFeedback()">💬 <span data-i18n="fb_wa"></span></button>
+      </div>
+      <div style="margin-top:24px">
+        <h3 style="font-size:16px;font-weight:800;margin-bottom:12px" data-i18n="fb_mine"></h3>
+        <div id="fbList"></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -533,18 +589,18 @@ html[data-theme="dark"] .mobile-nav button.active{color:#6db3f2}
     <div class="profile-name" id="profileName"></div>
     <div style="opacity:.9;font-size:13.5px" id="profileEmail"></div>
     <div class="profile-stats">
-      <div><div class="profile-stat-value" id="profileTrips">0</div><div class="profile-stat-label">مشاويري</div></div>
-      <div><div class="profile-stat-value" id="profileTrust">-</div><div class="profile-stat-label">درجة الثقة</div></div>
-      <div><div class="profile-stat-value" id="profilePoints">0</div><div class="profile-stat-label">نقاطي</div></div>
+      <div><div class="profile-stat-value" id="profileTrips">0</div><div class="profile-stat-label" data-i18n="my_trips"></div></div>
+      <div><div class="profile-stat-value" id="profileTrust">-</div><div class="profile-stat-label" data-i18n="trust"></div></div>
+      <div><div class="profile-stat-value" id="profilePoints">0</div><div class="profile-stat-label" data-i18n="points"></div></div>
     </div>
   </div>
   <div class="profile-content">
     <div class="profile-tabs">
-      <button class="profile-tab active" onclick="switchProfileTab('active',this)">🟢 رحلاتي النشطة</button>
-      <button class="profile-tab" onclick="switchProfileTab('requests',this)">📥 طلبات الحجز</button>
-      <button class="profile-tab" onclick="switchProfileTab('mytrips',this)">🚗 مشاويري</button>
-      <button class="profile-tab" onclick="switchProfileTab('reviews',this)">⭐ التقييمات</button>
-      <button class="profile-tab" onclick="switchProfileTab('settings',this)">⚙️ الإعدادات</button>
+      <button class="profile-tab active" onclick="switchProfileTab('active',this)" data-i18n="p_active"></button>
+      <button class="profile-tab" onclick="switchProfileTab('requests',this)" data-i18n="p_requests"></button>
+      <button class="profile-tab" onclick="switchProfileTab('mytrips',this)" data-i18n="p_mytrips"></button>
+      <button class="profile-tab" onclick="switchProfileTab('reviews',this)" data-i18n="p_reviews"></button>
+      <button class="profile-tab" onclick="switchProfileTab('settings',this)" data-i18n="p_settings"></button>
     </div>
     <div id="profileContent"></div>
   </div>
@@ -553,99 +609,123 @@ html[data-theme="dark"] .mobile-nav button.active{color:#6db3f2}
 <div class="page" id="page-store">
   <div class="container" style="padding-top:26px;padding-bottom:46px">
     <div class="section-header"><div>
-      <h2 class="section-title">👑 المتجر <span>والنقاط</span></h2>
-      <p class="section-subtitle">إزالة الإعلانات، عضوية Premium، واستبدال نقاط الإحالات</p>
+      <h2 class="section-title">👑 <span data-i18n="store_t"></span></h2>
+      <p class="section-subtitle" data-i18n="store_s"></p>
     </div></div>
     <div class="points-box" style="margin-bottom:20px">
-      <div style="font-weight:800;font-size:15px">🎁 نقاط الإحالات بتاعتك</div>
+      <div style="font-weight:800;font-size:15px" data-i18n="points_t"></div>
       <div class="pts" id="storePoints">0</div>
-      <div style="font-size:13px;font-weight:700;margin-bottom:12px">كل شير للمنصة = 50 نقطة · اجمع 300 نقطة = عضوية 3 أيام مجاناً</div>
-      <button class="btn btn-block" style="background:#3b2f00;color:var(--gold)" onclick="sharePlatform()">📤 اعمل شير واكسب 50 نقطة</button>
+      <div style="font-size:13px;font-weight:700;margin-bottom:12px" data-i18n="points_s"></div>
+      <button class="btn btn-block" style="background:#3b2f00;color:var(--gold)" onclick="sharePlatform()" data-i18n="share_btn"></button>
       <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px">
-        <button class="btn btn-sm" style="background:#fff;color:#3b2f00" onclick="redeem(300,3)">استبدل 300 → 3 أيام</button>
-        <button class="btn btn-sm" style="background:#fff;color:#3b2f00" onclick="redeem(700,7)">استبدل 700 → أسبوع</button>
-        <button class="btn btn-sm" style="background:#fff;color:#3b2f00" onclick="redeem(1500,30)">استبدل 1500 → شهر</button>
+        <button class="btn btn-sm" style="background:#fff;color:#3b2f00" onclick="redeem(300,3)" data-i18n="redeem1"></button>
+        <button class="btn btn-sm" style="background:#fff;color:#3b2f00" onclick="redeem(700,7)" data-i18n="redeem2"></button>
+        <button class="btn btn-sm" style="background:#fff;color:#3b2f00" onclick="redeem(1500,30)" data-i18n="redeem3"></button>
       </div>
     </div>
     <div class="store-grid">
-      <div class="store-card"><h3>📵 إزالة الإعلانات</h3><div style="color:var(--muted);font-size:13px;font-weight:700">يوم واحد</div><div class="store-price">2 <small>درهم/يوم</small></div><ul class="store-feats"><li>✓ إخفاء كل الإعلانات</li><li>✓ تجربة نظيفة 24 ساعة</li></ul><button class="btn btn-primary btn-block" onclick="buyPackage('ad',1,2)">اشترِ يوم</button></div>
-      <div class="store-card"><h3>📵 إزالة الإعلانات</h3><div style="color:var(--muted);font-size:13px;font-weight:700">أسبوع</div><div class="store-price">10 <small>درهم/أسبوع</small></div><ul class="store-feats"><li>✓ إخفاء كل الإعلانات</li><li>✓ وفّر 4 درهم</li></ul><button class="btn btn-primary btn-block" onclick="buyPackage('ad',7,10)">اشترِ أسبوع</button></div>
-      <div class="store-card"><h3>📵 إزالة الإعلانات</h3><div style="color:var(--muted);font-size:13px;font-weight:700">شهر كامل</div><div class="store-price">30 <small>درهم/شهر</small></div><ul class="store-feats"><li>✓ إخفاء كل الإعلانات</li><li>✓ أفضل قيمة (وفّر 30)</li></ul><button class="btn btn-primary btn-block" onclick="buyPackage('ad',30,30)">اشترِ شهر</button></div>
-      <div class="store-card best"><div class="tag">الأفضل قيمة</div><h3>👑 Premium</h3><div style="color:var(--muted);font-size:13px;font-weight:700">عضوية شهرية</div><div class="store-price">49 <small>درهم/شهر</small></div><ul class="store-feats"><li>✓ ظهور أول في النتائج</li><li>✓ بدون عمولة أول 10 رحلات</li><li>✓ بدون إعلانات نهائياً</li><li>✓ شارة 👑 على ملفك</li></ul><button class="btn btn-gold btn-block" onclick="buyPackage('premium',30,49)">اشترك الآن</button></div>
+      <div class="store-card"><h3>📵 <span data-i18n="ad_remove"></span></h3><div style="color:var(--muted);font-size:13px;font-weight:700" data-i18n="one_day"></div><div class="store-price"><span id="pAdDay">2</span> <small data-i18n="per_day"></small></div><button class="btn btn-primary btn-block" onclick="buyPackage('ad',1)" data-i18n="buy"></button></div>
+      <div class="store-card"><h3>📵 <span data-i18n="ad_remove"></span></h3><div style="color:var(--muted);font-size:13px;font-weight:700" data-i18n="one_week"></div><div class="store-price"><span id="pAdWeek">10</span> <small data-i18n="per_week"></small></div><button class="btn btn-primary btn-block" onclick="buyPackage('ad',7)" data-i18n="buy"></button></div>
+      <div class="store-card"><h3>📵 <span data-i18n="ad_remove"></span></h3><div style="color:var(--muted);font-size:13px;font-weight:700" data-i18n="one_month"></div><div class="store-price"><span id="pAdMonth">30</span> <small data-i18n="per_month"></small></div><button class="btn btn-primary btn-block" onclick="buyPackage('ad',30)" data-i18n="buy"></button></div>
+      <div class="store-card best"><div class="tag" data-i18n="best_value"></div><h3>👑 Premium</h3><div style="color:var(--muted);font-size:13px;font-weight:700" data-i18n="prem_sub"></div><div class="store-price"><span id="pPrem">49</span> <small data-i18n="per_month"></small></div><ul class="store-feats"><li data-i18n="prem_f1"></li><li data-i18n="prem_f2"></li><li data-i18n="prem_f3"></li><li data-i18n="prem_f4"></li></ul><button class="btn btn-gold btn-block" onclick="buyPackage('premium',30)" data-i18n="subscribe"></button></div>
     </div>
-    <div style="background:var(--card);border-radius:16px;padding:20px;box-shadow:var(--shadow);margin-top:20px;font-size:13.5px;line-height:2;color:var(--text)">
-      <b>💼 نموذج الربح للمنصة:</b> المنصة إعلانية تواصلية فقط (لا نملك سيارات ولا نتدخل في التشغيل). الأرباح من: ① عمولة 8% على الرحلة المكتملة (تُحصَّل من السائق) ② باقات إزالة الإعلانات اليومية/الأسبوعية/الشهرية ③ عضويات Premium ④ مساحات إعلانية مدفوعة للشركات داخل الإمارات.
+  </div>
+</div>
+
+<div class="page" id="page-admin">
+  <div class="container" style="padding-top:26px;padding-bottom:46px">
+    <div class="section-header"><div>
+      <h2 class="section-title">🛡 <span data-i18n="a_title"></span></h2>
+      <p class="section-subtitle" data-i18n="a_sub"></p>
+    </div></div>
+    <div class="profile-tabs">
+      <button class="profile-tab active" onclick="switchAdminTab('overview',this)" data-i18n="a_overview"></button>
+      <button class="profile-tab" onclick="switchAdminTab('users',this)" data-i18n="a_users"></button>
+      <button class="profile-tab" onclick="switchAdminTab('trips',this)" data-i18n="a_trips"></button>
+      <button class="profile-tab" onclick="switchAdminTab('feedback',this)" data-i18n="a_feedback"></button>
+      <button class="profile-tab" onclick="switchAdminTab('settings',this)" data-i18n="a_settings"></button>
     </div>
+    <div id="adminContent"></div>
   </div>
 </div>
 
 <div class="page" id="page-auth">
   <div class="auth-container"><div class="auth-card">
-    <div class="auth-header"><div class="logo-icon" style="margin:0 auto 14px;width:54px;height:54px;font-size:26px">🚗</div><h2>مرحباً بك في مشاويري</h2><p>سجّل دخولك أو أنشئ حساباً جديداً</p></div>
+    <div class="auth-header"><div class="logo-icon" style="margin:0 auto 14px;width:54px;height:54px;font-size:26px">🚗</div><h2 data-i18n="welcome"></h2><p data-i18n="welcome_s"></p></div>
     <div class="auth-tabs">
-      <button class="auth-tab active" onclick="switchAuthTab('login',this)">تسجيل الدخول</button>
-      <button class="auth-tab" onclick="switchAuthTab('register',this)">حساب جديد</button>
+      <button class="auth-tab active" onclick="switchAuthTab('login',this)" data-i18n="login_t"></button>
+      <button class="auth-tab" onclick="switchAuthTab('register',this)" data-i18n="reg_t"></button>
     </div>
     <div id="loginForm">
-      <div class="form-group"><label>البريد الإلكتروني</label><input type="email" class="form-control" id="loginEmail" value="mohamed@test.com"></div>
-      <div class="form-group"><label>كلمة المرور</label><input type="password" class="form-control" id="loginPassword" value="12345678"></div>
-      <button class="btn btn-primary btn-block" style="padding:14px" onclick="login()">🔓 دخول</button>
+      <div class="form-group"><label data-i18n="email"></label><input type="email" class="form-control" id="loginEmail" value="mohamed@test.com"></div>
+      <div class="form-group"><label data-i18n="password"></label><input type="password" class="form-control" id="loginPassword" value="12345678"></div>
+      <button class="btn btn-primary btn-block" style="padding:14px" onclick="login()" data-i18n="login_btn"></button>
+      <div style="margin-top:10px;font-size:11.5px;color:var(--muted);font-weight:700;text-align:center">🛡 Admin: admin@mashawiri.ae / admin123</div>
     </div>
     <div id="registerForm" style="display:none">
       <div class="form-row">
-        <div class="form-group"><label>الاسم الأول</label><input type="text" class="form-control" id="regFirstName" placeholder="محمد"></div>
-        <div class="form-group"><label>الاسم الأخير</label><input type="text" class="form-control" id="regLastName" placeholder="أحمد"></div>
+        <div class="form-group"><label data-i18n="first_name"></label><input type="text" class="form-control" id="regFirstName"></div>
+        <div class="form-group"><label data-i18n="last_name"></label><input type="text" class="form-control" id="regLastName"></div>
       </div>
-      <div class="form-group"><label>البريد الإلكتروني</label><input type="email" class="form-control" id="regEmail" placeholder="example@email.com"></div>
-      <div class="form-group"><label>رقم الهاتف</label><input type="tel" class="form-control" id="regPhone" placeholder="+971 50 123 4567"></div>
-      <div class="form-group"><label>🪪 الهوية الإماراتية (اختياري — للتوثيق ✓)</label><input type="text" class="form-control" id="regEmirates" placeholder="784-1990-1234567-1"></div>
+      <div class="form-group"><label data-i18n="email"></label><input type="email" class="form-control" id="regEmail"></div>
+      <div class="form-group"><label data-i18n="phone"></label><input type="tel" class="form-control" id="regPhone" placeholder="+971 50 123 4567"></div>
+      <div class="form-group"><label data-i18n="emirates_id"></label><input type="text" class="form-control" id="regEmirates" placeholder="784-1990-1234567-1"></div>
       <div class="form-row">
-        <div class="form-group"><label>كلمة المرور</label><input type="password" class="form-control" id="regPassword" placeholder="8 أحرف+"></div>
-        <div class="form-group"><label>أنا</label><select class="form-control" id="regGender"><option value="male">ذكر</option><option value="female">أنثى</option></select></div>
+        <div class="form-group"><label data-i18n="password"></label><input type="password" class="form-control" id="regPassword"></div>
+        <div class="form-group"><label data-i18n="gender"></label><select class="form-control" id="regGender"><option value="male" data-i18n="male"></option><option value="female" data-i18n="female"></option></select></div>
       </div>
-      <label style="display:flex;gap:8px;font-size:12.5px;margin-bottom:14px;cursor:pointer;line-height:1.6"><input type="checkbox" id="regTerms" style="width:17px;height:17px;accent-color:var(--primary)"><span>أوافق على الشروط والأحكام وسياسة الخصوصية</span></label>
-      <button class="btn btn-primary btn-block" style="padding:14px" onclick="register()">✨ إنشاء الحساب</button>
+      <label style="display:flex;gap:8px;font-size:12.5px;margin-bottom:14px;cursor:pointer;line-height:1.6"><input type="checkbox" id="regTerms" style="width:17px;height:17px;accent-color:var(--primary)"><span data-i18n="terms"></span></label>
+      <button class="btn btn-primary btn-block" style="padding:14px" onclick="register()" data-i18n="create_account"></button>
     </div>
-    <div style="text-align:center;margin:18px 0;color:var(--muted);font-size:12.5px;font-weight:700">— أو —</div>
+    <div style="text-align:center;margin:18px 0;color:var(--muted);font-size:12.5px;font-weight:700">— or —</div>
     <div class="social-login">
       <button class="social-btn" onclick="socialLogin('Google')">🔵 Google</button>
       <button class="social-btn" onclick="socialLogin('Apple')">🍎 Apple</button>
-      <button class="social-btn" onclick="socialLogin('UAE Pass')">🇦 UAE Pass</button>
+      <button class="social-btn" onclick="socialLogin('UAE Pass')">🇦🇪 UAE Pass</button>
     </div>
   </div></div>
 </div>
 
 <button class="assistant-fab" id="assistantFab" onclick="openAssistant()">🤖</button>
 <div class="assistant-panel" id="assistantPanel">
-  <div class="assistant-head">🤖 المساعد الذكي <button onclick="closeAssistant()">✕</button></div>
+  <div class="assistant-head"><span>🤖 <span data-i18n="assistant"></span></span> <button onclick="closeAssistant()">✕</button></div>
   <div class="assistant-msgs" id="assistantMsgs"></div>
-  <div class="chat-input"><input type="text" id="assistantInput" placeholder="مثال: عايز أروح أبوظبي بكرة الصبح" onkeypress="if(event.key==='Enter')assistantSend()"><button class="btn btn-primary btn-sm" onclick="assistantSend()">إرسال</button></div>
+  <div class="chat-input"><input type="text" id="assistantInput" onkeypress="if(event.key==='Enter')assistantSend()"><button class="btn btn-primary btn-sm" onclick="assistantSend()" data-i18n="send"></button></div>
 </div>
 
 <div class="mobile-nav">
-  <button data-nav="home" class="active" onclick="showPage('home')"><span class="ic">🏠</span>الرئيسية</button>
-  <button data-nav="browse" onclick="showPage('browse')"><span class="ic">🔍</span>تصفح</button>
-  <button data-nav="create" onclick="showPage('create')"><span class="ic">➕</span>إنشاء</button>
-  <button data-nav="messages" onclick="showPage('messages')"><span class="ic">💬</span>رسائل</button>
-  <button data-nav="store" onclick="showPage('store')"><span class="ic">👑</span>متجر</button>
-  <button data-nav="profile" onclick="showPage('profile')"><span class="ic">👤</span>حسابي</button>
+  <button data-nav="home" class="active" onclick="showPage('home')"><span class="ic">🏠</span><span data-i18n="m_home"></span></button>
+  <button data-nav="browse" onclick="showPage('browse')"><span class="ic">🔍</span><span data-i18n="m_browse"></span></button>
+  <button data-nav="create" onclick="showPage('create')"><span class="ic">➕</span><span data-i18n="m_create"></span></button>
+  <button data-nav="messages" onclick="showPage('messages')"><span class="ic">💬</span><span data-i18n="m_msgs"></span></button>
+  <button data-nav="store" onclick="showPage('store')"><span class="ic">👑</span><span data-i18n="m_store"></span></button>
+  <button data-nav="profile" onclick="showPage('profile')"><span class="ic">👤</span><span data-i18n="m_profile"></span></button>
 </div>
 
 <div class="overlay" id="overlay" onclick="if(event.target===this)closeModal()"><div class="modal" id="modalBox"></div></div>
 
 <script>
-const KEY='mashawiri_v2';
+const WA_NUMBER='971567371542';
+const KEY='mashawiri_v3';
 const CITIES=['دبي','أبوظبي','الشارقة','عجمان','رأس الخيمة','الفجيرة','أم القيوين','العين'];
+const CITIES_EN=['Dubai','Abu Dhabi','Sharjah','Ajman','Ras Al Khaimah','Fujairah','Umm Al Quwain','Al Ain'];
 const KM={'دبي|أبوظبي':140,'دبي|الشارقة':30,'دبي|عجمان':40,'دبي|رأس الخيمة':100,'دبي|الفجيرة':130,'دبي|أم القيوين':60,'دبي|العين':160,'أبوظبي|الشارقة':170,'أبوظبي|عجمان':180,'أبوظبي|رأس الخيمة':240,'أبوظبي|الفجيرة':300,'أبوظبي|أم القيوين':210,'أبوظبي|العين':160,'الشارقة|عجمان':10,'الشارقة|رأس الخيمة':70,'الشارقة|الفجيرة':100,'الشارقة|أم القيوين':30,'الشارقة|العين':190,'عجمان|رأس الخيمة':60,'عجمان|الفجيرة':90,'عجمان|أم القيوين':20,'عجمان|العين':180,'رأس الخيمة|الفجيرة':80,'رأس الخيمة|أم القيوين':40,'رأس الخيمة|العين':260,'الفجيرة|أم القيوين':110,'الفجيرة|العين':220,'أم القيوين|العين':220};
-const COMMISSION=0.08;
-function dstr(o){const d=new Date();d.setDate(d.getDate()+(o||0));return d.toISOString().split('T')[0]}
-function kmBetween(a,b){if(a===b)return 0;return KM[a+'|'+b]||KM[b+'|'+a]||120}
-function fairInfo(a,b){const km=kmBetween(a,b);const fair=Math.round(10+km*0.25);return{km:km,fair:fair,min:Math.round(fair*0.8),max:Math.round(fair*1.2)}}
-const seed={currentUser:null,theme:'light',zoom:0,
- users:[{id:1,name:'محمد أحمد',email:'mohamed@test.com',phone:'+971 50 123 4567',avatar:'م',trips:12,rating:4.9,verified:true,female:false,points:120,premiumUntil:0,adFreeUntil:0},
- {id:2,name:'فاطمة علي',email:'fatima@test.com',phone:'+971 50 987 6543',avatar:'ف',trips:28,rating:4.8,verified:true,female:true,points:0,premiumUntil:0,adFreeUntil:0},
- {id:3,name:'خالد المنصوري',email:'khaled@test.com',phone:'+971 50 234 5678',avatar:'خ',trips:45,rating:5.0,verified:true,female:false,points:0,premiumUntil:Date.now()+86400000*12,adFreeUntil:0},
- {id:4,name:'نورة الشامسي',email:'noura@test.com',phone:'+971 50 345 6789',avatar:'ن',trips:8,rating:4.7,verified:false,female:true,points:0,premiumUntil:0,adFreeUntil:0}],
+const I18N={
+ar:{app_name:'مشاويري',nav_home:'الرئيسية',nav_browse:'المشاوير',nav_create:'إنشاء مشوار',nav_messages:'الرسائل',nav_store:'المتجر',nav_feedback:'شكاوى واقتراحات',nav_profile:'حسابي',nav_admin:'لوحة الإدارة',login:'تسجيل الدخول',theme:'الثيم نهاري / ليلي',font_size:'حجم الخط',wa_support:'دعم واتساب مباشر',notifs:'الإشعارات',mark_read:'تحديد الكل كمقروء',hero_badge:'🇦🇪 المنصة الأذكى للمشاوير المشتركة في الإمارات',hero_t1:'شارك رحلتك،',hero_t2:'وفّر تكلفتك',hero_sub:'مطابقة ذكية بين السائقين والركاب، أسعار عادلة محسوبة بالمسافات، وتوثيق اختياري بالهوية الإماراتية.',from_where:'📍 من أين؟',to_where:'🎯 إلى أين؟',search_btn:'🔍 ابحث بذكاء',stat_trips:'مشوار متاح',stat_users:'مستخدم مسجل',stat_rating:'متوسط التقييم',stat_matches:'مطابقة ذكية اليوم',matched_t:'مطابقة ذكية لك',matched_s:'مشاوير تطابق مساراتك وبحثك — بدون ما تدوّر عليها',routes_t:'مساراتي المعتادة',routes_s:'احفظ خط البيت/الشغل واحجز بضغطة',route_label_ph:'التسمية (مثال: البيت-الشغل)',save_route:'＋ حفظ المسار',latest_t:'أحدث المشاوير',latest_s:'مرتبة حسب درجة الثقة والمطابقة',view_all:'عرض الكل ←',f1t:'مطابقة ذكية',f1d:'نقترح مشاوير تطابق خطك ومواعيدك تلقائياً.',f2t:'سعر عادل تلقائياً',f2d:'السعر المقترح حسب المسافة الحقيقية بين مدن الإمارات.',f3t:'رحلات للنساء فقط',f3d:'سائقات موثوقات ورحلات مخصصة للإناث لمن ترغب.',f4t:'أمان كامل',f4d:'زر طوارئ SOS، مشاركة لايف، وتوثيق بالهوية الإماراتية.',cta_t:'اكسب نقاطاً بمجرد مشاركة المنصة 🎁',cta_s:'كل شير = 50 نقطة — استبدلها بعضوية مجانية لفترة محدودة!',cta_b:'📤 شارك واكسب 50 نقطة',footer_about:'منصة إماراتية تربط السائقين بالركاب. نحن منصة إعلانية تواصلية فقط — لا نملك سيارات.',footer_links:'روابط سريعة',footer_support:'الدعم',footer_ads:'أعلن معنا',footer_ads_d:'مساحات إعلانية لآلاف المستخدمين يومياً داخل الإمارات.',footer_copy:'© 2026 مشاويري — منصة تواصل إعلانية، لا نتدخل في التشغيل أو الدفع بين الأطراف 🇦🇪',browse_t:'تصفح المشاوير',new_trip:'➕ مشوار جديد',smart_ph:'🔎 بحث ذكي: مدينة، منطقة، أو اسم مستخدم...',f_all:'🌍 الكل',f_drivers:'🚗 سائقين',f_passengers:'🙋 ركاب',f_female:'🎀 نساء فقط',s_smart:'🤖 ترتيب ذكي',s_new:'🆕 الأحدث',s_cheap:'💰 الأرخص',s_early:'⏰ الأقرب انطلاقاً',s_rating:'⭐ الأعلى تقييماً',s_trust:'🛡️ الأعلى ثقة',create_t:'➕ إنشاء مشوار جديد',create_s:'٣ خطوات: المسار ← التفاصيل والسعر ← المراجعة والنشر',step1:'المسار',step2:'التفاصيل والسعر',step3:'المراجعة',trip_type:'نوع المشوار',i_driver:'سائق',i_passenger:'راكب',from_l:'📍 من',to_l:'🎯 إلى',from_d:'تفاصيل الانطلاق (اختياري)',to_d:'تفاصيل الوجهة (اختياري)',female_only:'رحلة نساء فقط (للسائقات)',next:'التالي ←',back:'→ رجوع',date_l:'📅 التاريخ',time_l:'⏰ الوقت',seats_l:'👥 عدد المقاعد',price_l:'💰 السعر للكرسي (درهم)',details_l:'📝 تفاصيل إضافية',recurring:'مشوار متكرر يومياً',publish:'🚀 نشر المشوار',pay_note:'💡 الدفع مباشرة بين الطرفين حسب الاتفاق. عمولة المنصة تُحصَّل من السائق بعد الرحلة المكتملة فقط — وتُعفى أول 10 رحلات لأعضاء Premium.',chats_t:'💬 المحادثات',pick_chat:'اختر محادثة',pick_chat_s:'التواصل داخل المنصة يحمي خصوصيتك',send:'إرسال',fb_t:'شكاوى واقتراحات',fb_s:'صوتك مسموع — كل رسالة توصلنا مباشرة على واتساب الإدارة',fb_type:'نوع الرسالة',fb_complaint:'شكوى',fb_suggestion:'اقتراح تحسين',fb_question:'استفسار',fb_name:'اسمك (اختياري)',fb_text:'اكتب رسالتك بالتفصيل...',fb_send:'📮 إرسال للمنصة',fb_wa:'إرسال عبر واتساب',fb_mine:'رسائلي السابقة',fb_status_new:'جديدة',fb_status_done:'تم التعامل',store_t:'المتجر والنقاط',store_s:'إزالة الإعلانات، عضوية Premium، واستبدال نقاط الإحالات',points_t:'🎁 نقاط الإحالات بتاعتك',points_s:'كل شير = 50 نقطة · 300 نقطة = عضوية 3 أيام مجاناً',share_btn:'📤 اعمل شير واكسب 50 نقطة',redeem1:'استبدل 300 → 3 أيام',redeem2:'استبدل 700 → أسبوع',redeem3:'استبدل 1500 → شهر',ad_remove:'إزالة الإعلانات',one_day:'يوم واحد',one_week:'أسبوع',one_month:'شهر كامل',per_day:'درهم/يوم',per_week:'درهم/أسبوع',per_month:'درهم/شهر',buy:'اشترِ الآن',best_value:'الأفضل قيمة',prem_sub:'عضوية شهرية',prem_f1:'✓ ظهور أول في النتائج',prem_f2:'✓ بدون عمولة أول 10 رحلات',prem_f3:'✓ بدون إعلانات نهائياً',prem_f4:'✓ شارة 👑 على ملفك',subscribe:'اشترك الآن',welcome:'مرحباً بك في مشاويري',welcome_s:'سجّل دخولك أو أنشئ حساباً جديداً',login_t:'تسجيل الدخول',reg_t:'حساب جديد',email:'البريد الإلكتروني',password:'كلمة المرور',login_btn:'🔓 دخول',first_name:'الاسم الأول',last_name:'الاسم الأخير',phone:'رقم الهاتف',emirates_id:'🪪 الهوية الإماراتية (اختياري — للتوثيق ✓)',gender:'أنا',male:'ذكر',female:'أنثى',terms:'أوافق على الشروط والأحكام وسياسة الخصوصية',create_account:'✨ إنشاء الحساب',assistant:'المساعد الذكي',p_active:'🟢 رحلاتي النشطة',p_requests:'📥 طلبات الحجز',p_mytrips:'🚗 مشاويري',p_reviews:'⭐ التقييمات',p_settings:'⚙️ الإعدادات',my_trips:'مشاويري',trust:'درجة الثقة',points:'نقاطي',a_title:'لوحة الإدارة',a_sub:'تحكم كامل في المنصة — باللغة العربية والإنجليزية',a_overview:'📊 نظرة عامة',a_users:'👥 المستخدمون',a_trips:'🚗 المشاوير',a_feedback:'📮 الشكاوى',a_settings:'⚙️ الإعدادات',a_users_l:'المستخدمون',a_trips_l:'المشاوير',a_bookings_l:'الحجوزات',a_rev_l:'إيرادات العمولة',a_ads_l:'إيرادات الباقات والإعلانات',a_verify:'توثيق',a_unverify:'إلغاء توثيق',a_block:'حظر',a_unblock:'فك حظر',a_delete:'حذف',a_resolve:'تم التعامل',a_comm:'نسبة العمولة %',a_prices:'أسعار الباقات (درهم)',a_save:'💾 حفظ الإعدادات',a_denied:'⛔ هذه الصفحة للإدارة فقط',m_home:'الرئيسية',m_browse:'تصفح',m_create:'إنشاء',m_msgs:'رسائل',m_store:'متجر',m_profile:'حسابي',card_driver:'🚗 سائق',card_passenger:'🙋 راكب',card_female:'🎀 نساء فقط',fair_b:'✅ سعر عادل',high_b:'⚠️ أعلى من العادل',hot_b:'🔥 يُتوقع امتلاؤه قريباً',match_b:'⚡ مطابق لمسارك',km_b:'📏 كم',trust_b:'🛡 ثقة',book_btn:'✓ ابدأ الحجز',msg_btn:'💬 مراسلة',book_t:'🎯 احجز في ٣ خطوات',pay_t:'🤝 طريقة الدفع (اتفاق مباشر)',pay_cash:'💵 نقدي بالسيارة',pay_transfer:'🏦 تحويل للسائق',pay_chat:'💬 نتفق بالشات',note_ph:'ملاحظة للطرف الآخر (اختياري)',confirm_b:'✓ تأكيد الطلب',total_l:'الإجمالي',dirham:'درهم',seats_of:'من',today:'اليوم',tomorrow:'غداً',after_tomorrow:'بعد غداً',t_saved:'✅ تم الحفظ',t_login_first:'⚠️ سجّل دخولك أولاً',t_done:'✅ تم بنجاح',t_sent:'✅ تم الإرسال',t_deleted:'🗑 تم الحذف',t_resolved:'✅ تم تعليمها كمُعالجة',t_fb_saved:'✅ وصلتنا رسالتك وشكراً لك',wrong_pass:'❌ كلمة مرور الأدمن غير صحيحة',blocked_user:'⛔ هذا الحساب محظور — تواصل مع الإدارة',no_results:'لا نتائج',seats_l2:'مقاعد',price_fair:'🤖 السعر العادل المقترح',range:'نطاق',for_km:'لمسافة',own_trip:'⚠️ هذا مشوارك — تابع الطلبات من صفحة حسابي',rate_trip:'🏁 إنهاء وتقييم',sos_b:'🆘 SOS',live_b:'📡 مشاركة لايف',accept_b:'✓ قبول',reject_b:'✕ رفض',online:'● متصل'},
+en:{app_name:'Mashawiri',nav_home:'Home',nav_browse:'Trips',nav_create:'Post Trip',nav_messages:'Messages',nav_store:'Store',nav_feedback:'Feedback',nav_profile:'Profile',nav_admin:'Admin Panel',login:'Sign In',theme:'Day / Night Theme',font_size:'Font Size',wa_support:'WhatsApp Support',notifs:'Notifications',mark_read:'Mark all read',hero_badge:'🇦🇪 The smartest carpooling platform in the UAE',hero_t1:'Share your ride,',hero_t2:'save your money',hero_sub:'Smart matching between drivers & passengers, fair distances-based prices, optional Emirates ID verification.',from_where:'📍 From where?',to_where:'🎯 To where?',search_btn:'🔍 Smart Search',stat_trips:'Available trips',stat_users:'Registered users',stat_rating:'Average rating',stat_matches:'Smart matches today',matched_t:'Smart matches for you',matched_s:'Trips matching your routes & searches — no digging needed',routes_t:'My usual routes',routes_s:'Save home/work line & book in one tap',route_label_ph:'Label (e.g. Home-Work)',save_route:'＋ Save route',latest_t:'Latest trips',latest_s:'Sorted by trust & match score',view_all:'View all ←',f1t:'Smart Matching',f1d:'We suggest trips matching your line & schedule automatically.',f2t:'Fair Price Engine',f2d:'Suggested price based on real distances between UAE cities.',f3t:'Women-only rides',f3d:'Verified female drivers & female-only trips on request.',f4t:'Full Safety',f4d:'SOS button, live trip sharing, Emirates ID verification.',cta_t:'Earn points just by sharing 🎁',cta_s:'Every share = 50 points — redeem for free limited membership!',cta_b:'📤 Share & earn 50 points',footer_about:'A UAE platform connecting drivers & passengers. We are an ads/communication platform only — we own no cars.',footer_links:'Quick links',footer_support:'Support',footer_ads:'Advertise',footer_ads_d:'Ad slots reaching thousands of daily users across the UAE.',footer_copy:'© 2026 Mashawiri — communication/ads platform; we do not interfere in operations or payments 🇦🇪',browse_t:'Browse trips',new_trip:'➕ New trip',smart_ph:'🔎 Smart search: city, area, or username...',f_all:'🌍 All',f_drivers:'🚗 Drivers',f_passengers:' Passengers',f_female:' Women only',s_smart:'🤖 Smart sort',s_new:'🆕 Newest',s_cheap:'💰 Cheapest',s_early:'⏰ Soonest',s_rating:'⭐ Top rated',s_trust:'🛡️ Most trusted',create_t:'➕ Post a new trip',create_s:'3 steps: Route ← Details & price ← Review & publish',step1:'Route',step2:'Details & price',step3:'Review',trip_type:'Trip type',i_driver:'Driver',i_passenger:'Passenger',from_l:'📍 From',to_l:'🎯 To',from_d:'Pickup details (optional)',to_d:'Drop-off details (optional)',female_only:'Women-only trip (female drivers)',next:'Next ←',back:'→ Back',date_l:'📅 Date',time_l:'⏰ Time',seats_l:'👥 Seats',price_l:'💰 Price per seat (AED)',details_l:'📝 Extra details',recurring:'Recurring daily trip',publish:'🚀 Publish trip',pay_note:'💡 Payment is directly between both parties as agreed. Platform commission is collected from the driver after completed trips only — first 10 trips free for Premium.',chats_t:'💬 Conversations',pick_chat:'Pick a conversation',pick_chat_s:'In-platform chat protects your privacy',send:'Send',fb_t:'Complaints & Suggestions',fb_s:'Your voice matters — every message reaches admin WhatsApp directly',fb_type:'Message type',fb_complaint:'Complaint',fb_suggestion:'Suggestion',fb_question:'Question',fb_name:'Your name (optional)',fb_text:'Write your message in detail...',fb_send:'📮 Send to platform',fb_wa:'Send via WhatsApp',fb_mine:'My previous messages',fb_status_new:'New',fb_status_done:'Handled',store_t:'Store & Points',store_s:'Ad removal, Premium membership, referral points redemption',points_t:'🎁 Your referral points',points_s:'Every share = 50 pts · 300 pts = 3-day free membership',share_btn:'📤 Share & earn 50 points',redeem1:'Redeem 300 → 3 days',redeem2:'Redeem 700 → 1 week',redeem3:'Redeem 1500 → 1 month',ad_remove:'Ad Removal',one_day:'One day',one_week:'One week',one_month:'Full month',per_day:'AED/day',per_week:'AED/week',per_month:'AED/month',buy:'Buy now',best_value:'Best value',prem_sub:'Monthly membership',prem_f1:'✓ Priority in results',prem_f2:'✓ No commission first 10 trips',prem_f3:'✓ Completely ad-free',prem_f4:'✓ 👑 badge on profile',subscribe:'Subscribe',welcome:'Welcome to Mashawiri',welcome_s:'Sign in or create a new account',login_t:'Sign In',reg_t:'New Account',email:'Email',password:'Password',login_btn:'🔓 Login',first_name:'First name',last_name:'Last name',phone:'Phone number',emirates_id:'🪪 Emirates ID (optional — for ✓ verification)',gender:'I am',male:'Male',female:'Female',terms:'I agree to the Terms & Privacy Policy',create_account:'✨ Create account',assistant:'Smart Assistant',p_active:'🟢 Active trips',p_requests:'📥 Booking requests',p_mytrips:'🚗 My trips',p_reviews:'⭐ Reviews',p_settings:'⚙️ Settings',my_trips:'My trips',trust:'Trust score',points:'My points',a_title:'Admin Panel',a_sub:'Full platform control — Arabic & English',a_overview:'📊 Overview',a_users:'👥 Users',a_trips:'🚗 Trips',a_feedback:'📮 Feedback',a_settings:'⚙️ Settings',a_users_l:'Users',a_trips_l:'Trips',a_bookings_l:'Bookings',a_rev_l:'Commission revenue',a_ads_l:'Packages & ads revenue',a_verify:'Verify',a_unverify:'Unverify',a_block:'Block',a_unblock:'Unblock',a_delete:'Delete',a_resolve:'Mark handled',a_comm:'Commission %',a_prices:'Package prices (AED)',a_save:'💾 Save settings',a_denied:'⛔ Admins only',m_home:'Home',m_browse:'Browse',m_create:'Post',m_msgs:'Chats',m_store:'Store',m_profile:'Profile',card_driver:'🚗 Driver',card_passenger:'🙋 Passenger',card_female:'🎀 Women only',fair_b:'✅ Fair price',high_b:'⚠️ Above fair',hot_b:'🔥 Likely to fill soon',match_b:'⚡ Matches your route',km_b:'📏 km',trust_b:'🛡 trust',book_btn:'✓ Start booking',msg_btn:'💬 Message',book_t:'🎯 Book in 3 steps',pay_t:'🤝 Payment method (direct agreement)',pay_cash:'💵 Cash in car',pay_transfer:'🏦 Transfer to driver',pay_chat:'💬 Agree in chat',note_ph:'Note to the other party (optional)',confirm_b:'✓ Confirm request',total_l:'Total',dirham:'AED',seats_of:'of',today:'Today',tomorrow:'Tomorrow',after_tomorrow:'Day after',t_saved:'✅ Saved',t_login_first:'⚠️ Sign in first',t_done:'✅ Done',t_sent:'✅ Sent',t_deleted:'🗑 Deleted',t_resolved:'✅ Marked as handled',t_fb_saved:'✅ Message received, thank you',wrong_pass:'❌ Wrong admin password',blocked_user:'⛔ Account blocked — contact admin',no_results:'No results',seats_l2:'seats',price_fair:'🤖 Suggested fair price',range:'range',for_km:'for',own_trip:'⚠️ This is your trip — manage requests from profile',rate_trip:'🏁 End & rate',sos_b:'🆘 SOS',live_b:'📡 Live share',accept_b:'✓ Accept',reject_b:'✕ Reject',online:'● online'}};
+let LANG='ar';
+function t(k){return (I18N[LANG]&&I18N[LANG][k])||I18N.ar[k]||k}
+function cityLabel(c){if(LANG==='en'){const i=CITIES.indexOf(c);return i>-1?CITIES_EN[i]:c}return c}
+function toggleLang(){LANG=LANG==='ar'?'en':'ar';D.lang=LANG;save();applyLang()}
+function applyLang(){document.documentElement.lang=LANG;document.documentElement.dir=LANG==='ar'?'rtl':'ltr';document.getElementById('langLabel').textContent=LANG==='ar'?'English':'العربية';document.querySelectorAll('[data-i18n]').forEach(function(el){el.textContent=t(el.getAttribute('data-i18n'))});document.querySelectorAll('[data-i18n-ph]').forEach(function(el){el.placeholder=t(el.getAttribute('data-i18n-ph'))});document.title=LANG==='ar'?'مشاويري 🇦🇪 - منصة المشاوير المشتركة':'Mashawiri 🇦🇪 - UAE Carpooling Platform';const cur=document.querySelector('.page.active');if(cur){const id=cur.id.replace('page-','');if(id==='home')renderHome();if(id==='browse')renderBrowse();if(id==='detail'&&window._lastDetail)showTripDetail(window._lastDetail);if(id==='messages')renderConversations();if(id==='profile')renderProfile();if(id==='store')renderStore();if(id==='admin')renderAdmin();if(id==='feedback')renderFeedbackList()}}
+function waSupport(){window.open('https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent((LANG==='ar'?'مرحباً مشاويري، محتاج دعم: ':'Hello Mashawiri, I need support: ')),'_blank')}
+function waFeedback(){const txt=document.getElementById('fbText').value.trim();const type=document.getElementById('fbType').value;if(!txt){showToast(LANG==='ar'?'⚠️ اكتب رسالتك الأول':'⚠️ Write your message first','warning');return}const label=LANG==='ar'?{complaint:'شكوى',suggestion:'اقتراح',question:'استفسار'}[type]:{complaint:'Complaint',suggestion:'Suggestion',question:'Question'}[type];window.open('https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent('['+label+' - مشاويري Mashawiri] '+txt),'_blank')}
+const seed={currentUser:null,theme:'light',zoom:0,lang:'ar',settings:{commission:8,adDay:2,adWeek:10,adMonth:30,premium:49,adTitleAr:'مساحتك الإعلانية هنا!',adTitleEn:'Your ad space here!'},sales:[],feedback:[],
+ users:[{id:0,name:'الإدارة',nameEn:'Admin',email:'admin@mashawiri.ae',role:'admin',avatar:'🛡',trips:0,rating:5,verified:true,female:false,points:0,premiumUntil:0,adFreeUntil:0},
+ {id:1,name:'محمد أحمد',nameEn:'Mohamed Ahmed',email:'mohamed@test.com',phone:'+971 50 123 4567',avatar:'م',trips:12,rating:4.9,verified:true,female:false,points:120,premiumUntil:0,adFreeUntil:0},
+ {id:2,name:'فاطمة علي',nameEn:'Fatima Ali',email:'fatima@test.com',phone:'+971 50 987 6543',avatar:'ف',trips:28,rating:4.8,verified:true,female:true,points:0,premiumUntil:0,adFreeUntil:0},
+ {id:3,name:'خالد المنصوري',nameEn:'Khaled Almansouri',email:'khaled@test.com',phone:'+971 50 234 5678',avatar:'خ',trips:45,rating:5.0,verified:true,female:false,points:0,premiumUntil:Date.now()+86400000*12,adFreeUntil:0},
+ {id:4,name:'نورة الشامسي',nameEn:'Noura Alshamsi',email:'noura@test.com',phone:'+971 50 345 6789',avatar:'ن',trips:8,rating:4.7,verified:false,female:true,points:0,premiumUntil:0,adFreeUntil:0}],
  trips:[{id:1,userId:2,type:'driver',from:'دبي',to:'أبوظبي',fromDetail:'مول الإمارات',toDetail:'الكورنيش',date:dstr(1),time:'07:30',seats:3,availableSeats:2,price:40,recurring:true,femaleOnly:false,description:'رحلة يومية للعمل عبر شارع الشيخ زايد، سيارة مكيفة.',createdAt:Date.now()-86400000},
  {id:2,userId:3,type:'driver',from:'الشارقة',to:'دبي',fromDetail:'المجاز',toDetail:'البرشاء',date:dstr(1),time:'08:00',seats:4,availableSeats:3,price:20,recurring:true,femaleOnly:false,description:'مشوار يومي للجامعة، ملتزم بالمواعيد.',createdAt:Date.now()-172800000},
  {id:3,userId:4,type:'passenger',from:'عجمان',to:'دبي',fromDetail:'الراشدية',toDetail:'وسط المدينة',date:dstr(2),time:'09:00',seats:1,availableSeats:1,price:25,recurring:false,femaleOnly:false,description:'أبحث عن مشوار للعمل، مرنة بالوقت.',createdAt:Date.now()-259200000},
@@ -655,70 +735,92 @@ const seed={currentUser:null,theme:'light',zoom:0,
  conversations:[{id:1,userId:2,lastMessage:'تمام، أشوفك 7:30 عند مول الإمارات',time:'10:30',unread:2}],
  messages:{2:[{from:'them',text:'السلام عليكم، المشوار متاح؟',time:'10:25'},{from:'me',text:'وعليكم السلام، نعم',time:'10:27'},{from:'them',text:'تمام، أشوفك 7:30 عند مول الإمارات',time:'10:30'}]},
  bookings:[],reviews:[],notifs:[],recentSearches:[],frequentRoutes:[],reminded:[]};
+function dstr(o){const d=new Date();d.setDate(d.getDate()+(o||0));return d.toISOString().split('T')[0]}
+function kmBetween(a,b){if(a===b)return 0;return KM[a+'|'+b]||KM[b+'|'+a]||120}
+function fairInfo(a,b){const km=kmBetween(a,b);const fair=Math.round(10+km*0.25);return{km:km,fair:fair,min:Math.round(fair*0.8),max:Math.round(fair*1.2)}}
 function load(){try{const s=localStorage.getItem(KEY);if(s)return JSON.parse(s)}catch(e){}return JSON.parse(JSON.stringify(seed))}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(D))}catch(e){}}
 let D=load();
+LANG=D.lang||'ar';
+if(!D.settings)D.settings=seed.settings;
+if(!D.sales)D.sales=[];
+if(!D.feedback)D.feedback=[];
+if(!D.users.find(function(u){return u.role==='admin'}))D.users.unshift(seed.users[0]);
 const U=function(){return D.currentUser};
 const isPremium=function(){return U()&&U().premiumUntil>Date.now()};
 const isAdFree=function(){return isPremium()||(U()&&U().adFreeUntil>Date.now())};
+const isAdmin=function(){return U()&&U().role==='admin'};
 const trustScore=function(u){return Math.min(100,Math.round(u.rating*12+(u.verified?20:0)+Math.min(u.trips,40)*0.5))};
-const daysUntil=function(t){return Math.round((new Date(t.date+'T'+t.time)-new Date())/86400000)};
-const fi=function(t){return fairInfo(t.from,t.to)};
-function fillRisk(t){const f=fi(t);let s=((t.seats-t.availableSeats)/t.seats)*40+(t.price<=f.max?25:0)+(daysUntil(t)<=2?20:0)+(t.recurring?10:0);return s>=55}
-function showToast(m,t){const el=document.getElementById('toast');el.textContent=m;el.className='toast show '+(t||'');clearTimeout(el._t);el._t=setTimeout(function(){el.className='toast'},2600)}
+const daysUntil=function(tr){return Math.round((new Date(tr.date+'T'+tr.time)-new Date())/86400000)};
+const fi=function(tr){return fairInfo(tr.from,tr.to)};
+function fillRisk(tr){const f=fi(tr);let s=((tr.seats-tr.availableSeats)/tr.seats)*40+(tr.price<=f.max?25:0)+(daysUntil(tr)<=2?20:0)+(tr.recurring?10:0);return s>=55}
+function uName(u){return LANG==='en'&&(u.nameEn)?u.nameEn:u.name}
+function showToast(m,ty){const el=document.getElementById('toast');el.textContent=m;el.className='toast show '+(ty||'');clearTimeout(el._t);el._t=setTimeout(function(){el.className='toast'},2600)}
 function notify(text,icon){D.notifs.unshift({id:Date.now()+Math.random(),text:text,icon:icon||'🔔',time:new Date().toLocaleTimeString('ar-AE',{hour:'2-digit',minute:'2-digit'}),read:false});save();renderNotifDot()}
 function renderNotifDot(){const un=D.notifs.filter(function(n){return !n.read}).length;const d=document.getElementById('notifDot');d.style.display=un?'flex':'none';d.textContent=un}
 function toggleNotif(){const dr=document.getElementById('notifDrop');dr.classList.toggle('open');if(dr.classList.contains('open'))renderNotifs()}
-function renderNotifs(){document.getElementById('notifList').innerHTML=D.notifs.length?D.notifs.map(function(n){return '<div class="notif-item '+(n.read?'':'unread')+'"><span class="ic">'+n.icon+'</span><div><div>'+n.text+'</div><div class="tm">'+n.time+'</div></div></div>'}).join(''):'<div class="empty-state" style="padding:30px"><div class="empty-state-icon">🔕</div><h3>لا إشعارات</h3></div>'}
+function renderNotifs(){document.getElementById('notifList').innerHTML=D.notifs.length?D.notifs.map(function(n){return '<div class="notif-item '+(n.read?'':'unread')+'"><span class="ic">'+n.icon+'</span><div><div>'+n.text+'</div><div class="tm">'+n.time+'</div></div></div>'}).join(''):'<div class="empty-state" style="padding:30px"><div class="empty-state-icon">🔕</div><h3>'+t('notifs')+'</h3></div>'}
 function markAllRead(){D.notifs.forEach(function(n){n.read=true});save();renderNotifs();renderNotifDot()}
-function formatDate(s){const d=new Date(s+'T00:00:00');const t=new Date();t.setHours(0,0,0,0);const diff=Math.round((d-t)/86400000);if(diff===0)return 'اليوم';if(diff===1)return 'غداً';if(diff===2)return 'بعد غداً';try{return d.toLocaleDateString('ar-AE',{weekday:'long',day:'numeric',month:'long'})}catch(e){return s}}
+function formatDate(s){const d=new Date(s+'T00:00:00');const td=new Date();td.setHours(0,0,0,0);const diff=Math.round((d-td)/86400000);if(diff===0)return t('today');if(diff===1)return t('tomorrow');if(diff===2)return t('after_tomorrow');try{return d.toLocaleDateString(LANG==='ar'?'ar-AE':'en-AE',{weekday:'long',day:'numeric',month:'long'})}catch(e){return s}}
 function openModal(html){document.getElementById('modalBox').innerHTML=html;document.getElementById('overlay').classList.add('open')}
 function closeModal(){document.getElementById('overlay').classList.remove('open')}
-function adBannerHTML(){if(isAdFree())return '';return '<div class="ad-banner"><div><span class="ad-tag">إعلان ممول</span><div style="margin-top:6px"><strong>مساحتك الإعلانية هنا!</strong><div style="font-size:12.5px;opacity:.95">أوصل إعلانك لـ +8,500 مستخدم يومياً في كل الإمارات</div></div></div><div class="ad-actions"><button class="ad-btn-light" onclick="showToast(\'فريق المبيعات: ads@mashawiri.ae\',\'success\')">أعلن معنا</button><button class="ad-btn-dark" onclick="showPage(\'store\')">إزالة الإعلانات</button></div></div>'}
-function showPage(id){document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active')});const p=document.getElementById('page-'+id);if(p)p.classList.add('active');document.querySelectorAll('[data-nav]').forEach(function(n){n.classList.toggle('active',n.getAttribute('data-nav')===id)});document.getElementById('notifDrop').classList.remove('open');window.scrollTo(0,0);
- if(id==='home')renderHome();if(id==='browse')renderBrowse();if(id==='messages')renderConversations();if(id==='profile')renderProfile();if(id==='store')renderStore();if(id==='create')resetWizard()}
+function adBannerHTML(){if(isAdFree())return '';const title=LANG==='ar'?D.settings.adTitleAr:D.settings.adTitleEn;return '<div class="ad-banner"><div><span class="ad-tag">'+(LANG==='ar'?'إعلان ممول':'Sponsored')+'</span><div style="margin-top:6px"><strong>'+title+'</strong><div style="font-size:12.5px;opacity:.95">'+(LANG==='ar'?'أوصل إعلانك لـ +8,500 مستخدم يومياً في كل الإمارات':'Reach +8,500 daily users across the UAE')+'</div></div></div><div class="ad-actions"><button class="ad-btn-light" onclick="showPage(\'store\')">'+(LANG==='ar'?'أعلن معنا':'Advertise')+'</button><button class="ad-btn-dark" onclick="showPage(\'store\')">'+(LANG==='ar'?'إزالة الإعلانات':'Remove ads')+'</button></div></div>'}
+let pageStack=[];
+function showPage(id){if(id==='admin'&&!isAdmin()){showToast(t('a_denied'),'error');showPage('auth');return}
+ const cur=document.querySelector('.page.active');if(cur&&cur.id!=='page-'+id)pageStack.push(cur.id.replace('page-',''));
+ document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active')});const p=document.getElementById('page-'+id);if(p)p.classList.add('active');
+ document.querySelectorAll('[data-nav]').forEach(function(n){n.classList.toggle('active',n.getAttribute('data-nav')===id)});
+ document.getElementById('notifDrop').classList.remove('open');
+ document.getElementById('backBtn').style.display=id==='home'?'none':'flex';
+ window.scrollTo(0,0);
+ if(id==='home')renderHome();if(id==='browse')renderBrowse();if(id==='messages')renderConversations();if(id==='profile')renderProfile();if(id==='store')renderStore();if(id==='create')resetWizard();if(id==='admin')renderAdmin();if(id==='feedback')renderFeedbackList()}
+function goBack(){const prev=pageStack.pop();showPageDirect(prev||'home')}
+function showPageDirect(id){document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active')});const p=document.getElementById('page-'+id);if(p)p.classList.add('active');document.querySelectorAll('[data-nav]').forEach(function(n){n.classList.toggle('active',n.getAttribute('data-nav')===id)});document.getElementById('backBtn').style.display=id==='home'?'none':'flex';window.scrollTo(0,0);if(id==='home')renderHome();if(id==='browse')renderBrowse();if(id==='profile')renderProfile();if(id==='store')renderStore();if(id==='admin')renderAdmin();if(id==='feedback')renderFeedbackList()}
+function openSidebar(){document.getElementById('sidebar').classList.add('open');document.getElementById('sideBackdrop').classList.add('open')}
+function closeSidebar(){document.getElementById('sidebar').classList.remove('open');document.getElementById('sideBackdrop').classList.remove('open')}
 function toggleTheme(){D.theme=D.theme==='light'?'dark':'light';save();applyTheme()}
 function applyTheme(){document.documentElement.setAttribute('data-theme',D.theme);document.getElementById('themeBtn').textContent=D.theme==='light'?'🌙':'☀️';document.body.className=D.zoom===1?'zoom-1':(D.zoom===2?'zoom-2':'')}
-function setZoom(z){D.zoom=z;save();applyTheme();showToast('تم تغيير حجم الخط','success')}
-function acShow(which){const inp=document.getElementById(which==='from'?'searchFromInput':'searchToInput');const list=document.getElementById(which==='from'?'acFromList':'acToList');const q=inp.value.trim();const items=CITIES.filter(function(c){return !q||c.indexOf(q)>-1});list.innerHTML=items.map(function(c){return '<div class="ac-item" onmousedown="acPick(\''+which+'\',\''+c+'\')">'+c+'</div>'}).join('')||'<div class="ac-item">لا نتائج</div>';list.classList.add('open')}
+function setZoomCycle(){D.zoom=(D.zoom+1)%3;save();applyTheme();showToast((LANG==='ar'?'🔠 حجم الخط: ':'🔠 Font size: ')+['100%','112%','125%'][D.zoom],'success')}
+function acShow(which){const inp=document.getElementById(which==='from'?'searchFromInput':'searchToInput');const list=document.getElementById(which==='from'?'acFromList':'acToList');const q=inp.value.trim();const src=LANG==='ar'?CITIES:CITIES_EN;const items=src.filter(function(c){return !q||c.toLowerCase().indexOf(q.toLowerCase())>-1});list.innerHTML=items.map(function(c){return '<div class="ac-item" onmousedown="acPick(\''+which+'\',\''+c+'\')">'+c+'</div>'}).join('')||'<div class="ac-item">'+t('no_results')+'</div>';list.classList.add('open')}
 function acPick(which,city){document.getElementById(which==='from'?'searchFromInput':'searchToInput').value=city;document.getElementById(which==='from'?'acFromList':'acToList').classList.remove('open')}
 document.addEventListener('click',function(e){if(!e.target.closest('.search-field'))document.querySelectorAll('.ac-list').forEach(function(l){l.classList.remove('open')})});
-function saveRecent(f,t){D.recentSearches=D.recentSearches.filter(function(r){return !(r.from===f&&r.to===t)});D.recentSearches.unshift({from:f,to:t});D.recentSearches=D.recentSearches.slice(0,4);save()}
-function renderRecent(){document.getElementById('recentRow').innerHTML=D.recentSearches.map(function(r,i){return '<span class="recent-chip" onclick="useRecent('+i+')">🕐 '+r.from+' ← '+r.to+'<span class="x" onclick="event.stopPropagation();delRecent('+i+')">✕</span></span>'}).join('')}
-function useRecent(i){const r=D.recentSearches[i];document.getElementById('searchFromInput').value=r.from;document.getElementById('searchToInput').value=r.to;doSearch()}
+function cityNameAr(c){if(LANG==='en'){const i=CITIES_EN.indexOf(c);return i>-1?CITIES[i]:c}return c}
+function saveRecent(f,to){const fa=cityNameAr(f),ta=cityNameAr(to);D.recentSearches=D.recentSearches.filter(function(r){return !(r.from===fa&&r.to===ta)});D.recentSearches.unshift({from:fa,to:ta});D.recentSearches=D.recentSearches.slice(0,4);save()}
+function renderRecent(){document.getElementById('recentRow').innerHTML=D.recentSearches.map(function(r,i){return '<span class="recent-chip" onclick="useRecent('+i+')">🕐 '+cityLabel(r.from)+' ← '+cityLabel(r.to)+'<span class="x" onclick="event.stopPropagation();delRecent('+i+')">✕</span></span>'}).join('')}
+function useRecent(i){const r=D.recentSearches[i];document.getElementById('searchFromInput').value=cityLabel(r.from);document.getElementById('searchToInput').value=cityLabel(r.to);doSearch()}
 function delRecent(i){D.recentSearches.splice(i,1);save();renderRecent()}
-function doSearch(){const f=document.getElementById('searchFromInput').value.trim();const t=document.getElementById('searchToInput').value.trim();if(!f&&!t){showToast('اكتب نقطة الانطلاق أو الوجهة','warning');return}if(f&&t)saveRecent(f,t);showPage('browse');document.getElementById('smartQuery').value=[f,t].filter(Boolean).join(' ');renderBrowse();showToast('تم ترتيب النتائج ذكياً لك','success')}
-function fillCitySelects(){const opts='<option value="">اختر...</option>'+CITIES.map(function(c){return '<option>'+c+'</option>'}).join('');['fqFrom','fqTo','cFrom','cTo'].forEach(function(id){const el=document.getElementById(id);if(el)el.innerHTML=opts})}
-function addRoute(){const f=document.getElementById('fqFrom').value,t=document.getElementById('fqTo').value,l=document.getElementById('fqLabel').value.trim();if(!f||!t){showToast('اختر المدينتين','warning');return}D.frequentRoutes.push({id:Date.now(),from:f,to:t,label:l||(f+' ← '+t)});save();document.getElementById('fqLabel').value='';renderHome();showToast('تم حفظ المسار — الحجز بضغطة واحدة','success')}
+function doSearch(){const f=document.getElementById('searchFromInput').value.trim();const to=document.getElementById('searchToInput').value.trim();if(!f&&!to){showToast(LANG==='ar'?'اكتب نقطة الانطلاق أو الوجهة':'Enter origin or destination','warning');return}if(f&&to)saveRecent(f,to);showPage('browse');document.getElementById('smartQuery').value=[f,to].filter(Boolean).join(' ');renderBrowse()}
+function fillCitySelects(){const src=LANG==='ar'?CITIES:CITIES_EN;const opts='<option value="">'+(LANG==='ar'?'اختر...':'Select...')+'</option>'+src.map(function(c){return '<option>'+c+'</option>'}).join('');['fqFrom','fqTo','cFrom','cTo'].forEach(function(id){const el=document.getElementById(id);if(el)el.innerHTML=opts})}
+function addRoute(){const f=cityNameAr(document.getElementById('fqFrom').value),to=cityNameAr(document.getElementById('fqTo').value),l=document.getElementById('fqLabel').value.trim();if(!f||!to){showToast(LANG==='ar'?'اختر المدينتين':'Select both cities','warning');return}D.frequentRoutes.push({id:Date.now(),from:f,to:to,label:l||(cityLabel(f)+' ← '+cityLabel(to))});save();document.getElementById('fqLabel').value='';renderHome();showToast(t('t_saved'),'success')}
 function delRoute(id){D.frequentRoutes=D.frequentRoutes.filter(function(r){return r.id!==id});save();renderHome()}
-function bookRouteById(id){const r=D.frequentRoutes.find(function(x){return x.id===id});if(!r)return;document.getElementById('searchFromInput').value=r.from;document.getElementById('searchToInput').value=r.to;doSearch()}
+function bookRouteById(id){const r=D.frequentRoutes.find(function(x){return x.id===id});if(!r)return;document.getElementById('searchFromInput').value=cityLabel(r.from);document.getElementById('searchToInput').value=cityLabel(r.to);doSearch()}
 function isPrem(uid){const u=D.users.find(function(x){return x.id===uid});return u&&u.premiumUntil>Date.now()}
 function trustOf(uid){const u=D.users.find(function(x){return x.id===uid});return u?trustScore(u):0}
 function renderHome(){document.getElementById('statTrips').textContent=D.trips.length;document.getElementById('statUsers').textContent=D.users.length;document.getElementById('adHome').innerHTML=adBannerHTML();renderRecent();
- const routesHTML=D.frequentRoutes.length?D.frequentRoutes.map(function(r){return '<div class="fq-route"><div><b>📍 '+r.label+'</b><div style="font-size:12px;color:var(--muted);font-weight:700">'+r.from+' ← '+r.to+'</div></div><div style="display:flex;gap:8px"><button class="btn btn-success btn-sm" onclick="bookRouteById('+r.id+')">⚡ احجز بضغطة</button><button class="btn btn-secondary btn-sm" onclick="delRoute('+r.id+')">🗑</button></div></div>'}).join(''):'<div class="empty-state" style="padding:24px;background:var(--card);border-radius:14px"><div class="empty-state-icon">🛣️</div><h3>لا مسارات محفوظة</h3><p>احفظ خط البيت/الشغل فوق واحجز بضغطة</p></div>';
+ const routesHTML=D.frequentRoutes.length?D.frequentRoutes.map(function(r){return '<div class="fq-route"><div><b>📍 '+r.label+'</b><div style="font-size:12px;color:var(--muted);font-weight:700">'+cityLabel(r.from)+' ← '+cityLabel(r.to)+'</div></div><div style="display:flex;gap:8px"><button class="btn btn-success btn-sm" onclick="bookRouteById('+r.id+')">⚡ '+(LANG==='ar'?'احجز بضغطة':'One-tap book')+'</button><button class="btn btn-secondary btn-sm" onclick="delRoute('+r.id+')">🗑</button></div></div>'}).join(''):'<div class="empty-state" style="padding:24px;background:var(--card);border-radius:14px"><div class="empty-state-icon">🛣️</div><h3>'+(LANG==='ar'?'لا مسارات محفوظة':'No saved routes')+'</h3></div>';
  document.getElementById('homeRoutes').innerHTML=routesHTML;
  renderMatched();
  const pop=[...D.trips].sort(function(a,b){return (isPrem(b.userId)?1:0)-(isPrem(a.userId)?1:0)||trustOf(b.userId)-trustOf(a.userId)}).slice(0,3);
- document.getElementById('popularTrips').innerHTML=pop.map(function(t){return renderTripCard(t,false)}).join('')}
+ document.getElementById('popularTrips').innerHTML=pop.map(function(tr){return renderTripCard(tr,false)}).join('')}
 function renderMatched(){const u=U();const refs=[];D.frequentRoutes.forEach(function(r){refs.push(r)});if(D.recentSearches[0])refs.push(D.recentSearches[0]);
- const matched=[];refs.forEach(function(r){D.trips.forEach(function(t){if(t.from===r.from&&t.to===r.to&&t.availableSeats>0&&matched.indexOf(t)<0)matched.push(t)})});
+ const matched=[];refs.forEach(function(r){D.trips.forEach(function(tr){if(tr.from===r.from&&tr.to===r.to&&tr.availableSeats>0&&matched.indexOf(tr)<0)matched.push(tr)})});
  document.getElementById('statMatches').textContent=matched.length;
  const sec=document.getElementById('matchedSection');
- if(matched.length&&u){sec.style.display='block';document.getElementById('matchedTrips').innerHTML=matched.slice(0,3).map(function(t){return renderTripCard(t,true)}).join('')}else{sec.style.display='none'}}
-function renderTripCard(t,matched){const u=D.users.find(function(x){return x.id===t.userId});if(!u)return '';const f=fi(t);const hot=fillRisk(t);const prem=isPrem(t.userId);
- return '<div class="trip-card '+(prem?'premium-card':'')+'" onclick="showTripDetail('+t.id+')">'+(prem?'<div class="premium-ribbon">👑 Premium</div>':'')+
- '<div class="trip-card-header"><div class="trip-user"><div class="trip-avatar '+(u.female?'female':'male')+'">'+u.avatar+(u.verified?'<div class="verified-badge">✓</div>':'')+'</div><div class="trip-user-info"><h4>'+u.name+(isPrem(t.userId)?' 👑':'')+'</h4><div class="trip-rating">⭐ '+u.rating+' · <span class="trust-pill">🛡 ثقة '+trustScore(u)+'%</span></div></div></div><div style="display:flex;gap:6px;flex-direction:column;align-items:end"><div class="trip-type-badge '+t.type+'">'+(t.type==='driver'?'🚗 سائق':'🙋 راكب')+'</div>'+(t.femaleOnly?'<div class="female-badge">🎀 نساء فقط</div>':'')+'</div></div>'+
- '<div class="trip-route"><div class="route-line"><div class="route-dot"></div><div class="route-connector"></div><div class="route-dot end"></div></div><div class="route-info"><div class="route-point"><div class="city">📍 '+t.from+'</div><div class="location">'+t.fromDetail+'</div></div><div class="route-point"><div class="city">🎯 '+t.to+'</div><div class="location">'+t.toDetail+'</div></div></div></div>'+
- '<div class="trip-meta"><span class="meta-item">📅 '+formatDate(t.date)+'</span><span class="meta-item">⏰ '+t.time+'</span><span class="meta-item">👥 '+t.availableSeats+'/'+t.seats+'</span>'+(t.recurring?'<span class="meta-item">🔄 متكرر</span>':'')+'<span class="trip-price">'+t.price+' درهم</span></div>'+
- '<div class="ai-badges">'+(matched?'<span class="ai-badge match">⚡ مطابق لمسارك</span>':'')+(hot?'<span class="ai-badge hot">🔥 يُتوقع امتلاؤه قريباً</span>':'')+(t.price<=f.max?'<span class="ai-badge fair">✅ سعر عادل ('+f.min+'-'+f.max+')</span>':'<span class="ai-badge high">⚠️ أعلى من السعر العادل</span>')+'<span class="ai-badge match">📏 '+f.km+' كم</span></div></div>'}
+ if(matched.length&&u){sec.style.display='block';document.getElementById('matchedTrips').innerHTML=matched.slice(0,3).map(function(tr){return renderTripCard(tr,true)}).join('')}else{sec.style.display='none'}}
+function renderTripCard(tr,matched){const u=D.users.find(function(x){return x.id===tr.userId});if(!u)return '';const f=fi(tr);const hot=fillRisk(tr);const prem=isPrem(tr.userId);
+ return '<div class="trip-card '+(prem?'premium-card':'')+'" onclick="showTripDetail('+tr.id+')">'+(prem?'<div class="premium-ribbon">👑 Premium</div>':'')+
+ '<div class="trip-card-header"><div class="trip-user"><div class="trip-avatar '+(u.female?'female':'male')+'">'+u.avatar+(u.verified?'<div class="verified-badge">✓</div>':'')+'</div><div class="trip-user-info"><h4>'+uName(u)+(prem?' 👑':'')+(u.blocked?' ⛔':'')+'</h4><div class="trip-rating">⭐ '+u.rating+' · <span class="trust-pill">'+t('trust_b')+' '+trustScore(u)+'%</span></div></div></div><div style="display:flex;gap:6px;flex-direction:column;align-items:end"><div class="trip-type-badge '+tr.type+'">'+(tr.type==='driver'?t('card_driver'):t('card_passenger'))+'</div>'+(tr.femaleOnly?'<div class="female-badge">'+t('card_female')+'</div>':'')+'</div></div>'+
+ '<div class="trip-route"><div class="route-line"><div class="route-dot"></div><div class="route-connector"></div><div class="route-dot end"></div></div><div class="route-info"><div class="route-point"><div class="city">📍 '+cityLabel(tr.from)+'</div><div class="location">'+tr.fromDetail+'</div></div><div class="route-point"><div class="city">🎯 '+cityLabel(tr.to)+'</div><div class="location">'+tr.toDetail+'</div></div></div></div>'+
+ '<div class="trip-meta"><span class="meta-item">📅 '+formatDate(tr.date)+'</span><span class="meta-item">⏰ '+tr.time+'</span><span class="meta-item">👥 '+tr.availableSeats+'/'+tr.seats+'</span>'+(tr.recurring?'<span class="meta-item">🔄</span>':'')+'<span class="trip-price">'+tr.price+' '+t('dirham')+'</span></div>'+
+ '<div class="ai-badges">'+(matched?'<span class="ai-badge match">'+t('match_b')+'</span>':'')+(hot?'<span class="ai-badge hot">'+t('hot_b')+'</span>':'')+(tr.price<=f.max?'<span class="ai-badge fair">'+t('fair_b')+' ('+f.min+'-'+f.max+')</span>':'<span class="ai-badge high">'+t('high_b')+'</span>')+'<span class="ai-badge match">'+t('km_b').replace(' كم','').replace(' km','')+' '+f.km+'</span></div></div>'}
 let browseState={filter:'all',city:null};
 function applyFilter(f,c,btn){browseState={filter:f,city:c};document.querySelectorAll('#filterBar .filter-chip').forEach(function(x){x.classList.remove('active')});btn.classList.add('active');renderBrowse()}
 function renderBrowse(){let list=[...D.trips];const q=(document.getElementById('smartQuery').value||'').trim();
- if(browseState.filter==='driver')list=list.filter(function(t){return t.type==='driver'});
- if(browseState.filter==='passenger')list=list.filter(function(t){return t.type==='passenger'});
- if(browseState.filter==='female')list=list.filter(function(t){return t.femaleOnly});
- if(browseState.city)list=list.filter(function(t){return t.from===browseState.city||t.to===browseState.city});
- if(q)list=list.filter(function(t){const u=D.users.find(function(x){return x.id===t.userId});return (t.from+t.to+t.fromDetail+t.toDetail+(u?u.name:'')).indexOf(q)>-1});
+ if(browseState.filter==='driver')list=list.filter(function(tr){return tr.type==='driver'});
+ if(browseState.filter==='passenger')list=list.filter(function(tr){return tr.type==='passenger'});
+ if(browseState.filter==='female')list=list.filter(function(tr){return tr.femaleOnly});
+ if(browseState.city)list=list.filter(function(tr){return tr.from===browseState.city||tr.to===browseState.city});
+ if(q)list=list.filter(function(tr){const u=D.users.find(function(x){return x.id===tr.userId});return (tr.from+tr.to+tr.fromDetail+tr.toDetail+(u?uName(u):'')).toLowerCase().indexOf(q.toLowerCase())>-1});
  const sort=document.getElementById('sortSelect').value;
  const premFirst=function(a,b){return (isPrem(b.userId)?1:0)-(isPrem(a.userId)?1:0)};
  if(sort==='new')list.sort(function(a,b){return premFirst(a,b)||b.createdAt-a.createdAt});
@@ -727,116 +829,136 @@ function renderBrowse(){let list=[...D.trips];const q=(document.getElementById('
  if(sort==='rating')list.sort(function(a,b){return premFirst(a,b)||(D.users.find(function(x){return x.id===b.userId}).rating-D.users.find(function(x){return x.id===a.userId}).rating)});
  if(sort==='trust'||sort==='smart')list.sort(function(a,b){return premFirst(a,b)||(trustOf(b.userId)-trustOf(a.userId))+(fillRisk(b)?1:0)-(fillRisk(a)?1:0)});
  document.getElementById('adBrowse').innerHTML=adBannerHTML();
- document.getElementById('tripsGrid').innerHTML=list.length?list.map(function(t){return renderTripCard(t,false)}).join(''):'<div class="empty-state" style="grid-column:1/-1;background:var(--card);border-radius:16px"><div class="empty-state-icon">🔍</div><h3>لا نتائج</h3><p>جرّب فلاتر أخرى أو أنشئ مشوارك</p></div>';
- document.getElementById('tripsCount').textContent='عرض '+list.length+' مشوار'}
+ document.getElementById('tripsGrid').innerHTML=list.length?list.map(function(tr){return renderTripCard(tr,false)}).join(''):'<div class="empty-state" style="grid-column:1/-1;background:var(--card);border-radius:16px"><div class="empty-state-icon">🔍</div><h3>'+t('no_results')+'</h3></div>';
+ document.getElementById('tripsCount').textContent=(LANG==='ar'?'عرض ':'Showing ')+list.length+(LANG==='ar'?' مشوار':' trips')}
 let WIZ={};
-function showTripDetail(id){const t=D.trips.find(function(x){return x.id===id});if(!t)return;const u=D.users.find(function(x){return x.id===t.userId});const f=fi(t);const own=U()&&U().id===t.userId;const hot=fillRisk(t);
- document.getElementById('tripDetailContent').innerHTML='<button class="btn btn-secondary" onclick="showPage(\'browse\')" style="margin-bottom:16px">→ رجوع</button><div class="detail-card">'+
- '<div class="detail-header"><div class="detail-user"><div class="detail-avatar" style="background:'+(u.female?'linear-gradient(135deg,#ec4899,#be185d)':'linear-gradient(135deg,#3b82f6,#1d4ed8)')+'">'+u.avatar+'</div><div class="detail-user-info"><h2>'+u.name+' '+(u.verified?'<span style="color:var(--accent);font-size:14px">✓ موثق بالهوية</span>':'')+(isPrem(t.userId)?' 👑':'')+'</h2><div class="detail-user-meta"><span>⭐ '+u.rating+'</span><span>🛡 ثقة '+trustScore(u)+'%</span><span>🚗 '+u.trips+' رحلة</span></div></div></div><div style="display:flex;gap:6px;flex-direction:column;align-items:end"><div class="trip-type-badge '+t.type+'">'+(t.type==='driver'?'🚗 سائق':'🙋 راكب')+'</div>'+(t.femaleOnly?'<div class="female-badge">🎀 نساء فقط</div>':'')+'</div></div>'+
- '<div class="detail-route-large"><div class="detail-route-point"><div class="label">📍 الانطلاق</div><div class="value">'+t.fromDetail+'</div><div class="sub">'+t.from+'</div></div><div class="route-arrow">←</div><div class="detail-route-point"><div class="label">🎯 الوجهة</div><div class="value">'+t.toDetail+'</div><div class="sub">'+t.to+'</div></div></div>'+
- '<div class="detail-info-grid"><div class="info-box"><div class="info-box-icon">📅</div><div class="info-box-content"><div class="label">التاريخ</div><div class="value">'+formatDate(t.date)+'</div></div></div><div class="info-box"><div class="info-box-icon">⏰</div><div class="info-box-content"><div class="label">الوقت</div><div class="value">'+t.time+'</div></div></div><div class="info-box"><div class="info-box-icon">👥</div><div class="info-box-content"><div class="label">المقاعد</div><div class="value">'+t.availableSeats+' من '+t.seats+'</div></div></div><div class="info-box"><div class="info-box-icon">💰</div><div class="info-box-content"><div class="label">السعر</div><div class="value" style="color:var(--accent)">'+t.price+' درهم</div></div></div><div class="info-box"><div class="info-box-icon">📏</div><div class="info-box-content"><div class="label">المسافة/سعر عادل</div><div class="value">'+f.km+' كم / '+f.min+'-'+f.max+'</div></div></div></div>'+
- '<div class="ai-badges" style="margin-bottom:16px">'+(hot?'<span class="ai-badge hot">🔥 يُتوقع امتلاؤه خلال ساعات — احجز الآن!</span>':'')+(t.price<=f.max?'<span class="ai-badge fair">✅ السعر ضمن النطاق العادل</span>':'<span class="ai-badge high">⚠️ السعر أعلى من العادل ('+f.max+' درهم)</span>')+(t.recurring?'<span class="ai-badge match">🔄 متكرر — فعّل الاشتراك الشهري ووفّر 20%</span>':'')+'</div>'+
- '<div class="detail-description"><b>📝 التفاصيل:</b><br>'+(t.description||'—')+'</div>'+
- (own?'<div style="background:rgba(245,158,11,.12);padding:16px;border-radius:12px;text-align:center;font-weight:800">⚠️ هذا مشوارك — تابع الطلبات من صفحة حسابي</div>':
- '<div class="booking-form"><h3>🎯 احجز في ٣ خطوات</h3><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-success" style="flex:2;min-width:180px" onclick="openBooking('+t.id+')">✓ ابدأ الحجز</button><button class="btn btn-secondary" style="flex:1;min-width:120px" onclick="openChat('+t.userId+')">💬 مراسلة</button></div><div style="font-size:12px;color:var(--muted);font-weight:700;margin-top:10px">💡 الدفع يتم مباشرة بينك وبين السائق (نقدي/تحويل) حسب القبول من البداية — المنصة لا تتدخل في التحصيل.</div></div>')+
- (t.recurring&&!own?'<div style="margin-top:14px;background:var(--bg);border-radius:12px;padding:14px;font-size:13px;font-weight:700;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">💡 بتركب الخط ده كتير؟<button class="btn btn-gold btn-sm" onclick="showPage(\'store\')">👑 فعّل اشتراك شهري ووفّر 20%</button></div>':'')+
+function showTripDetail(id){window._lastDetail=id;const tr=D.trips.find(function(x){return x.id===id});if(!tr)return;const u=D.users.find(function(x){return x.id===tr.userId});const f=fi(tr);const own=U()&&U().id===tr.userId;const hot=fillRisk(tr);
+ document.getElementById('tripDetailContent').innerHTML='<button class="btn btn-secondary" onclick="goBack()" style="margin-bottom:16px">← '+(LANG==='ar'?'رجوع':'Back')+'</button><div class="detail-card">'+
+ '<div class="detail-header"><div class="detail-user"><div class="detail-avatar" style="background:'+(u.female?'linear-gradient(135deg,#ec4899,#be185d)':'linear-gradient(135deg,#3b82f6,#1d4ed8)')+'">'+u.avatar+'</div><div class="detail-user-info"><h2>'+uName(u)+' '+(u.verified?'<span style="color:var(--accent);font-size:14px">✓</span>':'')+(isPrem(tr.userId)?' 👑':'')+'</h2><div class="detail-user-meta"><span>⭐ '+u.rating+'</span><span>'+t('trust_b')+' '+trustScore(u)+'%</span><span>🚗 '+u.trips+'</span></div></div></div><div style="display:flex;gap:6px;flex-direction:column;align-items:end"><div class="trip-type-badge '+tr.type+'">'+(tr.type==='driver'?t('card_driver'):t('card_passenger'))+'</div>'+(tr.femaleOnly?'<div class="female-badge">'+t('card_female')+'</div>':'')+'</div></div>'+
+ '<div class="detail-route-large"><div class="detail-route-point"><div class="label">📍 '+(LANG==='ar'?'الانطلاق':'Pickup')+'</div><div class="value">'+tr.fromDetail+'</div><div class="sub">'+cityLabel(tr.from)+'</div></div><div class="route-arrow">←</div><div class="detail-route-point"><div class="label">🎯 '+(LANG==='ar'?'الوجهة':'Drop-off')+'</div><div class="value">'+tr.toDetail+'</div><div class="sub">'+cityLabel(tr.to)+'</div></div></div>'+
+ '<div class="detail-info-grid"><div class="info-box"><div class="info-box-icon">📅</div><div class="info-box-content"><div class="label">'+t('date_l')+'</div><div class="value">'+formatDate(tr.date)+'</div></div></div><div class="info-box"><div class="info-box-icon">⏰</div><div class="info-box-content"><div class="label">'+t('time_l')+'</div><div class="value">'+tr.time+'</div></div></div><div class="info-box"><div class="info-box-icon">👥</div><div class="info-box-content"><div class="label">'+t('seats_l')+'</div><div class="value">'+tr.availableSeats+' '+t('seats_of')+' '+tr.seats+'</div></div></div><div class="info-box"><div class="info-box-icon">💰</div><div class="info-box-content"><div class="label">'+t('price_l')+'</div><div class="value" style="color:var(--accent)">'+tr.price+' '+t('dirham')+'</div></div></div><div class="info-box"><div class="info-box-icon">📏</div><div class="info-box-content"><div class="label">'+(LANG==='ar'?'المسافة/سعر عادل':'Distance/fair')+'</div><div class="value">'+f.km+' km / '+f.min+'-'+f.max+'</div></div></div></div>'+
+ '<div class="ai-badges" style="margin-bottom:16px">'+(hot?'<span class="ai-badge hot">'+t('hot_b')+'</span>':'')+(tr.price<=f.max?'<span class="ai-badge fair">'+t('fair_b')+'</span>':'<span class="ai-badge high">'+t('high_b')+' ('+f.max+')</span>')+(tr.recurring?'<span class="ai-badge match">🔄 '+(LANG==='ar'?'متكرر':'Recurring')+'</span>':'')+'</div>'+
+ '<div class="detail-description"><b>📝 '+(LANG==='ar'?'التفاصيل':'Details')+':</b><br>'+(tr.description||'—')+'</div>'+
+ (own?'<div style="background:rgba(245,158,11,.12);padding:16px;border-radius:12px;text-align:center;font-weight:800">'+t('own_trip')+'</div>':
+ '<div class="booking-form"><h3>'+t('book_t')+'</h3><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-success" style="flex:2;min-width:180px" onclick="openBooking('+tr.id+')">'+t('book_btn')+'</button><button class="btn btn-secondary" style="flex:1;min-width:120px" onclick="openChat('+tr.userId+')">'+t('msg_btn')+'</button></div></div>')+
  '</div>';showPage('detail')}
-function openBooking(tripId){if(!U()){showToast('سجّل دخولك أولاً','warning');showPage('auth');return}const t=D.trips.find(function(x){return x.id===tripId});if(t.availableSeats<1){showToast('لا مقاعد متاحة','error');return}WIZ={tripId:tripId,step:1,seats:1,pickup:'',payment:'cash',note:''};renderWizard();document.getElementById('overlay').classList.add('open')}
-function renderWizard(){const t=D.trips.find(function(x){return x.id===WIZ.tripId});
- const steps='<div class="wizard-steps">'+[1,2,3].map(function(s){return '<div class="wstep '+(WIZ.step===s?'active':(WIZ.step>s?'done':''))+'"><span class="num">'+(WIZ.step>s?'✓':['١','٢','٣'][s-1])+'</span> '+['المقاعد','الدفع','التأكيد'][s-1]+'</div>'}).join('')+'</div>';
+function openBooking(tripId){if(!U()){showToast(t('t_login_first'),'warning');showPage('auth');return}const tr=D.trips.find(function(x){return x.id===tripId});if(tr.availableSeats<1){showToast(LANG==='ar'?'لا مقاعد متاحة':'No seats','error');return}WIZ={tripId:tripId,step:1,seats:1,pickup:'',payment:'cash',note:''};renderWizard();document.getElementById('overlay').classList.add('open')}
+function renderWizard(){const tr=D.trips.find(function(x){return x.id===WIZ.tripId});
+ const steps='<div class="wizard-steps">'+[1,2,3].map(function(s){return '<div class="wstep '+(WIZ.step===s?'active':(WIZ.step>s?'done':''))+'"><span class="num">'+(WIZ.step>s?'✓':['١','٢','٣'][s-1])+'</span> '+[t('seats_l'),t('pay_t'),t('confirm_b')][s-1]+'</div>'}).join('')+'</div>';
  let body='';
- if(WIZ.step===1){body='<div class="form-group"><label>👥 عدد المقاعد</label><select class="form-control" onchange="WIZ.seats=+this.value">'+Array.from({length:t.availableSeats},function(_,i){return '<option value="'+(i+1)+'" '+(WIZ.seats===i+1?'selected':'')+'>'+(i+1)+'</option>'}).join('')+'</select></div><div class="form-group"><label>📍 نقطة الالتقاء</label><input type="text" class="form-control" value="'+WIZ.pickup+'" placeholder="مثال: مول الإمارات - الباب الرئيسي" oninput="WIZ.pickup=this.value"></div>'}
- if(WIZ.step===2){body='<div class="form-group"><label>🤝 طريقة الدفع (اتفاق مباشر بينك وبين السائق)</label><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="pay-option '+(WIZ.payment==='cash'?'sel':'')+'" onclick="WIZ.payment=\'cash\';renderWizard()">💵 نقدي بالسيارة</button><button class="pay-option '+(WIZ.payment==='transfer'?'sel':'')+'" onclick="WIZ.payment=\'transfer\';renderWizard()">🏦 تحويل للسائق</button><button class="pay-option '+(WIZ.payment==='chat'?'sel':'')+'" onclick="WIZ.payment=\'chat\';renderWizard()">💬 نتفق بالشات</button></div></div><div class="form-group"><label>📝 ملاحظة للسائق (اختياري)</label><textarea class="form-control" oninput="WIZ.note=this.value" placeholder="مثال: معايا شنطة صغيرة">'+WIZ.note+'</textarea></div><div style="background:rgba(245,158,11,.12);border-radius:12px;padding:12px;font-size:12.5px;font-weight:700">⚖️ السائق يقبل أو يرفض طلبك من البداية، والدفع بينكم مباشرة. عمولة المنصة 8% تُحصَّل من السائق بعد اكتمال الرحلة فقط.</div>'}
- if(WIZ.step===3){const pay={cash:'💵 نقدي بالسيارة',transfer:'🏦 تحويل للسائق',chat:'💬 اتفاق بالشات'}[WIZ.payment];body='<div style="background:var(--bg);border-radius:14px;padding:16px;line-height:2.1;font-size:14px;font-weight:700">🚗 <b>'+t.fromDetail+' ← '+t.toDetail+'</b><br>📅 '+formatDate(t.date)+' ⏰ '+t.time+'<br>👥 '+WIZ.seats+' مقعد · 📍 '+(WIZ.pickup||t.fromDetail)+'<br>💳 '+pay+'<br>💰 الإجمالي: <b style="color:var(--accent)">'+(WIZ.seats*t.price)+' درهم</b> تدفع للسائق مباشرة</div>'}
- document.getElementById('modalBox').innerHTML='<div class="modal-header"><h3>🎯 حجز مقعد — خطوة '+WIZ.step+' من 3</h3><button class="modal-close" onclick="closeModal()">✕</button></div><div class="modal-body">'+steps+body+'</div><div class="modal-footer">'+(WIZ.step>1?'<button class="btn btn-secondary" onclick="WIZ.step--;renderWizard()">→ رجوع</button>':'')+(WIZ.step<3?'<button class="btn btn-primary" onclick="WIZ.step++;renderWizard()">التالي ←</button>':'<button class="btn btn-success" onclick="confirmBooking()">✓ تأكيد الطلب</button>')+'</div>'}
-function confirmBooking(){const t=D.trips.find(function(x){return x.id===WIZ.tripId});t.availableSeats-=WIZ.seats;
- D.bookings.push({id:Date.now(),tripId:t.id,userId:U().id,seats:WIZ.seats,pickup:WIZ.pickup||t.fromDetail,payment:WIZ.payment,note:WIZ.note,total:WIZ.seats*t.price,status:'pending',rated:false,createdAt:Date.now()});
- save();closeModal();showToast('تم إرسال طلبك — بانتظار قبول السائق','success');notify('طلب حجز جديد على مشوارك: '+t.from+' ← '+t.to,'📥');
- setTimeout(function(){const b=D.bookings.find(function(x){return x.tripId===t.id&&U()&&x.userId===U().id&&x.status==='pending'});if(b){b.status='accepted';save();notify('🎉 السائق '+D.users.find(function(u){return u.id===t.userId}).name+' قبل طلبك! رحلتك نشطة الآن','✅');if(document.getElementById('page-profile').classList.contains('active'))renderProfile()}},9000)}
-function renderProfile(){if(!U()){showPage('auth');return}const u=U();document.getElementById('profileAvatar').textContent=u.avatar;document.getElementById('profileName').textContent=u.name+(u.verified?' ✓':'');document.getElementById('profileEmail').textContent=u.email;document.getElementById('profileTrips').textContent=D.trips.filter(function(t){return t.userId===u.id}).length;document.getElementById('profileTrust').textContent=trustScore(u)+'%';document.getElementById('profilePoints').textContent=u.points||0;switchProfileTab('active',document.querySelector('.profile-tab'))}
-function switchProfileTab(tab,btn){document.querySelectorAll('.profile-tab').forEach(function(t){t.classList.remove('active')});if(btn)btn.classList.add('active');const u=U();if(!u)return;const C=document.getElementById('profileContent');
- if(tab==='active'){const mine=D.bookings.filter(function(b){return b.userId===u.id&&b.status==='accepted'});const asDriver=D.bookings.filter(function(b){const t=D.trips.find(function(x){return x.id===b.tripId});return t&&t.userId===u.id&&b.status==='accepted'});const all=mine.concat(asDriver);
-  C.innerHTML=all.length?all.map(function(b){const t=D.trips.find(function(x){return x.id===b.tripId});const other=b.userId===u.id?D.users.find(function(x){return x.id===t.userId}):D.users.find(function(x){return x.id===b.userId});return '<div class="active-trip-card"><h4>🟢 رحلة نشطة: '+t.fromDetail+' ← '+t.toDetail+'</h4><div style="font-size:13px;opacity:.95;font-weight:700">مع '+other.name+' · '+formatDate(t.date)+' '+t.time+' · '+b.seats+' مقعد · '+({cash:'نقدي',transfer:'تحويل',chat:'اتفاق بالشات'})[b.payment]+'</div><div class="row"><button style="background:#fff;color:#065f46" onclick="shareLive('+b.id+')">📡 مشاركة لايف</button><button style="background:rgba(255,255,255,.2);color:#fff" onclick="openChat('+other.id+')">💬 مراسلة</button><button class="sos-btn" onclick="sos('+b.id+')">🆘 SOS</button><button style="background:var(--gold);color:#3b2f00" onclick="endAndRate('+b.id+')">🏁 إنهاء وتقييم</button></div></div>'}).join(''):'<div class="empty-state" style="background:var(--card);border-radius:16px;box-shadow:var(--shadow)"><div class="empty-state-icon">🟢</div><h3>لا رحلات نشطة</h3><p>احجز مشواراً أو اقبل طلباً لتظهر رحلتك هنا مع SOS والمشاركة اللايف</p></div>'}
- if(tab==='requests'){const reqs=D.bookings.filter(function(b){const t=D.trips.find(function(x){return x.id===b.tripId});return t&&t.userId===u.id&&b.status==='pending'});
-  C.innerHTML=reqs.length?reqs.map(function(b){const t=D.trips.find(function(x){return x.id===b.tripId});const p=D.users.find(function(x){return x.id===b.userId});return '<div style="background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:18px;margin-bottom:12px"><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px"><div><b>'+p.name+' '+(p.verified?'✓':'')+'</b><div style="font-size:12.5px;color:var(--muted);font-weight:700">'+t.from+' ← '+t.to+' · '+formatDate(t.date)+' · '+b.seats+' مقعد · '+({cash:'💵 نقدي',transfer:'🏦 تحويل',chat:'💬 شات'})[b.payment]+'</div>'+(b.note?'<div style="font-size:12.5px;margin-top:6px;font-weight:700">📝 '+b.note+'</div>':'')+'</div><div style="display:flex;gap:8px"><button class="btn btn-success btn-sm" onclick="decideReq('+b.id+',true)">✓ قبول</button><button class="btn btn-danger btn-sm" onclick="decideReq('+b.id+',false)">✕ رفض</button></div></div></div>'}).join(''):'<div class="empty-state" style="background:var(--card);border-radius:16px;box-shadow:var(--shadow)"><div class="empty-state-icon">📥</div><h3>لا طلبات معلقة</h3></div>'}
- if(tab==='mytrips'){const mine=D.trips.filter(function(t){return t.userId===u.id});C.innerHTML=mine.length?'<div class="trips-grid">'+mine.map(function(t){return renderTripCard(t,false)}).join('')+'</div>':'<div class="empty-state" style="background:var(--card);border-radius:16px;box-shadow:var(--shadow)"><div class="empty-state-icon">🚗</div><h3>لا مشاوير</h3><button class="btn btn-primary" style="margin-top:12px" onclick="showPage(\'create\')">➕ أنشئ مشوار</button></div>'}
- if(tab==='reviews'){const rs=D.reviews.filter(function(r){return r.rateeId===u.id});C.innerHTML=rs.length?rs.map(function(r){const a=D.users.find(function(x){return x.id===r.raterId});return '<div style="background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:18px;margin-bottom:12px"><b>'+a.name+'</b> <span style="color:var(--gold)">⭐'+((r.punctuality+r.cleanliness+r.driving)/3).toFixed(1)+'</span><div style="font-size:12.5px;color:var(--muted);font-weight:700;margin-top:6px">⏰ التزام '+r.punctuality+'/5 · 🧼 نظافة '+r.cleanliness+'/5 · 🚗 قيادة '+r.driving+'/5</div>'+(r.comment?'<div style="font-size:13px;margin-top:6px">'+r.comment+'</div>':'')+'</div>'}).join(''):'<div class="empty-state" style="background:var(--card);border-radius:16px;box-shadow:var(--shadow)"><div class="empty-state-icon">⭐</div><h3>لا تقييمات بعد</h3><p>التقييم ثنائي الاتجاه: التزام بالموعد، نظافة، أسلوب قيادة</p></div>'}
+ if(WIZ.step===1){body='<div class="form-group"><label>'+t('seats_l')+'</label><select class="form-control" onchange="WIZ.seats=+this.value">'+Array.from({length:tr.availableSeats},function(_,i){return '<option value="'+(i+1)+'" '+(WIZ.seats===i+1?'selected':'')+'>'+(i+1)+'</option>'}).join('')+'</select></div><div class="form-group"><label>📍 '+(LANG==='ar'?'نقطة الالتقاء':'Meeting point')+'</label><input type="text" class="form-control" value="'+WIZ.pickup+'" oninput="WIZ.pickup=this.value"></div>'}
+ if(WIZ.step===2){body='<div class="form-group"><label>'+t('pay_t')+'</label><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="pay-option '+(WIZ.payment==='cash'?'sel':'')+'" onclick="WIZ.payment=\'cash\';renderWizard()">'+t('pay_cash')+'</button><button class="pay-option '+(WIZ.payment==='transfer'?'sel':'')+'" onclick="WIZ.payment=\'transfer\';renderWizard()">'+t('pay_transfer')+'</button><button class="pay-option '+(WIZ.payment==='chat'?'sel':'')+'" onclick="WIZ.payment=\'chat\';renderWizard()">'+t('pay_chat')+'</button></div></div><div class="form-group"><label>'+t('note_ph')+'</label><textarea class="form-control" oninput="WIZ.note=this.value">'+WIZ.note+'</textarea></div>'}
+ if(WIZ.step===3){const pay={cash:t('pay_cash'),transfer:t('pay_transfer'),chat:t('pay_chat')}[WIZ.payment];body='<div style="background:var(--bg);border-radius:14px;padding:16px;line-height:2.1;font-size:14px;font-weight:700">🚗 <b>'+tr.fromDetail+' ← '+tr.toDetail+'</b><br>📅 '+formatDate(tr.date)+' ⏰ '+tr.time+'<br>👥 '+WIZ.seats+' · 📍 '+(WIZ.pickup||tr.fromDetail)+'<br>💳 '+pay+'<br>💰 '+t('total_l')+': <b style="color:var(--accent)">'+(WIZ.seats*tr.price)+' '+t('dirham')+'</b></div>'}
+ document.getElementById('modalBox').innerHTML='<div class="modal-header"><h3>🎯 '+(LANG==='ar'?'حجز مقعد':'Book a seat')+' — '+WIZ.step+'/3</h3><button class="modal-close" onclick="closeModal()">✕</button></div><div class="modal-body">'+steps+body+'</div><div class="modal-footer">'+(WIZ.step>1?'<button class="btn btn-secondary" onclick="WIZ.step--;renderWizard()">'+t('back')+'</button>':'')+(WIZ.step<3?'<button class="btn btn-primary" onclick="WIZ.step++;renderWizard()">'+t('next')+'</button>':'<button class="btn btn-success" onclick="confirmBooking()">'+t('confirm_b')+'</button>')+'</div>'}
+function confirmBooking(){const tr=D.trips.find(function(x){return x.id===WIZ.tripId});tr.availableSeats-=WIZ.seats;
+ D.bookings.push({id:Date.now(),tripId:tr.id,userId:U().id,seats:WIZ.seats,pickup:WIZ.pickup||tr.fromDetail,payment:WIZ.payment,note:WIZ.note,total:WIZ.seats*tr.price,status:'pending',rated:false,createdAt:Date.now()});
+ save();closeModal();showToast(t('t_sent'),'success');notify((LANG==='ar'?'📥 طلب حجز جديد: ':'📥 New booking request: ')+tr.from+' ← '+tr.to,'📥');
+ setTimeout(function(){const b=D.bookings.find(function(x){return x.tripId===tr.id&&U()&&x.userId===U().id&&x.status==='pending'});if(b){b.status='accepted';save();notify('🎉 '+(LANG==='ar'?'تم قبول طلبك! رحلتك نشطة':'Your request was accepted! Trip active'),'✅');if(document.getElementById('page-profile').classList.contains('active'))renderProfile()}},9000)}
+function renderProfile(){if(!U()){showPage('auth');return}const u=U();document.getElementById('profileAvatar').textContent=u.avatar;document.getElementById('profileName').textContent=uName(u)+(u.verified?' ✓':'');document.getElementById('profileEmail').textContent=u.email;document.getElementById('profileTrips').textContent=D.trips.filter(function(tr){return tr.userId===u.id}).length;document.getElementById('profileTrust').textContent=trustScore(u)+'%';document.getElementById('profilePoints').textContent=u.points||0;switchProfileTab('active',document.querySelector('.profile-tab'))}
+function switchProfileTab(tab,btn){document.querySelectorAll('#page-profile .profile-tab').forEach(function(x){x.classList.remove('active')});if(btn)btn.classList.add('active');const u=U();if(!u)return;const C=document.getElementById('profileContent');
+ if(tab==='active'){const mine=D.bookings.filter(function(b){return b.userId===u.id&&b.status==='accepted'});const asDriver=D.bookings.filter(function(b){const tr=D.trips.find(function(x){return x.id===b.tripId});return tr&&tr.userId===u.id&&b.status==='accepted'});const all=mine.concat(asDriver);
+  C.innerHTML=all.length?all.map(function(b){const tr=D.trips.find(function(x){return x.id===b.tripId});const other=b.userId===u.id?D.users.find(function(x){return x.id===tr.userId}):D.users.find(function(x){return x.id===b.userId});return '<div class="active-trip-card"><h4>🟢 '+tr.fromDetail+' ← '+tr.toDetail+'</h4><div style="font-size:13px;opacity:.95;font-weight:700">'+(LANG==='ar'?'مع ':'With ')+uName(other)+' · '+formatDate(tr.date)+' '+tr.time+' · '+b.seats+' 👥</div><div class="row"><button style="background:#fff;color:#065f46" onclick="shareLive('+b.id+')">'+t('live_b')+'</button><button style="background:rgba(255,255,255,.2);color:#fff" onclick="openChat('+other.id+')">'+t('msg_btn')+'</button><button class="sos-btn" onclick="sos('+b.id+')">'+t('sos_b')+'</button><button style="background:var(--gold);color:#3b2f00" onclick="endAndRate('+b.id+')">'+t('rate_trip')+'</button></div></div>'}).join(''):'<div class="empty-state" style="background:var(--card);border-radius:16px;box-shadow:var(--shadow)"><div class="empty-state-icon">🟢</div><h3>'+(LANG==='ar'?'لا رحلات نشطة':'No active trips')+'</h3></div>'}
+ if(tab==='requests'){const reqs=D.bookings.filter(function(b){const tr=D.trips.find(function(x){return x.id===b.tripId});return tr&&tr.userId===u.id&&b.status==='pending'});
+  C.innerHTML=reqs.length?reqs.map(function(b){const tr=D.trips.find(function(x){return x.id===b.tripId});const p=D.users.find(function(x){return x.id===b.userId});return '<div style="background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:18px;margin-bottom:12px"><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px"><div><b>'+uName(p)+' '+(p.verified?'✓':'')+'</b><div style="font-size:12.5px;color:var(--muted);font-weight:700">'+tr.from+' ← '+tr.to+' · '+formatDate(tr.date)+' · '+b.seats+' 👥</div></div><div style="display:flex;gap:8px"><button class="btn btn-success btn-sm" onclick="decideReq('+b.id+',true)">'+t('accept_b')+'</button><button class="btn btn-danger btn-sm" onclick="decideReq('+b.id+',false)">'+t('reject_b')+'</button></div></div></div>'}).join(''):'<div class="empty-state" style="background:var(--card);border-radius:16px;box-shadow:var(--shadow)"><div class="empty-state-icon">📥</div><h3>'+(LANG==='ar'?'لا طلبات معلقة':'No pending requests')+'</h3></div>'}
+ if(tab==='mytrips'){const mine=D.trips.filter(function(tr){return tr.userId===u.id});C.innerHTML=mine.length?'<div class="trips-grid">'+mine.map(function(tr){return renderTripCard(tr,false)}).join('')+'</div>':'<div class="empty-state" style="background:var(--card);border-radius:16px;box-shadow:var(--shadow)"><div class="empty-state-icon">🚗</div><h3>'+(LANG==='ar'?'لا مشاوير':'No trips')+'</h3></div>'}
+ if(tab==='reviews'){const rs=D.reviews.filter(function(r){return r.rateeId===u.id});C.innerHTML=rs.length?rs.map(function(r){const a=D.users.find(function(x){return x.id===r.raterId});return '<div style="background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:18px;margin-bottom:12px"><b>'+uName(a)+'</b> <span style="color:var(--gold)">⭐'+((r.punctuality+r.cleanliness+r.driving)/3).toFixed(1)+'</span><div style="font-size:12.5px;color:var(--muted);font-weight:700;margin-top:6px">⏰ '+r.punctuality+'/5 · 🧼 '+r.cleanliness+'/5 · 🚗 '+r.driving+'/5</div></div>'}).join(''):'<div class="empty-state" style="background:var(--card);border-radius:16px;box-shadow:var(--shadow)"><div class="empty-state-icon">⭐</div><h3>'+(LANG==='ar'?'لا تقييمات بعد':'No reviews yet')+'</h3></div>'}
  if(tab==='settings'){C.innerHTML='<div style="background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:22px">'+
- '<div class="form-group"><label>🎨 المظهر</label><div style="display:flex;gap:8px"><button class="btn '+(D.theme==='light'?'btn-primary':'btn-secondary')+' btn-sm" onclick="setTheme(\'light\')">☀️ فاتح</button><button class="btn '+(D.theme==='dark'?'btn-primary':'btn-secondary')+' btn-sm" onclick="setTheme(\'dark\')">🌙 ليلي</button></div></div>'+
- '<div class="form-group"><label>🔠 حجم الخط (إتاحة لكبار السن)</label><div style="display:flex;gap:8px"><button class="btn '+(D.zoom===0?'btn-primary':'btn-secondary')+' btn-sm" onclick="setZoom(0)">عادي</button><button class="btn '+(D.zoom===1?'btn-primary':'btn-secondary')+' btn-sm" onclick="setZoom(1)">كبير</button><button class="btn '+(D.zoom===2?'btn-primary':'btn-secondary')+' btn-sm" onclick="setZoom(2)">كبير جداً</button></div></div>'+
- '<div class="form-group"><label>🪪 التوثيق بالهوية الإماراتية (اختياري)</label>'+(u.verified?'<div style="background:rgba(0,171,108,.12);color:var(--accent);padding:12px;border-radius:12px;font-weight:800">✓ حسابك موثق بالهوية الإماراتية</div>':'<div style="display:flex;gap:8px"><input type="text" class="form-control" id="emInput" placeholder="784-1990-1234567-1"><button class="btn btn-primary btn-sm" onclick="verifyEmirates()">توثيق ✓</button></div>')+'</div>'+
- '<div class="form-group"><label>📲 ثبّت المنصة كتطبيق (PWA)</label><button class="btn btn-secondary btn-sm" onclick="installApp()">⬇️ تثبيت على جهازي</button></div>'+
- '<div class="form-group"><label>الاسم / الهاتف</label><input type="text" class="form-control" id="setName" value="'+u.name+'" style="margin-bottom:8px"><input type="tel" class="form-control" id="setPhone" value="'+u.phone+'"></div>'+
- '<button class="btn btn-primary btn-block" style="margin-bottom:10px" onclick="saveSettings()">💾 حفظ</button><button class="btn btn-secondary btn-block" style="color:var(--danger)" onclick="logout()">🚪 خروج</button></div>'}}
-function setTheme(t){D.theme=t;save();applyTheme();if(document.getElementById('page-profile').classList.contains('active'))renderProfile()}
-function verifyEmirates(){const v=document.getElementById('emInput').value.replace(/\s/g,'');if(/^784-?\d{4}-?\d{7}-?\d$/.test(v)||/^\d{15}$/.test(v)){U().verified=true;const s=D.users.find(function(x){return x.id===U().id});s.verified=true;save();notify('🪪 تم توثيق حسابك بالهوية الإماراتية ✓','✅');showToast('تم التوثيق! شارة ✓ ظهرت على ملفك','success');renderProfile()}else{showToast('رقم الهوية غير صحيح (الصيغة: 784-YYYY-NNNNNNN-C)','error')}}
-function saveSettings(){const u=U();u.name=document.getElementById('setName').value||u.name;u.phone=document.getElementById('setPhone').value||u.phone;u.avatar=u.name[0];const s=D.users.find(function(x){return x.id===u.id});Object.assign(s,u);save();updateAuthUI();renderProfile();showToast('تم الحفظ','success')}
-function decideReq(id,ok){const b=D.bookings.find(function(x){return x.id===id});b.status=ok?'accepted':'rejected';const t=D.trips.find(function(x){return x.id===b.tripId});if(!ok)t.availableSeats+=b.seats;save();notify(ok?'✅ قبلت طلب '+D.users.find(function(u){return u.id===b.userId}).name:'❌ رفضت الطلب','📥');showToast(ok?'تم القبول — الرحلة نشطة':'تم الرفض وإرجاع المقعد',ok?'success':'warning');renderProfile()}
-function shareLive(id){const link='https://mashawiri.ae/live/'+id;if(navigator.share){navigator.share({title:'مشاويري — تتبع رحلتي لايف',url:link}).catch(function(){})}else{try{navigator.clipboard.writeText(link)}catch(e){}showToast('📡 تم نسخ رابط التتبع اللايف — أرسله لأهلك','success')}notify('📡 تمت مشاركة رحلتك لايف مع جهاتك المحددة','📡')}
-function sos(id){openModal('<div class="modal-header"><h3>🆘 زر الطوارئ</h3><button class="modal-close" onclick="closeModal()">✕</button></div><div class="modal-body"><div style="background:rgba(239,68,68,.1);border-radius:14px;padding:18px;line-height:1.9;font-size:14px;font-weight:700">سيتم إرسال <b>موقعك المباشر</b> وبيانات رحلتك فوراً إلى:<br>• جهات الاتصال الطارئة المحفوظة<br>• فريق أمان مشاويري (رد خلال دقائق)<br>• شرطة الإمارات 999 عند التأكيد الثاني</div></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal()">إلغاء</button><button class="btn btn-danger" onclick="sosConfirm()">🚨 تأكيد الاستغاثة</button></div>')}
-function sosConfirm(){closeModal();notify('🚨 SOS: تم إرسال الموقع لجهات الطوارئ وفريق الأمان','🚨');showToast('تم إرسال نداء الاستغاثة والموقع!','error')}
+ '<div class="form-group"><label>🌐 '+(LANG==='ar'?'اللغة':'Language')+'</label><div style="display:flex;gap:8px"><button class="btn btn-primary btn-sm" onclick="if(LANG!==\'ar\')toggleLang()">العربية</button><button class="btn btn-primary btn-sm" onclick="if(LANG!==\'en\')toggleLang()">English</button></div></div>'+
+ '<div class="form-group"><label>🌓 '+t('theme')+'</label><div style="display:flex;gap:8px"><button class="btn '+(D.theme==='light'?'btn-primary':'btn-secondary')+' btn-sm" onclick="setTheme(\'light\')">☀️ '+(LANG==='ar'?'نهاري':'Day')+'</button><button class="btn '+(D.theme==='dark'?'btn-primary':'btn-secondary')+' btn-sm" onclick="setTheme(\'dark\')">🌙 '+(LANG==='ar'?'ليلي':'Night')+'</button></div></div>'+
+ '<div class="form-group"><label>🔠 '+t('font_size')+'</label><button class="btn btn-secondary btn-sm" onclick="setZoomCycle()">100% → 112% → 125%</button></div>'+
+ '<div class="form-group"><label>🪪 '+(LANG==='ar'?'التوثيق بالهوية الإماراتية':'Emirates ID verification')+'</label>'+(u.verified?'<div style="background:rgba(0,171,108,.12);color:var(--accent);padding:12px;border-radius:12px;font-weight:800">✓ '+(LANG==='ar'?'موثق':'Verified')+'</div>':'<div style="display:flex;gap:8px"><input type="text" class="form-control" id="emInput" placeholder="784-1990-1234567-1"><button class="btn btn-primary btn-sm" onclick="verifyEmirates()">✓</button></div>')+'</div>'+
+ '<div class="form-group"><label>'+(LANG==='ar'?'الاسم / الهاتف':'Name / Phone')+'</label><input type="text" class="form-control" id="setName" value="'+uName(u)+'" style="margin-bottom:8px"><input type="tel" class="form-control" id="setPhone" value="'+u.phone+'"></div>'+
+ '<button class="btn btn-primary btn-block" style="margin-bottom:10px" onclick="saveSettings()">💾 '+(LANG==='ar'?'حفظ':'Save')+'</button><button class="btn btn-secondary btn-block" style="color:var(--danger)" onclick="logout()">🚪 '+(LANG==='ar'?'خروج':'Logout')+'</button></div>'}}
+function setTheme(th){D.theme=th;save();applyTheme();if(document.getElementById('page-profile').classList.contains('active'))renderProfile()}
+function verifyEmirates(){const v=document.getElementById('emInput').value.replace(/\s/g,'');if(/^784-?\d{4}-?\d{7}-?\d$/.test(v)||/^\d{15}$/.test(v)){U().verified=true;const s=D.users.find(function(x){return x.id===U().id});s.verified=true;save();showToast('✅ '+(LANG==='ar'?'تم التوثيق':'Verified'),'success');renderProfile()}else{showToast(LANG==='ar'?'❌ صيغة الهوية غير صحيحة':'❌ Invalid ID format','error')}}
+function saveSettings(){const u=U();u.name=document.getElementById('setName').value||u.name;u.phone=document.getElementById('setPhone').value||u.phone;u.avatar=u.name[0];const s=D.users.find(function(x){return x.id===u.id});Object.assign(s,u);save();updateAuthUI();renderProfile();showToast(t('t_saved'),'success')}
+function decideReq(id,ok){const b=D.bookings.find(function(x){return x.id===id});b.status=ok?'accepted':'rejected';const tr=D.trips.find(function(x){return x.id===b.tripId});if(!ok)tr.availableSeats+=b.seats;save();showToast(ok?(LANG==='ar'?'✅ تم القبول':'✅ Accepted'):(LANG==='ar'?'❌ تم الرفض':'❌ Rejected'),ok?'success':'warning');renderProfile()}
+function shareLive(id){const link='https://mashawiri.ae/live/'+id;if(navigator.share){navigator.share({title:'Mashawiri Live',url:link}).catch(function(){})}else{try{navigator.clipboard.writeText(link)}catch(e){}showToast('📡 '+(LANG==='ar'?'تم نسخ رابط التتبع':'Live link copied'),'success')}notify('📡 '+(LANG==='ar'?'تمت مشاركة رحلتك لايف':'Trip shared live'),'📡')}
+function sos(id){openModal('<div class="modal-header"><h3>🆘 SOS</h3><button class="modal-close" onclick="closeModal()">✕</button></div><div class="modal-body"><div style="background:rgba(239,68,68,.1);border-radius:14px;padding:18px;line-height:1.9;font-size:14px;font-weight:700">'+(LANG==='ar'?'سيتم إرسال موقعك المباشر وبيانات رحلتك فوراً إلى جهات الطوارئ وفريق الأمان وشرطة الإمارات 999.':'Your live location & trip data will be sent immediately to emergency contacts, safety team, and UAE police 999.')+'</div></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal()">'+(LANG==='ar'?'إلغاء':'Cancel')+'</button><button class="btn btn-danger" onclick="sosConfirm()">🚨 '+(LANG==='ar'?'تأكيد':'Confirm')+'</button></div>')}
+function sosConfirm(){closeModal();notify('🚨 SOS '+(LANG==='ar'?'تم إرسال الموقع':'location sent'),'🚨');showToast('🚨 '+(LANG==='ar'?'تم إرسال نداء الاستغاثة':'SOS sent'),'error')}
 let RATE={};
-function endAndRate(id){const b=D.bookings.find(function(x){return x.id===id});b.status='completed';const t=D.trips.find(function(x){return x.id===b.tripId});const ratee=b.userId===U().id?t.userId:b.userId;RATE={bookingId:id,rateeId:ratee,p:0,c:0,d:0,comment:''};save();openRateModal()}
-function openRateModal(){const CRIT=[['p','⏰ الالتزام بالموعد'],['c','🧼 نظافة السيارة'],['d','🚗 أسلوب القيادة']];
- openModal('<div class="modal-header"><h3>⭐ قيّم رحلتك</h3><button class="modal-close" onclick="closeModal()">✕</button></div><div class="modal-body">'+CRIT.map(function(r){return '<div class="star-row"><span class="lbl">'+r[1]+'</span>'+[1,2,3,4,5].map(function(n){return '<span class="star '+(RATE[r[0]]>=n?'on':'')+'" onclick="RATE.'+r[0]+'='+n+';openRateModal()">★</span>'}).join('')+'</div>'}).join('')+
- '<div class="form-group"><label>تعليق (اختياري)</label><textarea class="form-control" id="rateComment" oninput="RATE.comment=this.value">'+RATE.comment+'</textarea></div></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal()">تخطي</button><button class="btn btn-gold" onclick="submitRate()">✓ إرسال التقييم</button></div>')}
-function submitRate(){if(!RATE.p||!RATE.c||!RATE.d){showToast('قيّم المعايير الثلاثة','warning');return}const ratee=D.users.find(function(x){return x.id===RATE.ratee});const avg=(RATE.p+RATE.c+RATE.d)/3;ratee.rating=Math.round(((ratee.rating*ratee.trips)+avg)/(ratee.trips+1)*10)/10;ratee.trips++;D.reviews.push({id:Date.now(),raterId:U().id,rateeId:RATE.ratee,punctuality:RATE.p,cleanliness:RATE.c,driving:RATE.d,comment:RATE.comment,createdAt:Date.now()});const b=D.bookings.find(function(x){return x.id===RATE.bookingId});if(b)b.rated=true;save();closeModal();showToast('شكراً! تقييمك يساعد المجتمع','success');notify('⭐ وصلك تقييم جديد بمتوسط '+avg.toFixed(1),'⭐');renderProfile()}
-function renderStore(){document.getElementById('storePoints').textContent=U()?(U().points||0):0}
-function sharePlatform(){const link='https://mashawiri.ae/?ref='+(U()?U().id:'guest');const done=function(){if(U()){U().points=(U().points||0)+50;const s=D.users.find(function(x){return x.id===U().id});s.points=U().points;save();notify('🎁 +50 نقطة إحالة! شارك أكثر لتحصل على عضوية مجانية','🎁');showToast('🎁 +50 نقطة! ('+U().points+' نقطة)','success');renderStore()}else{showToast('تم نسخ رابط المنصة — سجّل دخولك لتجمع النقاط','success')}};
- if(navigator.share){navigator.share({title:'مشاويري — شارك رحلتك ووفر',text:'منصة المشاوير المشتركة الأذكى في الإمارات!',url:link}).then(done).catch(function(){})}else{try{navigator.clipboard.writeText(link)}catch(e){}done()}}
-function redeem(pts,days){const u=U();if(!u){showToast('سجّل دخولك','warning');return}if((u.points||0)<pts){showToast('نقاطك غير كافية ('+u.points+'/'+pts+')','error');return}u.points-=pts;const s=D.users.find(function(x){return x.id===u.id});s.points=u.points;const base=Math.max(Date.now(),u.premiumUntil||0);u.premiumUntil=base+days*86400000;s.premiumUntil=u.premiumUntil;save();notify('👑 تم تفعيل عضوية مجانية '+days+' يوم بالنقاط!','👑');showToast('مبروك! عضوية مجانية '+days+' يوم','success');renderStore()}
-function buyPackage(type,days,price){if(!U()){showToast('سجّل دخولك أولاً','warning');showPage('auth');return}openModal('<div class="modal-header"><h3>💳 تأكيد الشراء</h3><button class="modal-close" onclick="closeModal()">✕</button></div><div class="modal-body"><div style="background:var(--bg);border-radius:14px;padding:16px;line-height:2;font-weight:700;font-size:14px">'+(type==='premium'?'👑 عضوية Premium شهرية':'📵 إزالة الإعلانات '+days+' يوم')+'<br>💰 المبلغ: <b style="color:var(--primary)">'+price+' درهم</b><br>💳 الدفع: Apple Pay / بطاقة / محفظة</div></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal()">إلغاء</button><button class="btn btn-success" onclick="finishBuy(\''+type+'\','+days+','+price+')">✓ ادفع '+price+' درهم</button></div>')}
-function finishBuy(type,days,price){const u=U();const s=D.users.find(function(x){return x.id===u.id});const field=type==='premium'?'premiumUntil':'adFreeUntil';const base=Math.max(Date.now(),u[field]||0);u[field]=base+days*86400000;s[field]=u[field];save();closeModal();notify(type==='premium'?'👑 تم تفعيل Premium: أولوية ظهور + بدون عمولة 10 رحلات':'📵 تم إزالة الإعلانات لمدة '+days+' يوم','🛒');showToast('تم الشراء وتفعيل الباقة فوراً!','success');renderStore();renderHome()}
+function endAndRate(id){const b=D.bookings.find(function(x){return x.id===id});b.status='completed';const tr=D.trips.find(function(x){return x.id===b.tripId});const ratee=b.userId===U().id?tr.userId:b.userId;RATE={bookingId:id,rateeId:ratee,p:0,c:0,d:0,comment:''};save();openRateModal()}
+function openRateModal(){const CRIT=[['p','⏰ '+(LANG==='ar'?'الالتزام بالموعد':'Punctuality')],['c','🧼 '+(LANG==='ar'?'نظافة السيارة':'Cleanliness')],['d','🚗 '+(LANG==='ar'?'أسلوب القيادة':'Driving')]];
+ openModal('<div class="modal-header"><h3>⭐ '+(LANG==='ar'?'قيّم رحلتك':'Rate your trip')+'</h3><button class="modal-close" onclick="closeModal()">✕</button></div><div class="modal-body">'+CRIT.map(function(r){return '<div class="star-row"><span class="lbl">'+r[1]+'</span>'+[1,2,3,4,5].map(function(n){return '<span class="star '+(RATE[r[0]]>=n?'on':'')+'" onclick="RATE.'+r[0]+'='+n+';openRateModal()">★</span>'}).join('')+'</div>'}).join('')+'</div><div class="modal-footer"><button class="btn btn-gold" onclick="submitRate()">✓ '+(LANG==='ar'?'إرسال':'Send')+'</button></div>')}
+function submitRate(){if(!RATE.p||!RATE.c||!RATE.d){showToast(LANG==='ar'?'قيّم المعايير الثلاثة':'Rate all three','warning');return}const ratee=D.users.find(function(x){return x.id===RATE.ratee});const avg=(RATE.p+RATE.c+RATE.d)/3;ratee.rating=Math.round(((ratee.rating*ratee.trips)+avg)/(ratee.trips+1)*10)/10;ratee.trips++;D.reviews.push({id:Date.now(),raterId:U().id,rateeId:RATE.ratee,punctuality:RATE.p,cleanliness:RATE.c,driving:RATE.d,comment:'',createdAt:Date.now()});save();closeModal();showToast('⭐ '+(LANG==='ar'?'شكراً لتقييمك':'Thanks for rating'),'success');renderProfile()}
+function renderStore(){document.getElementById('storePoints').textContent=U()?(U().points||0):0;document.getElementById('pAdDay').textContent=D.settings.adDay;document.getElementById('pAdWeek').textContent=D.settings.adWeek;document.getElementById('pAdMonth').textContent=D.settings.adMonth;document.getElementById('pPrem').textContent=D.settings.premium}
+function sharePlatform(){const link='https://mashawiri.ae/?ref='+(U()?U().id:'guest');const done=function(){if(U()){U().points=(U().points||0)+50;const s=D.users.find(function(x){return x.id===U().id});s.points=U().points;save();showToast('🎁 +50 '+(LANG==='ar'?'نقطة':'points'),'success');renderStore()}else{showToast(LANG==='ar'?'تم نسخ الرابط':'Link copied','success')}};
+ if(navigator.share){navigator.share({title:'Mashawiri 🇦🇪',text:'UAE carpooling platform',url:link}).then(done).catch(function(){})}else{try{navigator.clipboard.writeText(link)}catch(e){}done()}}
+function redeem(pts,days){const u=U();if(!u){showToast(t('t_login_first'),'warning');return}if((u.points||0)<pts){showToast(LANG==='ar'?'نقاطك غير كافية':'Not enough points','error');return}u.points-=pts;const s=D.users.find(function(x){return x.id===u.id});s.points=u.points;const base=Math.max(Date.now(),u.premiumUntil||0);u.premiumUntil=base+days*86400000;s.premiumUntil=u.premiumUntil;save();showToast('👑 '+(LANG==='ar'?'عضوية مجانية ':'Free membership ')+days+(LANG==='ar'?' يوم':' days'),'success');renderStore()}
+function buyPackage(type,days){const S=D.settings;const price=type==='premium'?S.premium:(days===1?S.adDay:(days===7?S.adWeek:S.adMonth));if(!U()){showToast(t('t_login_first'),'warning');showPage('auth');return}openModal('<div class="modal-header"><h3>💳 '+(LANG==='ar'?'تأكيد الشراء':'Confirm purchase')+'</h3><button class="modal-close" onclick="closeModal()">✕</button></div><div class="modal-body"><div style="background:var(--bg);border-radius:14px;padding:16px;line-height:2;font-weight:700">'+(type==='premium'?'👑 Premium':('📵 '+days+(LANG==='ar'?' يوم بدون إعلانات':' days ad-free')))+'<br>💰 '+price+' '+t('dirham')+'</div></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal()">'+(LANG==='ar'?'إلغاء':'Cancel')+'</button><button class="btn btn-success" onclick="finishBuy(\''+type+'\','+days+','+price+')">✓ '+(LANG==='ar'?'ادفع':'Pay')+' '+price+' '+t('dirham')+'</button></div>')}
+function finishBuy(type,days,price){const u=U();const s=D.users.find(function(x){return x.id===u.id});const field=type==='premium'?'premiumUntil':'adFreeUntil';const base=Math.max(Date.now(),u[field]||0);u[field]=base+days*86400000;s[field]=u[field];D.sales.push({item:type+days,amount:price,at:Date.now()});save();closeModal();showToast('✅ '+(LANG==='ar'?'تم تفعيل الباقة':'Package activated'),'success');renderStore();renderHome()}
+function submitFeedback(){const txt=document.getElementById('fbText').value.trim();if(!txt){showToast(LANG==='ar'?'⚠️ اكتب رسالتك':'⚠️ Write your message','warning');return}D.feedback.unshift({id:Date.now(),type:document.getElementById('fbType').value,name:document.getElementById('fbName').value||(U()?uName(U()):''),text:txt,userId:U()?U().id:null,status:'new',at:Date.now()});save();document.getElementById('fbText').value='';showToast(t('t_fb_saved'),'success');renderFeedbackList()}
+function renderFeedbackList(){const mine=U()?D.feedback.filter(function(f){return f.userId===U().id}):[];const labels={complaint:t('fb_complaint'),suggestion:t('fb_suggestion'),question:t('fb_question')};document.getElementById('fbList').innerHTML=mine.length?mine.map(function(f){return '<div class="fb-card"><div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap"><b>'+labels[f.type]+'</b><span class="st '+f.status+'">'+(f.status==='new'?t('fb_status_new'):t('fb_status_done'))+'</span></div><div style="font-size:13.5px;margin-top:6px;line-height:1.7">'+f.text+'</div></div>'}).join(''):'<div class="empty-state" style="padding:20px"><div class="empty-state-icon">📭</div><h3>'+(LANG==='ar'?'لا رسائل بعد':'No messages yet')+'</h3></div>'}
+let adminTab='overview';
+function switchAdminTab(tab,btn){document.querySelectorAll('#page-admin .profile-tab').forEach(function(x){x.classList.remove('active')});if(btn)btn.classList.add('active');adminTab=tab;renderAdmin()}
+function renderAdmin(){if(!isAdmin())return;const C=document.getElementById('adminContent');const S=D.settings;
+ if(adminTab==='overview'){const commRev=D.bookings.filter(function(b){return b.status==='completed'}).reduce(function(s,b){return s+b.total*(S.commission/100)},0);const pkgRev=D.sales.reduce(function(s,x){return s+x.amount},0);
+  C.innerHTML='<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:18px">'+
+  '<div class="adm-stat"><div class="v">'+D.users.length+'</div><div class="l">'+t('a_users_l')+'</div></div>'+
+  '<div class="adm-stat"><div class="v">'+D.trips.length+'</div><div class="l">'+t('a_trips_l')+'</div></div>'+
+  '<div class="adm-stat"><div class="v">'+D.bookings.length+'</div><div class="l">'+t('a_bookings_l')+'</div></div>'+
+  '<div class="adm-stat"><div class="v">'+commRev.toFixed(0)+' '+t('dirham')+'</div><div class="l">'+t('a_rev_l')+' ('+S.commission+'%)</div></div>'+
+  '<div class="adm-stat"><div class="v">'+pkgRev+' '+t('dirham')+'</div><div class="l">'+t('a_ads_l')+'</div></div></div>'+
+  '<div class="fb-card"><b>📮 '+(LANG==='ar'?'آخر الشكاوى':'Latest feedback')+'</b><div style="margin-top:8px">'+(D.feedback.slice(0,3).map(function(f){return '<div style="font-size:13px;padding:6px 0;border-top:1px solid var(--border)">['+f.type+'] '+f.text.slice(0,60)+'</div>'}).join('')||(LANG==='ar'?'لا يوجد':'None'))+'</div></div>'}
+ if(adminTab==='users'){C.innerHTML=D.users.map(function(u){return '<div class="adm-row"><div><b>'+uName(u)+(u.role==='admin'?' 🛡':'')+(u.verified?' ✓':'')+(u.blocked?' ⛔':'')+'</b><div style="font-size:12px;color:var(--muted);font-weight:700">'+u.email+' · ⭐'+u.rating+'</div></div><div style="display:flex;gap:6px;flex-wrap:wrap">'+(u.role!=='admin'?'<button class="btn btn-sm '+(u.verified?'btn-secondary':'btn-success')+'" onclick="adminVerify('+u.id+')">'+(u.verified?t('a_unverify'):t('a_verify'))+'</button><button class="btn btn-sm '+(u.blocked?'btn-success':'btn-danger')+'" onclick="adminBlock('+u.id+')">'+(u.blocked?t('a_unblock'):t('a_block'))+'</button>':'')+'</div></div>'}).join('')}
+ if(adminTab==='trips'){C.innerHTML=D.trips.map(function(tr){const u=D.users.find(function(x){return x.id===tr.userId});return '<div class="adm-row"><div><b>'+tr.from+' ← '+tr.to+'</b><div style="font-size:12px;color:var(--muted);font-weight:700">'+uName(u)+' · '+tr.price+' '+t('dirham)+' · '+formatDate(tr.date)+'</div></div><button class="btn btn-sm btn-danger" onclick="adminDeleteTrip('+tr.id+')">'+t('a_delete')+'</button></div>'}).join('')}
+ if(adminTab==='feedback'){C.innerHTML=D.feedback.length?D.feedback.map(function(f){return '<div class="adm-row"><div style="flex:1"><b>['+f.type+'] '+f.name+'</b><div style="font-size:13px;margin-top:4px">'+f.text+'</div><span class="st '+(f.status==='new'?'new':'done')+'" style="font-size:11px;font-weight:800;padding:3px 10px;border-radius:10px;background:'+(f.status==='new'?'rgba(245,158,11,.15)':'rgba(0,171,108,.15)')+'">'+(f.status==='new'?t('fb_status_new'):t('fb_status_done'))+'</span></div><div style="display:flex;gap:6px"><button class="btn btn-sm btn-wa" onclick="window.open(\'https://wa.me/'+WA_NUMBER+'?text=\'+encodeURIComponent('+JSON.stringify('['+f.type+'] '+f.text)+'),\'_blank\')">💬</button><button class="btn btn-sm btn-success" onclick="adminResolve('+f.id+')">'+t('a_resolve')+'</button><button class="btn btn-sm btn-danger" onclick="adminDeleteFb('+f.id+')">'+t('a_delete')+'</button></div></div>'}).join(''):'<div class="empty-state"><div class="empty-state-icon">📭</div><h3>'+(LANG==='ar'?'لا شكاوى':'No feedback')+'</h3></div>'}
+ if(adminTab==='settings'){C.innerHTML='<div class="auth-card"><div class="form-row"><div class="form-group"><label>'+t('a_comm')+'</label><input type="number" class="form-control" id="setComm" value="'+S.commission+'"></div><div class="form-group"><label>'+t('a_prices')+' — '+(LANG==='ar'?'يوم':'day')+'</label><input type="number" class="form-control" id="setAdDay" value="'+S.adDay+'"></div></div><div class="form-row"><div class="form-group"><label>'+(LANG==='ar'?'أسبوع':'week')+'</label><input type="number" class="form-control" id="setAdWeek" value="'+S.adWeek+'"></div><div class="form-group"><label>'+(LANG==='ar'?'شهر إعلانات':'ad month')+'</label><input type="number" class="form-control" id="setAdMonth" value="'+S.adMonth+'"></div></div><div class="form-group"><label>Premium</label><input type="number" class="form-control" id="setPrem" value="'+S.premium+'"></div><div class="form-group"><label>'+(LANG==='ar'?'نص الإعلان (عربي)':'Ad title (AR)')+'</label><input type="text" class="form-control" id="setAdAr" value="'+S.adTitleAr+'"></div><div class="form-group"><label>'+(LANG==='ar'?'نص الإعلان (إنجليزي)':'Ad title (EN)')+'</label><input type="text" class="form-control" id="setAdEn" value="'+S.adTitleEn+'"></div><button class="btn btn-primary btn-block" onclick="adminSaveSettings()">'+t('a_save')+'</button></div>'}}
+function adminVerify(id){const u=D.users.find(function(x){return x.id===id});u.verified=!u.verified;save();showToast(t('t_done'),'success');renderAdmin()}
+function adminBlock(id){const u=D.users.find(function(x){return x.id===id});u.blocked=!u.blocked;save();showToast(t('t_done'),'success');renderAdmin()}
+function adminDeleteTrip(id){D.trips=D.trips.filter(function(x){return x.id!==id});save();showToast(t('t_deleted'),'success');renderAdmin()}
+function adminResolve(id){const f=D.feedback.find(function(x){return x.id===id});f.status='done';save();showToast(t('t_resolved'),'success');renderAdmin()}
+function adminDeleteFb(id){D.feedback=D.feedback.filter(function(x){return x.id!==id});save();showToast(t('t_deleted'),'success');renderAdmin()}
+function adminSaveSettings(){const S=D.settings;S.commission=+document.getElementById('setComm').value;S.adDay=+document.getElementById('setAdDay').value;S.adWeek=+document.getElementById('setAdWeek').value;S.adMonth=+document.getElementById('setAdMonth').value;S.premium=+document.getElementById('setPrem').value;S.adTitleAr=document.getElementById('setAdAr').value;S.adTitleEn=document.getElementById('setAdEn').value;save();showToast(t('t_saved'),'success');renderAdmin()}
 const TPL=['لسه فيه مكان؟','ممكن تستنى 5 دقايق؟','أنا عند نقطة الالتقاء','كام السعر النهائي؟'];
-function renderConversations(){const L=document.getElementById('conversationsList');L.innerHTML=D.conversations.length?D.conversations.map(function(c){const u=D.users.find(function(x){return x.id===c.userId});if(!u)return '';return '<div class="conversation-item" onclick="openChat('+u.id+')"><div class="conversation-avatar" style="background:'+(u.female?'linear-gradient(135deg,#ec4899,#be185d)':'linear-gradient(135deg,#3b82f6,#1d4ed8)')+'">'+u.avatar+'</div><div class="conversation-info"><div class="conversation-name">'+u.name+'</div><div class="conversation-last">'+c.lastMessage+'</div></div><div>'+(c.unread?'<div class="unread-badge">'+c.unread+'</div>':'<div style="font-size:10.5px;color:var(--muted)">'+c.time+'</div>')+'</div></div>'}).join(''):'<div class="empty-state"><div class="empty-state-icon">💬</div><h3>لا محادثات</h3></div>'}
+function renderConversations(){const L=document.getElementById('conversationsList');L.innerHTML=D.conversations.length?D.conversations.map(function(c){const u=D.users.find(function(x){return x.id===c.userId});if(!u)return '';return '<div class="conversation-item" onclick="openChat('+u.id+')"><div class="conversation-avatar" style="background:'+(u.female?'linear-gradient(135deg,#ec4899,#be185d)':'linear-gradient(135deg,#3b82f6,#1d4ed8)')+'">'+u.avatar+'</div><div class="conversation-info"><div class="conversation-name">'+uName(u)+'</div><div class="conversation-last">'+c.lastMessage+'</div></div><div>'+(c.unread?'<div class="unread-badge">'+c.unread+'</div>':'<div style="font-size:10.5px;color:var(--muted)">'+c.time+'</div>')+'</div></div>'}).join(''):'<div class="empty-state"><div class="empty-state-icon">💬</div><h3>'+(LANG==='ar'?'لا محادثات':'No chats')+'</h3></div>'}
 function openChat(uid){const u=D.users.find(function(x){return x.id===uid});if(!u)return;showPage('messages');const msgs=D.messages[uid]||[];
- document.getElementById('chatArea').innerHTML='<div class="chat-header"><div class="conversation-avatar" style="width:40px;height:40px;background:'+(u.female?'linear-gradient(135deg,#ec4899,#be185d)':'linear-gradient(135deg,#3b82f6,#1d4ed8)')+'">'+u.avatar+'</div><div><div style="font-weight:800">'+u.name+' '+(u.verified?'✓':'')+'</div><div style="font-size:11.5px;color:var(--accent);font-weight:700">● متصل · 🛡 ثقة '+trustScore(u)+'%</div></div></div><div class="chat-messages" id="chatMessages">'+(msgs.length?msgs.map(function(m){return '<div class="message '+(m.from==='me'?'sent':'received')+'">'+m.text+'<div class="message-time">'+m.time+'</div></div>'}).join(''):'<div class="empty-state" style="margin:auto;padding:20px"><div class="empty-state-icon">👋</div><h3>ابدأ المحادثة</h3></div>')+'</div><div class="tpl-row">'+TPL.map(function(t){return '<button class="tpl-chip" onclick="sendTpl('+uid+',\''+t+'\')">'+t+'</button>'}).join('')+'</div><div class="chat-input"><input type="text" id="chatInput" placeholder="اكتب رسالة..." onkeypress="if(event.key===\'Enter\')sendMessageTo('+uid+')"><button class="btn btn-primary btn-sm" onclick="sendMessageTo('+uid+')">إرسال</button></div>';
+ document.getElementById('chatArea').innerHTML='<div class="chat-header"><div class="conversation-avatar" style="width:40px;height:40px;background:'+(u.female?'linear-gradient(135deg,#ec4899,#be185d)':'linear-gradient(135deg,#3b82f6,#1d4ed8)')+'">'+u.avatar+'</div><div><div style="font-weight:800">'+uName(u)+' '+(u.verified?'✓':'')+'</div><div style="font-size:11.5px;color:var(--accent);font-weight:700">'+t('online')+' · 🛡 '+trustScore(u)+'%</div></div></div><div class="chat-messages" id="chatMessages">'+(msgs.length?msgs.map(function(m){return '<div class="message '+(m.from==='me'?'sent':'received')+'">'+m.text+'<div class="message-time">'+m.time+'</div></div>'}).join(''):'<div class="empty-state" style="margin:auto;padding:20px"><div class="empty-state-icon">👋</div><h3>Hi</h3></div>')+'</div><div class="tpl-row">'+TPL.map(function(tp){return '<button class="tpl-chip" onclick="sendTpl('+uid+',\''+tp+'\')">'+tp+'</button>'}).join('')+'</div><div class="chat-input"><input type="text" id="chatInput" onkeypress="if(event.key===\'Enter\')sendMessageTo('+uid+')"><button class="btn btn-primary btn-sm" onclick="sendMessageTo('+uid+')">'+t('send')+'</button></div>';
  const c=D.conversations.find(function(x){return x.userId===uid});if(c)c.unread=0;save();renderConversations();setTimeout(function(){const b=document.getElementById('chatMessages');if(b)b.scrollTop=b.scrollHeight},60)}
-function sendTpl(uid,t){if(!U()){showToast('سجّل دخولك','warning');return}pushMsg(uid,t)}
-function sendMessageTo(uid){const i=document.getElementById('chatInput');const v=i.value.trim();if(!v)return;if(!U()){showToast('سجّل دخولك','warning');return}pushMsg(uid,v)}
+function sendTpl(uid,tp){if(!U()){showToast(t('t_login_first'),'warning');return}pushMsg(uid,tp)}
+function sendMessageTo(uid){const i=document.getElementById('chatInput');const v=i.value.trim();if(!v)return;if(!U()){showToast(t('t_login_first'),'warning');return}pushMsg(uid,v)}
 function pushMsg(uid,text){if(!D.messages[uid])D.messages[uid]=[];const tm=new Date().toLocaleTimeString('ar-AE',{hour:'2-digit',minute:'2-digit'});D.messages[uid].push({from:'me',text:text,time:tm});const c=D.conversations.find(function(x){return x.userId===uid});if(c){c.lastMessage=text;c.time=tm}else{D.conversations.unshift({id:Date.now(),userId:uid,lastMessage:text,time:tm,unread:0})}save();openChat(uid)}
 let CW=1;
 function resetWizard(){CW=1;showCW()}
 function showCW(){[1,2,3].forEach(function(i){document.getElementById('cw'+i).style.display=i===CW?'block':'none'});document.querySelectorAll('#cwSteps .wstep').forEach(function(w){const s=+w.getAttribute('data-s');w.classList.toggle('active',s===CW);w.classList.toggle('done',s<CW)});if(CW===2)updatePriceHint();if(CW===3)buildReview()}
-function cwNext(dir){if(dir===1){const f=document.getElementById('cFrom').value,t=document.getElementById('cTo').value;if(!f||!t){showToast('اختر المدينتين','warning');return}if(f===t){showToast('لا يمكن أن تكون الوجهة نفس الانطلاق','error');return}CW=2;showCW()}else if(dir===2){if(!document.getElementById('cDate').value){showToast('اختر التاريخ','warning');return}const p=document.getElementById('cPrice').value;if(p===''){showToast('أدخل السعر','warning');return}CW=3;showCW()}else{CW=Math.max(1,CW-1);showCW()}}
+function cwNext(dir){if(dir===1){const f=document.getElementById('cFrom').value,to=document.getElementById('cTo').value;if(!f||!to){showToast(LANG==='ar'?'اختر المدينتين':'Select cities','warning');return}if(f===to){showToast(LANG==='ar'?'❌ نفس المدينة':'❌ Same city','error');return}CW=2;showCW()}else if(dir===2){if(!document.getElementById('cDate').value){showToast(LANG==='ar'?'اختر التاريخ':'Pick date','warning');return}if(document.getElementById('cPrice').value===''){showToast(LANG==='ar'?'أدخل السعر':'Enter price','warning');return}CW=3;showCW()}else{CW=Math.max(1,CW-1);showCW()}}
 function updateTypeStyle(){const v=document.querySelector('input[name="cType"]:checked').value;document.getElementById('typeDriverLabel').classList.toggle('sel',v==='driver');document.getElementById('typePassengerLabel').classList.toggle('sel',v==='passenger')}
-function updatePriceHint(){const f=document.getElementById('cFrom').value,t=document.getElementById('cTo').value,p=+document.getElementById('cPrice').value;const el=document.getElementById('priceHint');if(!f||!t){el.innerHTML='🤖 اختر المسار لعرض السعر العادل';return}const info=fairInfo(f,t);let msg='🤖 <b>السعر العادل المقترح:</b> '+info.fair+' درهم (نطاق '+info.min+'-'+info.max+') لمسافة '+info.km+' كم';if(p)msg+=p>info.max?' · <span style="color:var(--warning)">⚠️ سعرك أعلى من العادل — قد يقل الإقبال</span>':(p<info.min?' · <span style="color:var(--accent)">💚 سعر منافس رائع!</span>':' · <span style="color:var(--accent)">✅ سعر عادل</span>');el.innerHTML=msg}
-function buildReview(){const type=document.querySelector('input[name="cType"]:checked').value;document.getElementById('cwReview').innerHTML=(type==='driver'?'🚗 سائق':'🙋 راكب')+' · '+document.getElementById('cFrom').value+' ('+(document.getElementById('cFromDetail').value||'المركز')+') ← '+document.getElementById('cTo').value+' ('+(document.getElementById('cToDetail').value||'المركز')+')<br>📅 '+formatDate(document.getElementById('cDate').value)+' ⏰ '+document.getElementById('cTime').value+' · 👥 '+document.getElementById('cSeats').value+' مقاعد · 💰 '+document.getElementById('cPrice').value+' درهم'+(document.getElementById('cFemaleOnly').checked?'<br>🎀 رحلة نساء فقط':'')+(document.getElementById('cRecurring').checked?'<br>🔄 متكرر يومياً':'')}
-function publishTrip(){if(!U()){showToast('سجّل دخولك أولاً','warning');showPage('auth');return}const seats=+document.getElementById('cSeats').value;
- D.trips.unshift({id:Date.now(),userId:U().id,type:document.querySelector('input[name="cType"]:checked').value,from:document.getElementById('cFrom').value,to:document.getElementById('cTo').value,fromDetail:document.getElementById('cFromDetail').value||document.getElementById('cFrom').value+' - المركز',toDetail:document.getElementById('cToDetail').value||document.getElementById('cTo').value+' - المركز',date:document.getElementById('cDate').value,time:document.getElementById('cTime').value,seats:seats,availableSeats:seats,price:+document.getElementById('cPrice').value,recurring:document.getElementById('cRecurring').checked,femaleOnly:document.getElementById('cFemaleOnly').checked,description:document.getElementById('cDesc').value,createdAt:Date.now()});
- save();showToast('تم نشر مشوارك! سيظهر للأعلى ثقة أولاً','success');notify('✅ مشوارك منشور الآن ويظهر في المطابقة الذكية','🚀');resetWizard();showPage('browse')}
-function openAssistant(){document.getElementById('assistantPanel').classList.add('open');document.getElementById('assistantFab').style.display='none';if(!document.getElementById('assistantMsgs').children.length)botSay('أهلاً! 🤖 أنا مساعد مشاويري الذكي. قولي مثلاً: «عايز أروح أبوظبي بكرة الصبح» وأنا ألاقي لك أفضل المشاوير أو أنشر طلبك تلقائياً.')}
+function updatePriceHint(){const f=cityNameAr(document.getElementById('cFrom').value),to=cityNameAr(document.getElementById('cTo').value),p=+document.getElementById('cPrice').value;const el=document.getElementById('priceHint');if(!f||!to){el.innerHTML='🤖 '+(LANG==='ar'?'اختر المسار لعرض السعر العادل':'Select route for fair price');return}const info=fairInfo(f,to);let msg=t('price_fair')+': <b>'+info.fair+' '+t('dirham')+'</b> ('+t('range')+' '+info.min+'-'+info.max+') '+t('for_km')+' '+info.km+' كم';if(p)msg+=p>info.max?' · ⚠️':(p<info.min?' · 💚':' · ✅');el.innerHTML=msg}
+function buildReview(){const type=document.querySelector('input[name="cType"]:checked').value;document.getElementById('cwReview').innerHTML=(type==='driver'?t('card_driver'):t('card_passenger'))+' · '+document.getElementById('cFrom').value+' ← '+document.getElementById('cTo').value+'<br>📅 '+formatDate(document.getElementById('cDate').value)+' ⏰ '+document.getElementById('cTime').value+' · 👥 '+document.getElementById('cSeats').value+' · 💰 '+document.getElementById('cPrice').value+' '+t('dirham')+(document.getElementById('cFemaleOnly').checked?'<br>🎀':'')+(document.getElementById('cRecurring').checked?'<br>🔄':'')}
+function publishTrip(){if(!U()){showToast(t('t_login_first'),'warning');showPage('auth');return}const seats=+document.getElementById('cSeats').value;const f=cityNameAr(document.getElementById('cFrom').value),to=cityNameAr(document.getElementById('cTo').value);
+ D.trips.unshift({id:Date.now(),userId:U().id,type:document.querySelector('input[name="cType"]:checked').value,from:f,to:to,fromDetail:document.getElementById('cFromDetail').value||f+' - '+(LANG==='ar'?'المركز':'Center'),toDetail:document.getElementById('cToDetail').value||to+' - '+(LANG==='ar'?'المركز':'Center'),date:document.getElementById('cDate').value,time:document.getElementById('cTime').value,seats:seats,availableSeats:seats,price:+document.getElementById('cPrice').value,recurring:document.getElementById('cRecurring').checked,femaleOnly:document.getElementById('cFemaleOnly').checked,description:document.getElementById('cDesc').value,createdAt:Date.now()});
+ save();showToast('🚀 '+(LANG==='ar'?'تم نشر مشوارك':'Trip published'),'success');resetWizard();showPage('browse')}
+function openAssistant(){document.getElementById('assistantPanel').classList.add('open');document.getElementById('assistantFab').style.display='none';if(!document.getElementById('assistantMsgs').children.length)botSay(LANG==='ar'?'أهلاً! 🤖 قولي مثلاً: «عايز أروح أبوظبي بكرة الصبح»':'Hi! 🤖 Try: "I want to go to Abu Dhabi tomorrow morning"')}
 function closeAssistant(){document.getElementById('assistantPanel').classList.remove('open');document.getElementById('assistantFab').style.display='flex'}
 function botSay(html){const m=document.getElementById('assistantMsgs');m.insertAdjacentHTML('beforeend','<div class="message received" style="max-width:92%">'+html+'</div>');m.scrollTop=m.scrollHeight}
-function assistantSend(){const i=document.getElementById('assistantInput');const q=i.value.trim();if(!q)return;i.value='';const m=document.getElementById('assistantMsgs');m.insertAdjacentHTML('beforeend','<div class="message sent" style="max-width:92%">'+q+'</div>');m.scrollTop=m.scrollHeight;setTimeout(function(){botReply(q)},500)}
-function botReply(q){const foundCities=CITIES.filter(function(c){return q.indexOf(c)>-1});const dest=foundCities[foundCities.length-1];const origin=foundCities.length>1?foundCities[0]:(D.frequentRoutes[0]?D.frequentRoutes[0].from:'');let date=null;if(q.indexOf('بكرة')>-1||q.indexOf('غد')>-1)date=dstr(1);else if(q.indexOf('النهارده')>-1||q.indexOf('اليوم')>-1)date=dstr(0);let hour=null;if(q.indexOf('الصبح')>-1)hour='morning';else if(q.indexOf('بالليل')>-1||q.indexOf('مساء')>-1)hour='evening';
- if(!dest){botSay('🤔 حدد وجهتك من فضلك (مثال: أبوظبي، دبي، العين...)');return}
- let list=D.trips.filter(function(t){return t.type==='driver'&&t.availableSeats>0&&t.to===dest&&(!origin||t.from===origin)&&(!date||t.date===date)});
- if(hour==='morning')list=list.filter(function(t){return +t.time.split(':')[0]<12});
- if(hour==='evening')list=list.filter(function(t){return +t.time.split(':')[0]>=12});
+function assistantSend(){const i=document.getElementById('assistantInput');const q=i.value.trim();if(!q)return;i.value='';document.getElementById('assistantMsgs').insertAdjacentHTML('beforeend','<div class="message sent" style="max-width:92%">'+q+'</div>');setTimeout(function(){botReply(q)},400)}
+function botReply(q){const all=CITIES.concat(CITIES_EN);const found=all.filter(function(c){return q.indexOf(c)>-1}).map(function(c){return cityNameAr(c)});const dest=found[found.length-1];const origin=found.length>1?found[0]:(D.frequentRoutes[0]?D.frequentRoutes[0].from:'');let date=null;if(q.indexOf('بكرة')>-1||q.indexOf('tomorrow')>-1||q.indexOf('غد')>-1)date=dstr(1);else if(q.indexOf('اليوم')>-1||q.indexOf('today')>-1)date=dstr(0);let hour=null;if(q.indexOf('الصبح')>-1||q.indexOf('morning')>-1)hour='am';else if(q.indexOf('بالليل')>-1||q.indexOf('مساء')>-1||q.indexOf('evening')>-1)hour='pm';
+ if(!dest){botSay(LANG==='ar'?'🤔 حدد وجهتك (دبي، أبوظبي، العين...)':'🤔 Specify destination (Dubai, Abu Dhabi...)');return}
+ let list=D.trips.filter(function(tr){return tr.type==='driver'&&tr.availableSeats>0&&tr.to===dest&&(!origin||tr.from===origin)&&(!date||tr.date===date)});
+ if(hour==='am')list=list.filter(function(tr){return +tr.time.split(':')[0]<12});
+ if(hour==='pm')list=list.filter(function(tr){return +tr.time.split(':')[0]>=12});
  list.sort(function(a,b){return trustOf(b.userId)-trustOf(a.userId)});const top=list.slice(0,3);
- if(top.length){botSay('🎯 لقيت لك <b>'+top.length+'</b> مشوار مناسب إلى '+dest+'، مرتبة حسب درجة الثقة:');top.forEach(function(t){const u=D.users.find(function(x){return x.id===t.userId});document.getElementById('assistantMsgs').insertAdjacentHTML('beforeend','<div class="bot-card" onclick="closeAssistant();showTripDetail('+t.id+')"><b>'+t.fromDetail+' ← '+t.toDetail+'</b>📅 '+formatDate(t.date)+' ⏰ '+t.time+' · 💰 '+t.price+' درهم · 🛡 '+u.name+' ('+trustScore(u)+'%)<div style="color:var(--primary);font-weight:800;margin-top:4px">اضغط للحجز ←</div></div>')})}
- else{botSay('😕 لا يوجد مشوار مطابق حالياً. أنشر طلبك كراكب دلوقتي ويوصلك إشعار أول ما ينزل مشوار على خطك؟');document.getElementById('assistantMsgs').insertAdjacentHTML('beforeend','<div class="bot-card" onclick="autoPublish(\''+(origin||'دبي')+'\',\''+dest+'\',\''+(date||dstr(1))+'\')"><b>📢 نشر طلب تلقائي</b>'+(origin||'دبي')+' ← '+dest+' · '+formatDate(date||dstr(1))+'<div style="color:var(--accent);font-weight:800;margin-top:4px">اضغط للنشر الفوري</div></div>')}
+ if(top.length){botSay((LANG==='ar'?'🎯 لقيت لك ':'🎯 Found ')+top.length+(LANG==='ar'?' مشوار مناسب:':' matching trips:'));top.forEach(function(tr){const u=D.users.find(function(x){return x.id===tr.userId});document.getElementById('assistantMsgs').insertAdjacentHTML('beforeend','<div class="bot-card" onclick="closeAssistant();showTripDetail('+tr.id+')"><b>'+tr.fromDetail+' ← '+tr.toDetail+'</b>📅 '+formatDate(tr.date)+' ⏰ '+tr.time+' · 💰 '+tr.price+' · 🛡 '+uName(u)+' ('+trustScore(u)+'%)</div>')})}
+ else{botSay(LANG==='ar'?'😕 لا يوجد مطابق. أنشر طلبك تلقائياً؟':'😕 No match. Auto-publish your request?');document.getElementById('assistantMsgs').insertAdjacentHTML('beforeend','<div class="bot-card" onclick="autoPublish(\''+(origin||'دبي')+'\',\''+dest+'\',\''+(date||dstr(1))+'\')"><b>📢 '+(LANG==='ar'?'نشر طلب تلقائي':'Auto-publish request')+'</b>'+(origin||'دبي')+' ← '+dest+'</div>')}
  document.getElementById('assistantMsgs').scrollTop=document.getElementById('assistantMsgs').scrollHeight}
-function autoPublish(f,t,date){if(!U()){showToast('سجّل دخولك','warning');closeAssistant();showPage('auth');return}D.trips.unshift({id:Date.now(),userId:U().id,type:'passenger',from:f,to:t,fromDetail:f+' - المركز',toDetail:t+' - المركز',date:date,time:'08:00',seats:1,availableSeats:1,price:fairInfo(f,t).fair,recurring:false,femaleOnly:false,description:'طلب منشور تلقائياً عبر المساعد الذكي 🤖',createdAt:Date.now()});save();closeAssistant();notify('📢 طلبك منشور! سنخطرك أول مطابقة ذكية','🤖');showToast('تم نشر طلبك تلقائياً','success');showPage('browse')}
-function switchAuthTab(t,b){document.querySelectorAll('.auth-tab').forEach(function(x){x.classList.remove('active')});b.classList.add('active');document.getElementById('loginForm').style.display=t==='login'?'block':'none';document.getElementById('registerForm').style.display=t==='register'?'block':'none'}
-function login(){const em=document.getElementById('loginEmail').value.trim();if(!em){showToast('أدخل البريد','warning');return}let u=D.users.find(function(x){return x.email===em});if(!u){u={id:Date.now(),name:em.split('@')[0],email:em,phone:'+971 50 000 0000',avatar:em[0].toUpperCase(),trips:0,rating:5,verified:false,female:false,points:0,premiumUntil:0,adFreeUntil:0};D.users.push(u)}D.currentUser=u;save();updateAuthUI();showToast('أهلاً '+u.name+'!','success');showPage('home')}
+function autoPublish(f,to,date){if(!U()){showToast(t('t_login_first'),'warning');closeAssistant();showPage('auth');return}D.trips.unshift({id:Date.now(),userId:U().id,type:'passenger',from:f,to:to,fromDetail:f+' - المركز',toDetail:to+' - المركز',date:date,time:'08:00',seats:1,availableSeats:1,price:fairInfo(f,to).fair,recurring:false,femaleOnly:false,description:'🤖',createdAt:Date.now()});save();closeAssistant();showToast('🤖 '+(LANG==='ar'?'تم نشر طلبك':'Request published'),'success');showPage('browse')}
+function switchAuthTab(tb,b){document.querySelectorAll('.auth-tab').forEach(function(x){x.classList.remove('active')});b.classList.add('active');document.getElementById('loginForm').style.display=tb==='login'?'block':'none';document.getElementById('registerForm').style.display=tb==='register'?'block':'none'}
+function login(){const em=document.getElementById('loginEmail').value.trim();const pw=document.getElementById('loginPassword').value;if(!em){showToast(t('email'),'warning');return}
+ if(em==='admin@mashawiri.ae'){if(pw!=='admin123'){showToast(t('wrong_pass'),'error');return}D.currentUser=D.users.find(function(u){return u.role==='admin'});save();updateAuthUI();showToast('🛡 '+(LANG==='ar'?'مرحباً بالإدارة':'Welcome Admin'),'success');showPage('admin');return}
+ let u=D.users.find(function(x){return x.email===em});if(u&&u.blocked){showToast(t('blocked_user'),'error');return}
+ if(!u){u={id:Date.now(),name:em.split('@')[0],nameEn:em.split('@')[0],email:em,phone:'+971 50 000 0000',avatar:em[0].toUpperCase(),trips:0,rating:5,verified:false,female:false,points:0,premiumUntil:0,adFreeUntil:0};D.users.push(u)}
+ D.currentUser=u;save();updateAuthUI();showToast('✅ '+(LANG==='ar'?'أهلاً ':'Welcome ')+uName(u),'success');showPage('home')}
 function register(){const fn=document.getElementById('regFirstName').value.trim(),ln=document.getElementById('regLastName').value.trim(),em=document.getElementById('regEmail').value.trim(),ph=document.getElementById('regPhone').value.trim(),pw=document.getElementById('regPassword').value,emid=document.getElementById('regEmirates').value.trim(),g=document.getElementById('regGender').value;
- if(!fn||!ln||!em||!ph||!pw){showToast('اكمل كل الحقول','warning');return}if(pw.length<8){showToast('كلمة المرور 8 أحرف+','warning');return}if(!document.getElementById('regTerms').checked){showToast('وافق على الشروط','warning');return}
- let verified=false;if(emid){if(/^784-?\d{4}-?\d{7}-?\d$/.test(emid.replace(/\s/g,''))||/^\d{15}$/.test(emid.replace(/\s/g,'')))verified=true;else{showToast('صيغة الهوية غير صحيحة','error');return}}
- const u={id:Date.now(),name:fn+' '+ln,email:em,phone:ph,avatar:fn[0],trips:0,rating:5,verified:verified,female:g==='female',points:100,premiumUntil:0,adFreeUntil:0};D.users.push(u);D.currentUser=u;save();updateAuthUI();notify('🎁 100 نقطة ترحيبية لحسابك الجديد!','🎁');showToast('مرحباً بك! حصلت على 100 نقطة ترحيبية','success');showPage('home')}
-function socialLogin(p){const u={id:Date.now(),name:'مستخدم '+p,email:'u@'+p.replace(/\W/g,'')+'.com',phone:'+971 50 000 0000',avatar:'م',trips:0,rating:5,verified:p==='UAE Pass',female:false,points:100,premiumUntil:0,adFreeUntil:0};D.users.push(u);D.currentUser=u;save();updateAuthUI();showToast('دخول عبر '+p,'success');showPage('home')}
-function logout(){D.currentUser=null;save();updateAuthUI();showToast('تم الخروج','success');showPage('home')}
-function updateAuthUI(){const u=U();document.getElementById('authBtn').style.display=u?'none':'block';const av=document.getElementById('userAvatarNav');av.style.display=u?'flex':'none';if(u)av.textContent=u.avatar}
+ if(!fn||!ln||!em||!ph||!pw){showToast(LANG==='ar'?'اكمل كل الحقول':'Fill all fields','warning');return}if(pw.length<8){showToast('8+','warning');return}if(!document.getElementById('regTerms').checked){showToast(LANG==='ar'?'وافق على الشروط':'Accept terms','warning');return}
+ let verified=false;if(emid){if(/^784-?\d{4}-?\d{7}-?\d$/.test(emid.replace(/\s/g,''))||/^\d{15}$/.test(emid.replace(/\s/g,'')))verified=true;else{showToast(LANG==='ar'?'❌ صيغة الهوية':'❌ ID format','error');return}}
+ const u={id:Date.now(),name:fn+' '+ln,nameEn:fn+' '+ln,email:em,phone:ph,avatar:fn[0],trips:0,rating:5,verified:verified,female:g==='female',points:100,premiumUntil:0,adFreeUntil:0};D.users.push(u);D.currentUser=u;save();updateAuthUI();showToast('🎁 +100 '+(LANG==='ar'?'نقطة ترحيبية':'welcome points'),'success');showPage('home')}
+function socialLogin(p){const u={id:Date.now(),name:(LANG==='ar'?'مستخدم ':'User of ')+p,nameEn:p+' User',email:'u@'+p.replace(/\W/g,'')+'.com',phone:'+971 50 000 0000',avatar:'م',trips:0,rating:5,verified:p==='UAE Pass',female:false,points:100,premiumUntil:0,adFreeUntil:0};D.users.push(u);D.currentUser=u;save();updateAuthUI();showToast('✅ '+p,'success');showPage('home')}
+function logout(){D.currentUser=null;save();updateAuthUI();showToast('👋','success');showPage('home')}
+function updateAuthUI(){const u=U();document.getElementById('authBtn').style.display=u?'none':'block';const av=document.getElementById('userAvatarNav');av.style.display=u?'flex':'none';if(u)av.textContent=u.avatar;document.querySelectorAll('.admin-only').forEach(function(el){el.style.display=isAdmin()?'':'none'})}
 let deferredPrompt=null;
 window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();deferredPrompt=e});
-function installApp(){if(deferredPrompt){deferredPrompt.prompt();deferredPrompt.userChoice.then(function(){deferredPrompt=null})}else{showToast('من قائمة المتصفح اختر إضافة إلى الشاشة الرئيسية','success')}}
-(function(){try{const manifest={name:'مشاويري - مشاوير مشتركة الإمارات',short_name:'مشاويري',start_url:'.',display:'standalone',background_color:'#0052a5',theme_color:'#0052a5',icons:[{src:'data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="#0052a5"/><text x="50" y="68" font-size="52" text-anchor="middle">🚗</text></svg>'),sizes:'any',type:'image/svg+xml'}]};const l=document.createElement('link');l.rel='manifest';l.href='data:application/manifest+json,'+encodeURIComponent(JSON.stringify(manifest));document.head.appendChild(l)}catch(e){}})();
-document.addEventListener('DOMContentLoaded',function(){applyTheme();updateAuthUI();fillCitySelects();renderHome();renderNotifDot();
- const di=document.getElementById('cDate');if(di){di.min=dstr(0);di.value=dstr(1)}
- setTimeout(function(){D.bookings.forEach(function(b){if(b.status==='accepted'&&U()&&b.userId===U().id&&D.reminded.indexOf(b.id)<0){const t=D.trips.find(function(x){return x.id===b.tripId});if(t){const hrs=(new Date(t.date+'T'+t.time)-new Date())/3600000;if(hrs>0&&hrs<=24){D.reminded.push(b.id);notify('⏰ تذكير: رحلتك '+t.fromDetail+' ← '+t.toDetail+' بعد '+Math.round(hrs)+' ساعات — نقطة الالتقاء: '+b.pickup,'⏰');save();renderNotifDot()}}}});
- if(U()&&D.frequentRoutes.length){const r=D.frequentRoutes[0];const nt=D.trips.find(function(t){return t.from===r.from&&t.to===r.to&&t.availableSeats>0&&t.createdAt>Date.now()-604800000});if(nt)notify('🆕 مشوار جديد على خطك المعتاد '+r.from+' ← '+r.to+' بسعر '+nt.price+' درهم!','⚡')}
- renderNotifDot()},1500)});
+document.addEventListener('DOMContentLoaded',function(){LANG=D.lang||'ar';applyTheme();applyLang();updateAuthUI();fillCitySelects();renderHome();renderNotifDot();
+ const di=document.getElementById('cDate');if(di){di.min=dstr(0);di.value=dstr(1)}});
 </script>
 </body>
 </html>
