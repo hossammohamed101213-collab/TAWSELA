@@ -1,0 +1,31 @@
+{
+  "id": "./",
+  "name": "توصيلة | Tawsela - مشاوير الإمارات",
+  "short_name": "توصيلة",
+  "description": "منصة مشاركة المشاوير في الإمارات",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
+  "background_color": "#f4f7fb",
+  "theme_color": "#0758a5",
+  "icons": [
+    {
+      "src": "tawsela-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "tawsela-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
