@@ -966,7 +966,7 @@ function socialLogin(p){const u={id:Date.now(),name:'مستخدم '+p,email:'u@'
 function logout(){D.currentUser=null;save();updateAuthUI();showToast('تم الخروج','success');showPage('home')}
 function updateAuthUI(){const u=U();document.getElementById('authBtn').style.display=u?'none':'block';const av=document.getElementById('userAvatarNav');av.style.display=u?'flex':'none';if(u)av.textContent=u.avatar}
 let deferredPrompt=null;
-const twInstallKey='tawsela-install-dismissed-until';
+const twInstallKey='tawsela-install-dismissed-until-v2';
 function twIsInstalled(){return window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true}
 function twInstallText(){const en=(localStorage.getItem('mashawiri-preview-language')||'ar')==='en';const title=document.getElementById('twInstallTitle'),hint=document.getElementById('twInstallHint'),button=document.getElementById('twInstallAction');if(title)title.textContent=en?'Tawsela on your device':'توصيلة على جهازك';if(hint)hint.textContent=en?'Install the site as a quick app — no app store needed.':'ثبّت الموقع وافتحه كتطبيق سريع من غير متجر.';if(button)button.textContent=en?'Install':'تثبيت';const modalTitle=document.getElementById('twInstallDialogTitle');if(modalTitle)modalTitle.textContent=en?'Install Tawsela on your device':'ثبّت توصيلة على جهازك'}
 function twShowInstallInvite(){const box=document.getElementById('twInstallBanner');if(!box||twIsInstalled())return;let until=0;try{until=Number(localStorage.getItem(twInstallKey)||0)}catch{}if(Date.now()<until)return;twInstallText();box.hidden=false;requestAnimationFrame(()=>box.classList.add('visible'))}
