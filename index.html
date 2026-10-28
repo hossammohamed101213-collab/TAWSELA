@@ -434,11 +434,11 @@ html[data-theme="dark"] .tw-home-scene{background:linear-gradient(110deg,#111a28
     <button class="icon-btn" type="button" onclick="wsToggleSidebar(true)" aria-label="القائمة الجانبية" title="القائمة">☰</button><button class="ws-back" type="button" onclick="wsGoBack()" aria-label="رجوع للخلف" data-ws-arialabel-ar="رجوع للخلف" data-ws-arialabel-en="Go back">←</button>
     <div class="logo" onclick="showPage('home')"><div class="logo-icon">🚗</div><span>توصيلة</span></div>
     <div class="nav-links">
-      <button class="nav-link" data-nav="home" onclick="showPage('home')">🏠 الرئيسية</button>
+      <button class="nav-link active" data-nav="home" onclick="showPage('home')">🏠 الرئيسية</button>
       <button class="nav-link" data-nav="browse" onclick="showPage('browse')">🔍 المشاوير</button>
       <button class="nav-link" data-nav="create" onclick="showPage('create')">➕ إنشاء مشوار</button>
       <button class="nav-link" data-nav="messages" onclick="showPage('messages')">💬 الرسائل</button>
-      <button class="nav-link active" data-nav="store" onclick="showPage('store')">👑 المتجر</button>
+      <button class="nav-link" data-nav="store" onclick="showPage('store')">👑 المتجر</button>
       <button class="nav-link" data-nav="admin" onclick="showPage('admin')" aria-label="لوحة التحكم" data-ws-arialabel-ar="لوحة التحكم" data-ws-arialabel-en="Admin dashboard"><span data-ws-ar="🛡️ لوحة التحكم" data-ws-en="🛡️ Admin Dashboard">🛡️ لوحة التحكم</span></button>
     </div>
     <div class="nav-user">
@@ -454,7 +454,7 @@ html[data-theme="dark"] .tw-home-scene{background:linear-gradient(110deg,#111a28
   </div>
 </nav>
 
-<div class="page" id="page-home">
+<div class="page active" id="page-home">
   <section class="hero">
     <div class="hero-content">
       <div class="tw-welcome" aria-live="polite"><div class="tw-welcome-mark">✦</div><div><strong data-ws-ar="أهلاً بيك في توصيله" data-ws-en="Welcome to Tawsela">أهلاً بيك في توصيله</strong><span id="twHint" data-ws-ar="اختار دورك وانشر مشوارك في خطوات بسيطة" data-ws-en="Choose your role and post a ride in a few simple steps" style="opacity: 1;">اختار دورك وانشر مشوارك في خطوات بسيطة</span></div><div class="tw-hint-dots" aria-hidden="true"><i class="active"></i><i class=""></i><i class=""></i></div></div>
@@ -695,7 +695,7 @@ html[data-theme="dark"] .tw-home-scene{background:linear-gradient(110deg,#111a28
   </div>
 </div>
 
-<div class="page active" id="page-store">
+<div class="page" id="page-store">
   <div class="container" style="padding-top:26px;padding-bottom:46px">
     <div class="section-header"><div>
       <h2 class="section-title">👑 المتجر <span>والنقاط</span></h2>
@@ -773,11 +773,11 @@ html[data-theme="dark"] .tw-home-scene{background:linear-gradient(110deg,#111a28
 </div>
 
 <div class="mobile-nav">
-  <button data-nav="home" class="" onclick="showPage('home')"><span class="ic">🏠</span>الرئيسية</button>
+  <button data-nav="home" class="active" onclick="showPage('home')"><span class="ic">🏠</span>الرئيسية</button>
   <button data-nav="browse" onclick="showPage('browse')"><span class="ic">🔍</span>تصفح</button>
   <button data-nav="create" onclick="showPage('create')"><span class="ic">➕</span>إنشاء</button>
   <button data-nav="messages" onclick="showPage('messages')"><span class="ic">💬</span>رسائل</button>
-  <button data-nav="store" onclick="showPage('store')" class="active"><span class="ic">👑</span>متجر</button>
+  <button data-nav="store" onclick="showPage('store')"><span class="ic">👑</span>متجر</button>
   <button data-nav="profile" onclick="showPage('profile')"><span class="ic">👤</span>حسابي</button>
 </div>
 
